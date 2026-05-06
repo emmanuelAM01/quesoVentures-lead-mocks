@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snowflake Donuts – Humble, TX</title>
+  <meta name="description" content="Snowflake Donuts in Humble, TX. Freshly made donuts, catering, and more. Visit us at 10711 N Sam Houston Pkwy E Suite 104, Humble, TX 77396." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --red:        #C8300A;
+      --red-dark:   #8B1E00;
+      --red-light:  #F5D5CC;
+      --red-pale:   #FFF3F0;
+      --brown:      #2C1A0E;
+      --brown-mid:  #6B3E1E;
+      --gold:       #C87800;
+      --gold-light: #FFF0D0;
+      --cream:      #FFF8ED;
+      --white:      #FFFFFF;
+      --text:       #2C1A0E;
+      --text-muted: #6B3E1E;
+      --border:     #E8D5C0;
+      --radius:     4px;
+      --shadow:     0 2px 12px rgba(44,26,14,.10);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 3px solid var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6vw;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(44,26,14,.08);
+    }
+    .nav-logo {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      color: var(--brown);
+      font-size: 1.25rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--brown-mid);
+      font-weight: 700;
+      font-size: .82rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--red); }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--cream);
+      color: var(--text);
+      padding: 80px 6vw 72px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-location {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: .78rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: clamp(3rem, 9vw, 6rem);
+      line-height: 1;
+      letter-spacing: 2px;
+      color: var(--brown);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--red);
+    }
+    .hero p {
+      font-size: clamp(.95rem, 2.2vw, 1.15rem);
+      color: var(--text-muted);
+      max-width: 460px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: .95rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .18s, color .18s, border-color .18s;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      border-color: var(--red);
+    }
+    .btn-primary:hover {
+      background: var(--red-dark);
+      border-color: var(--red-dark);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--brown);
+      border-color: var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--brown-mid);
+      color: var(--brown);
+    }
+
+    /* Hero donut — static */
+    .hero-donut {
+      margin: 52px auto 0;
+      width: clamp(120px, 26vw, 190px);
+      filter: drop-shadow(0 6px 16px rgba(44,26,14,.18));
+    }
+
+    /* ── Section base ── */
+    section { padding: 64px 6vw; }
+
+    .section-label {
+      display: block;
+      color: var(--red);
+      font-weight: 700;
+      font-size: .72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+    .rule {
+      width: 44px;
+      height: 3px;
+      background: var(--red);
+      margin: 18px 0;
+    }
+
+    /* ── About ── */
+    .about {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .about-text p {
+      color: var(--text-muted);
+      margin-top: 14px;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .about-facts { display: flex; flex-direction: column; }
+    .fact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .fact-row:first-child { border-top: 1px solid var(--border); }
+    .fact-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .fact-icon svg { width: 22px; height: 22px; stroke: var(--red); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .fact-text strong {
+      display: block;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--brown);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 3px;
+    }
+    .fact-text span {
+      font-size: .87rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Highlights ── */
+    .highlights {
+      background: var(--red-pale);
+      text-align: center;
+      border-top: 1px solid var(--red-light);
+      border-bottom: 1px solid var(--red-light);
+    }
+    .highlights-header { margin-bottom: 40px; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 30px 20px;
+    }
+    .card-icon {
+      margin: 0 auto 14px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-icon svg { width: 28px; height: 28px; stroke: var(--red); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--brown);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 8px;
+    }
+    .card p { font-size: .87rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── Catering ── */
+    .catering {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .catering .section-title { color: var(--brown); }
+    .catering-list {
+      list-style: none;
+      margin: 22px 0 32px;
+    }
+    .catering-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .97rem;
+      color: var(--text);
+    }
+    .catering-list li:last-child { border-bottom: none; }
+    .check {
+      width: 7px;
+      height: 7px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .catering-aside {
+      background: var(--gold-light);
+      border: 1px solid #E8C878;
+      padding: 44px 20px;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .catering-aside .aside-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--brown);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .catering-aside p {
+      color: var(--brown-mid);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 14px;
+      max-width: 280px;
+    }
+    .catering-aside p:last-child { margin-bottom: 0; }
+
+    /* ── Contact / Find Us ── */
+    .contact {
+      background: var(--white);
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    .contact .section-label,
+    .contact .section-title { display: block; margin-left: auto; margin-right: auto; }
+    .contact .section-sub { margin: 12px auto 44px; display: block; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      max-width: 800px;
+      margin: 0 auto 44px;
+      border: 1px solid var(--border);
+    }
+    .contact-card {
+      padding: 28px 24px;
+      border-right: 1px solid var(--border);
+      text-align: left;
+    }
+    .contact-card:last-child { border-right: none; }
+    .contact-card h4 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+    .contact-card p,
+    .contact-card a {
+      color: var(--text-muted);
+      font-size: .93rem;
+      line-height: 1.7;
+    }
+    .contact-card a:hover { color: var(--red); }
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 18px;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: .84rem;
+      letter-spacing: .5px;
+      transition: opacity .15s;
+    }
+    .social-btn:hover { opacity: .85; }
+    .social-btn.facebook { background: #1877F2; color: #fff; }
+    .social-btn.yelp     { background: #D32323; color: #fff; }
+
+    .map-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+    }
+    .map-wrap iframe { width: 100%; height: 320px; border: none; display: block; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--cream);
+      border-top: 3px solid var(--red);
+      color: var(--text-muted);
+      text-align: center;
+      padding: 24px 6vw;
+      font-size: .85rem;
+    }
+    footer strong { color: var(--brown); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .cards { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 700px) {
+      section { padding: 48px 5vw; }
+
+      /* Nav */
+      nav { padding: 0 5vw; }
+      .nav-links { gap: 18px; }
+      .nav-links a { font-size: .8rem; letter-spacing: .8px; }
+
+      /* Hero */
+      .hero { padding: 56px 5vw 52px; }
+      .hero h1 { font-size: clamp(2.6rem, 14vw, 4rem); }
+      .hero p { font-size: .95rem; max-width: 100%; }
+      .hero-donut { width: clamp(100px, 40vw, 150px); margin-top: 36px; }
+
+      /* About */
+      .about { grid-template-columns: 1fr; gap: 32px; }
+      .fact-row:first-child { border-top: 1px solid var(--border); }
+
+      /* Highlights */
+      .highlights { padding: 48px 5vw; }
+      .cards { gap: 12px; }
+
+      /* Catering */
+      .catering { grid-template-columns: 1fr; gap: 0; }
+      .catering-text { padding-bottom: 0; }
+      .catering-aside { margin-top: 0; align-self: auto; }
+
+      /* Contact */
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .contact-card:last-child { border-bottom: none; }
+      .map-wrap iframe { height: 260px; }
+    }
+
+    @media (max-width: 480px) {
+      /* Nav — stack logo + links if needed */
+      .nav-logo { font-size: 1.05rem; }
+      .nav-links a { font-size: .74rem; letter-spacing: .5px; }
+      .nav-links { gap: 12px; }
+
+      /* Hero */
+      .hero h1 { letter-spacing: 1px; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .hero-buttons .btn { width: 100%; max-width: 260px; justify-content: center; }
+
+      /* Cards */
+      .cards { grid-template-columns: 1fr; }
+
+      /* Sections */
+      section { padding: 40px 5vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Snowflake <span>Donuts</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#catering">Catering</a></li>
+      <li><a href="#contact">Find Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-location">Humble, Texas &bull; Made Fresh Daily</span>
+    <h1>Snowflake<br><em>Donuts</em></h1>
+    <p>Your morning just got a whole lot sweeter.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-primary">Find Us</a>
+      <a href="#catering" class="btn btn-outline">Catering</a>
+    </div>
+
+    <!-- Static donut illustration -->
+    <svg class="hero-donut" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="100" cy="100" r="85" fill="#C8640A"/>
+      <path d="M 100 20 C 145 20 175 55 178 90 C 178 95 172 100 165 98 C 155 96 148 88 138 85 C 126 82 115 88 105 90 C 92 93 80 88 70 88 C 58 88 50 96 38 96 C 28 96 22 88 22 80 C 22 45 57 20 100 20 Z" fill="#C8300A"/>
+      <path d="M 60 30 C 58 40 62 46 58 54 C 56 58 52 60 54 66" stroke="rgba(255,255,255,.35)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M 130 22 C 134 32 132 40 136 48 C 138 54 144 56 142 64" stroke="rgba(255,255,255,.35)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <rect x="75"  y="32" width="5" height="13" rx="2" fill="#F5A623" transform="rotate(25 77 38)"/>
+      <rect x="105" y="28" width="5" height="13" rx="2" fill="#fff"    transform="rotate(-15 107 34)"/>
+      <rect x="125" y="40" width="5" height="13" rx="2" fill="#F5A623" transform="rotate(40 127 46)"/>
+      <rect x="58"  y="52" width="5" height="13" rx="2" fill="#fff"    transform="rotate(-30 60 58)"/>
+      <rect x="88"  y="56" width="5" height="12" rx="2" fill="#F5A623" transform="rotate(10 90 62)"/>
+      <rect x="145" y="55" width="5" height="12" rx="2" fill="#fff"    transform="rotate(-50 147 61)"/>
+      <circle cx="100" cy="100" r="32" fill="#FFF8ED"/>
+    </svg>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-text">
+      <span class="section-label">About Us</span>
+      <h2 class="section-title">Humble's Local<br>Donut Shop</h2>
+      <div class="rule"></div>
+      <p>Snowflake Donuts is located at 10711 N Sam Houston Pkwy E, Suite 104 in Humble, TX 77396 — serving the Humble, Atascocita, and Kingwood communities with fresh donuts made every morning.</p>
+      <p>Quality donuts baked fresh every morning and ready for you, your family, or your next event.</p>
+    </div>
+    <div class="about-facts">
+
+      <div class="fact-row">
+        <div class="fact-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="12" y1="2"  x2="12" y2="5"/>
+            <line x1="12" y1="19" x2="12" y2="22"/>
+            <line x1="2"  y1="12" x2="5"  y2="12"/>
+            <line x1="19" y1="12" x2="22" y2="12"/>
+            <line x1="4.22"  y1="4.22"  x2="6.34"  y2="6.34"/>
+            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+            <line x1="4.22"  y1="19.78" x2="6.34"  y2="17.66"/>
+            <line x1="17.66" y1="6.34"  x2="19.78" y2="4.22"/>
+          </svg>
+        </div>
+        <div class="fact-text">
+          <strong>Made Fresh Every Morning</strong>
+          <span>Baked daily — never day-old, never frozen</span>
+        </div>
+      </div>
+
+      <div class="fact-row">
+        <div class="fact-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="fact-text">
+          <strong>Humble, TX 77396</strong>
+          <span>Serving Humble, Atascocita &amp; Kingwood</span>
+        </div>
+      </div>
+
+      <div class="fact-row">
+        <div class="fact-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="1" x2="16" y2="5"/>
+            <line x1="8"  y1="1" x2="8"  y2="5"/>
+            <line x1="3"  y1="10" x2="21" y2="10"/>
+          </svg>
+        </div>
+        <div class="fact-text">
+          <strong>Custom Orders &amp; Catering</strong>
+          <span>Office events, parties, weddings — any size</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="highlights" id="menu">
+    <div class="highlights-header">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">Something Sweet for Everyone</h2>
+    </div>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="12" y1="2"  x2="12" y2="5"/>
+            <line x1="12" y1="19" x2="12" y2="22"/>
+            <line x1="2"  y1="12" x2="5"  y2="12"/>
+            <line x1="19" y1="12" x2="22" y2="12"/>
+            <line x1="4.22"  y1="4.22"  x2="6.34"  y2="6.34"/>
+            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+            <line x1="4.22"  y1="19.78" x2="6.34"  y2="17.66"/>
+            <line x1="17.66" y1="6.34"  x2="19.78" y2="4.22"/>
+          </svg>
+        </div>
+        <h3>Fresh Daily</h3>
+        <p>Made every morning so you always get that just-baked taste.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <h3>Special Orders</h3>
+        <p>Birthdays, holidays, celebrations — we'll make something special.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="21 8 21 21 3 21 3 8"/>
+            <rect x="1" y="3" width="22" height="5"/>
+            <line x1="10" y1="12" x2="14" y2="12"/>
+          </svg>
+        </div>
+        <h3>Boxes &amp; Dozens</h3>
+        <p>Grab a box for the office, the family, or just yourself.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h3>Local &amp; Proud</h3>
+        <p>Right here in Humble, TX — a neighborhood shop that gives back.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CATERING -->
+  <section class="catering" id="catering">
+    <div class="catering-text">
+      <span class="section-label">Catering</span>
+      <h2 class="section-title">Feed Your Crew</h2>
+      <div class="rule"></div>
+      <p class="section-sub">Planning an event? We make catering easy. From office meetings to weddings, we bring the donuts so you can enjoy the moment.</p>
+      <ul class="catering-list">
+        <li><span class="check"></span> Corporate office breakfasts &amp; meetings</li>
+        <li><span class="check"></span> Birthday parties &amp; celebrations</li>
+        <li><span class="check"></span> Weddings &amp; bridal showers</li>
+        <li><span class="check"></span> School &amp; community events</li>
+        <li><span class="check"></span> Holiday &amp; seasonal orders</li>
+      </ul>
+      <a href="#contact" class="btn btn-primary">Reach Out to Book</a>
+    </div>
+    <div class="catering-aside">
+      <div class="aside-title">Large Orders Welcome</div>
+      <p>We handle orders of any size — whether you need two dozen for the office or a hundred for a wedding reception.</p>
+      <p>Just reach out early and we'll make sure everything is ready when you need it.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT / FIND US -->
+  <section class="contact" id="contact">
+    <span class="section-label">Find Us</span>
+    <h2 class="section-title">Come Say Hello</h2>
+    <p class="section-sub">Located in Humble, TX. Come by or connect with us online — we'd love to see you.</p>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <h4>Location</h4>
+        <p>10711 N Sam Houston Pkwy E<br>Suite 104<br>Humble, TX 77396</p>
+      </div>
+
+      <div class="contact-card">
+        <h4>Find Us Online</h4>
+        <div class="social-links">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener" class="social-btn facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.994 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.yelp.com" target="_blank" rel="noopener" class="social-btn yelp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M20.16 12.596l-4.32 1.43c-.562.187-.967-.4-.636-.87l2.55-3.573c.328-.463.957-.27 1.012.29l.37 3.75c.018.185-.073.362-.233.438l-.743-.465zm-6.18-6.477l.618 4.523c.08.574-.572.9-.967.488L10.63 7.558c-.395-.413-.135-1.02.43-.982l3.12.195c.5.03.8.555.742.874-.01.05-.01.096-.01.144L14.9 6.12zm-3.437 10.99l-3.803-2.47c-.497-.322-.374-1.02.21-1.176l4.41-1.233c.576-.16 1.008.453.676.935l-.617.857c-.33.462-.97.52-1.376.17l-.5-.583zm5.18 2.474l-4.3-.938c-.562-.124-.65-.8-.138-1.063l3.985-2.03c.51-.26 1.038.15.97.718l-.33 3.07c-.05.462-.53.745-.987.587l-.2-.344zm2.986-4.12l-3.91-2.078c-.51-.27-.437-.973.11-1.132l4.41-1.24c.548-.154.994.41.748.92l-1.36 3.185c-.19.44-.73.59-1.13.336l.132.009z"/></svg>
+            Yelp
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h4>Hours</h4>
+        <p>Check our Facebook page for the latest hours and daily specials.</p>
+      </div>
+
+    </div>
+
+    <div class="map-wrap">
+      <iframe
+        src="https://maps.google.com/maps?q=10711+N+Sam+Houston+Pkwy+E+Suite+104,+Humble,+TX+77396&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Snowflake Donuts Location">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 <strong>Snowflake Donuts</strong> &mdash; 10711 N Sam Houston Pkwy E Suite 104, Humble, TX 77396</p>
+  </footer>
+
+</body>
+</html>

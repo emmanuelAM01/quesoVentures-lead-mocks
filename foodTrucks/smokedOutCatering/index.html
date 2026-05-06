@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO / AEO / GEO -->
+  <title>Smoked Out Catering | BBQ &amp; Cajun Food Truck | Catering Available</title>
+  <meta name="description" content="Smoked Out Catering serves slow-smoked BBQ and bold Cajun food Thursday through Sunday. Chopped steak sandwiches, gumbo, boudin — and full catering for your next event." />
+  <meta name="keywords" content="Smoked Out Catering, BBQ food truck, Cajun food truck, catering, chopped steak sandwich, gumbo, boudin, food truck catering" />
+  <meta property="og:title" content="Smoked Out Catering — BBQ &amp; Cajun Food Truck" />
+  <meta property="og:description" content="Real smoke. Real Cajun. Open Thursday through Sunday. Book us for your next event." />
+  <meta property="og:type" content="restaurant" />
+  <link rel="canonical" href="https://smokedoutcatering.com/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "Smoked Out Catering",
+    "description": "BBQ and Cajun food truck serving chopped steak sandwiches, gumbo, and boudin. Available for catering and private events.",
+    "servesCuisine": ["BBQ", "Cajun", "Southern"],
+    "openingHours": ["Th-Su"],
+    "telephone": "000-000-0000",
+    "url": "https://smokedoutcatering.com",
+    "sameAs": ["https://www.instagram.com/placeholder"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700&family=Barlow:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:      #BF2518;
+      --red-dark: #9e1e12;
+      --cream:    #F8F3EB;
+      --paper:    #EFE8DA;
+      --ink:      #1A1510;
+      --warm:     #6B5C4E;
+      --tan:      #C8B09A;
+      --rule:     #DAD0C2;
+      --white:    #FFFFFF;
+      --ph-bg:    #E4D9CA;   /* placeholder background */
+      --ph-fg:    #B8A898;   /* placeholder icon/text color */
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ══ NAV ══════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      height: 58px;
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.45rem;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--red); }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--warm);
+      padding: 0.4rem 0.9rem;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-ig {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--warm) !important;
+    }
+    .nav-ig svg { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
+    .nav-ig:hover { color: var(--red) !important; }
+
+    .nav-book {
+      background: var(--red) !important;
+      color: var(--white) !important;
+      padding: 0.5rem 1.2rem !important;
+    }
+    .nav-book:hover { background: var(--red-dark) !important; }
+
+    /* ══ HERO ═════════════════════════════════════ */
+    .hero {
+      margin-top: 58px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 58px);
+    }
+
+    /* Left: branded visual panel */
+    .hero-visual {
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* subtle diagonal stripe texture */
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.018) 40px,
+        rgba(255,255,255,0.018) 41px
+      );
+      pointer-events: none;
+    }
+
+    /* red glow in corner */
+    .hero-visual::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(191,37,24,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-visual-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .hero-badge-svg {
+      width: 260px;
+      height: 260px;
+      flex-shrink: 0;
+    }
+
+    .hero-visual-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      width: 100%;
+      max-width: 260px;
+    }
+    .hero-visual-rule span {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+    }
+    .hero-visual-rule em {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-style: normal;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      white-space: nowrap;
+    }
+
+    /* Right: copy */
+    .hero-copy {
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 3.5rem;
+    }
+
+    .hero-open {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 1.8rem;
+    }
+    .open-dot {
+      width: 8px; height: 8px;
+      background: #3CB371;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .hero-open span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm);
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.8rem, 7vw, 6.5rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 em { color: var(--red); font-style: normal; }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--warm);
+      line-height: 1.75;
+      max-width: 360px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      max-width: 310px;
+    }
+
+    /* ══ BUTTONS ══════════════════════════════════ */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.95rem 1.5rem;
+      transition: all 0.15s;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn svg { width: 17px; height: 17px; fill: currentColor; flex-shrink: 0; }
+
+    .btn-red { background: var(--red); color: var(--white); }
+    .btn-red:hover { background: var(--red-dark); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      border: 2px solid var(--rule);
+    }
+    .btn-outline:hover { border-color: var(--ink); }
+
+    /* ══ TICKER ═══════════════════════════════════ */
+    .ticker {
+      background: var(--paper);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      overflow: hidden;
+      padding: 0.65rem 0;
+      white-space: nowrap;
+    }
+    .ticker-track {
+      display: inline-flex;
+      animation: tick 32s linear infinite;
+    }
+    .ticker-track span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      color: var(--warm);
+      padding: 0 2rem;
+    }
+    .ticker-track .sep { color: var(--tan); padding: 0; }
+    @keyframes tick {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ══ SHARED SECTION ═══════════════════════════ */
+    section { padding: 5.5rem 2rem; }
+    .inner { max-width: 1080px; margin: 0 auto; }
+
+    .s-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.3rem;
+    }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+      line-height: 0.95;
+      color: var(--ink);
+    }
+
+    .s-sub {
+      font-size: 1.05rem;
+      color: var(--warm);
+      line-height: 1.75;
+      max-width: 480px;
+      margin-top: 0.9rem;
+    }
+
+    /* ══ MENU ═════════════════════════════════════ */
+    .menu { background: var(--paper); }
+
+    .menu-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .ig-nudge {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: color 0.15s;
+    }
+    .ig-nudge svg { width: 15px; height: 15px; fill: currentColor; }
+    .ig-nudge:hover { color: var(--red); }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--rule);
+      border: 2px solid var(--rule);
+    }
+
+    .menu-card {
+      background: var(--cream);
+      padding: 2.2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .menu-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .menu-card-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .menu-badge {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--red);
+      color: var(--white);
+      padding: 0.28rem 0.65rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .menu-card-desc {
+      font-size: 0.92rem;
+      color: var(--warm);
+      line-height: 1.65;
+    }
+
+    /* ══ INSTAGRAM SECTION ════════════════════════ */
+    .instagram { background: var(--cream); }
+
+    .ig-section-head {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .ig-section-head h2 { margin-bottom: 0.4rem; }
+
+    .ig-handle-block {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .ig-handle-block svg {
+      width: 28px; height: 28px;
+      fill: var(--red);
+      flex-shrink: 0;
+    }
+
+    .ig-handle {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .ig-handle:hover { color: var(--red); }
+    .ig-handle.placeholder { color: var(--tan); }
+
+    .ig-reason {
+      font-size: 1rem;
+      color: var(--warm);
+      margin-bottom: 2rem;
+    }
+
+    .ig-follow-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.95rem 2rem;
+      background: var(--ink);
+      color: var(--white);
+      transition: background 0.15s;
+    }
+    .ig-follow-btn svg { width: 17px; height: 17px; fill: currentColor; }
+    .ig-follow-btn:hover { background: var(--red); }
+
+    /* Photo grid */
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 4px;
+      margin-top: 3rem;
+    }
+
+    .ig-cell {
+      aspect-ratio: 1;
+      background: var(--ph-bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ig-cell-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      border: 1.5px dashed var(--ph-fg);
+      margin: 4px;
+    }
+
+    .ig-cell-inner svg {
+      width: 20px; height: 20px;
+      fill: var(--ph-fg);
+    }
+
+    .ig-cell-inner span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ph-fg);
+    }
+
+    .ig-grid-note {
+      margin-top: 1.2rem;
+      text-align: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--tan);
+    }
+
+    /* ══ FIND US ══════════════════════════════════ */
+    .find { background: var(--paper); }
+
+    .find-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 2px solid var(--rule);
+    }
+    .schedule-table tr { border-bottom: 1px solid var(--rule); }
+    .schedule-table tr:last-child { border-bottom: none; }
+    .schedule-table td {
+      padding: 1.1rem 1.4rem;
+      vertical-align: middle;
+    }
+    .s-day {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+    .s-active {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--red);
+      padding: 0.28rem 0.75rem;
+      display: inline-block;
+    }
+    .s-off {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm);
+      background: var(--rule);
+      padding: 0.28rem 0.75rem;
+      display: inline-block;
+    }
+
+    .ig-callout {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      padding: 1rem 1.2rem;
+      background: var(--cream);
+      border-left: 3px solid var(--red);
+    }
+    .ig-callout svg { width: 20px; height: 20px; fill: var(--red); flex-shrink: 0; margin-top: 1px; }
+    .ig-callout p { font-size: 0.9rem; color: var(--ink); line-height: 1.55; }
+    .ig-callout a { color: var(--red); font-weight: 600; text-decoration: none; }
+    .ig-callout a:hover { text-decoration: underline; }
+
+    .connect-head {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      line-height: 1;
+    }
+
+    .connect-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+
+    .connect-item a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.9rem 1.1rem;
+      background: var(--cream);
+      border: 1px solid var(--rule);
+      text-decoration: none;
+      transition: border-color 0.15s;
+    }
+    .connect-item a:hover { border-color: var(--ink); }
+
+    .c-icon {
+      width: 36px; height: 36px;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .c-icon svg { width: 17px; height: 17px; fill: var(--white); }
+
+    .c-text strong {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+    }
+    .c-text span { font-size: 0.82rem; color: var(--warm); }
+
+    /* ══ CATERING ═════════════════════════════════ */
+    .catering { background: var(--cream); }
+
+    .catering-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    .catering-reasons {
+      list-style: none;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .catering-reasons li {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.98rem;
+      color: var(--ink);
+      line-height: 1.55;
+      display: flex;
+      align-items: baseline;
+      gap: 0.8rem;
+    }
+    .catering-reasons li:first-child { border-top: 1px solid var(--rule); }
+    .catering-reasons li .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      color: var(--red);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    /* Form */
+    .catering-form {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      padding: 2.5rem;
+    }
+
+    .catering-form h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--ink);
+      margin-bottom: 1.8rem;
+    }
+
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: var(--white);
+      border: 1.5px solid var(--rule);
+      padding: 0.78rem 1rem;
+      color: var(--ink);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      appearance: none;
+      border-radius: 0;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--ink); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-submit { width: 100%; padding: 1rem; margin-top: 0.3rem; font-size: 0.95rem; }
+
+    /* ══ FOOTER ═══════════════════════════════════ */
+    footer {
+      background: var(--ink);
+      padding: 3.5rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .footer-logo span { color: var(--red); }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.38);
+      line-height: 1.65;
+      max-width: 240px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      margin-bottom: 1.1rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col a {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-ig-link {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .footer-ig-link svg { width: 14px; height: 14px; fill: currentColor; }
+
+    .footer-bottom {
+      max-width: 1080px;
+      margin: 2rem auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-bottom p { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+
+    /* ══ RESPONSIVE ════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 320px; }
+      .hero-badge-svg { width: 200px; height: 200px; }
+      .hero-copy { padding: 3rem 2rem; }
+      .hero-ctas { max-width: 100%; }
+      .find-layout,
+      .catering-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .ig-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* ══ HAMBURGER ════════════════════════════════ */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      margin-left: auto;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--ink);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 58px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 2px solid var(--rule);
+      z-index: 199;
+      flex-direction: column;
+      padding: 0.5rem 0 1rem;
+    }
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--warm);
+      padding: 0.9rem 2rem;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover { color: var(--ink); }
+    .mobile-nav .mobile-book {
+      margin: 0.75rem 2rem 0;
+      background: var(--red);
+      color: var(--white) !important;
+      text-align: center;
+      padding: 0.9rem 2rem;
+      border-bottom: none;
+    }
+    .mobile-nav .mobile-book:hover { background: var(--red-dark); }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+
+    /* ══ SCROLL REVEAL ═════════════════════════════ */
+    .rise {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .rise.up { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#top" class="nav-logo">SMOKED<span>OUT</span></a>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#find-us">Find Us</a></li>
+      <li>
+        <a href="#instagram" class="nav-ig">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram
+        </a>
+      </li>
+      <li><a href="#catering" class="nav-book">Book Catering</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE NAV DRAWER -->
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#menu">Menu</a>
+    <a href="#find-us">Find Us</a>
+    <a href="#instagram">Instagram</a>
+    <a href="#catering" class="mobile-book">Book Catering</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero" id="top">
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-visual-inner">
+        <svg class="hero-badge-svg" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <path id="badge-circle" d="M 130,130 m -88,0 a 88,88 0 1,1 176,0 a 88,88 0 1,1 -176,0"/>
+          </defs>
+          <!-- outer ring -->
+          <circle cx="130" cy="130" r="120" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <!-- main ring -->
+          <circle cx="130" cy="130" r="100" fill="none" stroke="rgba(191,37,24,0.45)" stroke-width="1.5"/>
+          <!-- inner ring -->
+          <circle cx="130" cy="130" r="90" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <!-- circular text -->
+          <text font-family="'Bebas Neue', sans-serif" font-size="13.5" letter-spacing="7.2" fill="rgba(255,255,255,0.45)">
+            <textPath href="#badge-circle">REAL SMOKE · REAL CAJUN · HOUSTON TX · </textPath>
+          </text>
+          <!-- center monogram -->
+          <text x="130" y="118" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="64" letter-spacing="4" fill="rgba(255,255,255,0.92)">SO</text>
+          <!-- sub-label under monogram -->
+          <text x="130" y="148" text-anchor="middle" font-family="'Barlow Condensed', sans-serif" font-size="11" font-weight="700" letter-spacing="5" fill="rgba(191,37,24,0.85)">CATERING</text>
+          <!-- decorative tick marks -->
+          <line x1="130" y1="28" x2="130" y2="38" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+          <line x1="130" y1="222" x2="130" y2="232" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+          <line x1="28" y1="130" x2="38" y2="130" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+          <line x1="222" y1="130" x2="232" y2="130" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+        </svg>
+        <div class="hero-visual-rule">
+          <span></span>
+          <em>BBQ &amp; Cajun</em>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-copy">
+      <div class="hero-open rise">
+        <div class="open-dot"></div>
+        <span>Open Thursday Through Sunday</span>
+      </div>
+      <h1 class="rise">SMOKED<br/>OUT<br/><em>CATERING</em></h1>
+      <p class="hero-desc rise">Slow-smoked BBQ. Bold Cajun flavors. One man, one truck, cooking food worth stopping everything for.</p>
+      <div class="hero-ctas rise">
+        <a href="#catering" class="btn btn-red">Book Us for Your Event</a>
+        <a href="#instagram" class="btn btn-outline">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Follow on Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>CHOPPED STEAK SANDWICH</span><span class="sep">·</span>
+      <span>GUMBO</span><span class="sep">·</span>
+      <span>BOUDIN</span><span class="sep">·</span>
+      <span>CATERING AVAILABLE</span><span class="sep">·</span>
+      <span>THURSDAY THROUGH SUNDAY</span><span class="sep">·</span>
+      <span>FOLLOW US ON INSTAGRAM</span><span class="sep">·</span>
+      <span>CHOPPED STEAK SANDWICH</span><span class="sep">·</span>
+      <span>GUMBO</span><span class="sep">·</span>
+      <span>BOUDIN</span><span class="sep">·</span>
+      <span>CATERING AVAILABLE</span><span class="sep">·</span>
+      <span>THURSDAY THROUGH SUNDAY</span><span class="sep">·</span>
+      <span>FOLLOW US ON INSTAGRAM</span><span class="sep">·</span>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <section class="menu" id="menu">
+    <div class="inner">
+      <div class="menu-head rise">
+        <div>
+          <p class="s-label">What We Serve</p>
+          <h2>SIGNATURE PLATES</h2>
+        </div>
+        <a href="#instagram" class="ig-nudge">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          See Today's Specials on Instagram
+        </a>
+      </div>
+
+      <div class="menu-grid rise">
+        <div class="menu-card">
+          <div class="menu-card-top">
+            <div class="menu-card-name">Chopped Steak Sandwich</div>
+            <span class="menu-badge">Fan Favorite</span>
+          </div>
+          <p class="menu-card-desc">Slow-smoked beef, hand-chopped, piled onto bread the way it should be. This is the one people come back for.</p>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-top">
+            <div class="menu-card-name">Gumbo</div>
+            <span class="menu-badge">Cajun Classic</span>
+          </div>
+          <p class="menu-card-desc">Dark roux built from scratch. Rich, deep, and nothing like what you've had anywhere else.</p>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-top">
+            <div class="menu-card-name">Boudin</div>
+            <span class="menu-badge">Louisiana Style</span>
+          </div>
+          <p class="menu-card-desc">Louisiana-style boudin with the right snap and the right seasoning. If you know, you know. If you don't, you're about to.</p>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-top">
+            <div class="menu-card-name">Daily Specials</div>
+            <span class="menu-badge">Rotating</span>
+          </div>
+          <p class="menu-card-desc">The menu moves. Follow us on Instagram to see what's coming off the smoker before you pull up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="instagram" id="instagram">
+    <div class="inner">
+      <div class="ig-section-head rise">
+        <p class="s-label">Follow the Truck</p>
+        <h2>KNOW BEFORE YOU GO</h2>
+        <div class="ig-handle-block">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <span class="ig-handle placeholder">@YourInstagramHandle</span>
+        </div>
+        <p class="ig-reason">Location changes every week. Instagram is where we post it first.</p>
+        <a href="#" class="ig-follow-btn">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Follow on Instagram
+        </a>
+      </div>
+
+      <div class="ig-grid rise">
+        <div class="ig-cell"><div class="ig-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+        <div class="ig-cell"><div class="ig-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+        <div class="ig-cell"><div class="ig-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+        <div class="ig-cell"><div class="ig-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+        <div class="ig-cell"><div class="ig-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+        <div class="ig-cell"><div class="ig-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      </div>
+      <p class="ig-grid-note rise">Replace these with real Instagram photos</p>
+    </div>
+  </section>
+
+  <!-- FIND US -->
+  <section class="find" id="find-us">
+    <div class="inner">
+      <p class="s-label rise">We Move. You Follow.</p>
+      <h2 class="rise">FIND THE TRUCK</h2>
+
+      <div class="find-layout">
+        <div class="rise">
+          <table class="schedule-table">
+            <tbody>
+              <tr><td class="s-day">Thursday</td><td><span class="s-active">Out &amp; Serving</span></td></tr>
+              <tr><td class="s-day">Friday</td><td><span class="s-active">Out &amp; Serving</span></td></tr>
+              <tr><td class="s-day">Saturday</td><td><span class="s-active">Out &amp; Serving</span></td></tr>
+              <tr><td class="s-day">Sunday</td><td><span class="s-active">Out &amp; Serving</span></td></tr>
+              <tr><td class="s-day">Mon &amp; Tue &amp; Wed</td><td><span class="s-off">Catering &amp; Events</span></td></tr>
+            </tbody>
+          </table>
+
+          <div class="ig-callout">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <p>Exact location posted every week on Instagram. <a href="#instagram">Follow us</a> so you never miss us.</p>
+          </div>
+        </div>
+
+        <div class="rise">
+          <p class="connect-head">GET IN TOUCH</p>
+          <ul class="connect-list">
+            <li class="connect-item">
+              <a href="#instagram">
+                <div class="c-icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </div>
+                <div class="c-text">
+                  <strong>Instagram</strong>
+                  <span>Daily location drops and menu updates</span>
+                </div>
+              </a>
+            </li>
+            <li class="connect-item">
+              <a href="tel:+10000000000">
+                <div class="c-icon">
+                  <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                </div>
+                <div class="c-text">
+                  <strong>(000) 000-0000</strong>
+                  <span>Call or text for catering and bookings</span>
+                </div>
+              </a>
+            </li>
+            <li class="connect-item">
+              <a href="mailto:info@smokedoutcatering.com">
+                <div class="c-icon">
+                  <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+                <div class="c-text">
+                  <strong>info@smokedoutcatering.com</strong>
+                  <span>For quotes and event inquiries</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATERING -->
+  <section class="catering" id="catering">
+    <div class="inner">
+      <p class="s-label rise">Bring the Truck to You</p>
+      <h2 class="rise">CATERING &amp; PRIVATE EVENTS</h2>
+
+      <div class="catering-layout">
+        <div class="rise">
+          <p class="s-sub">Company lunches, backyard cookouts, block parties, tailgates, family reunions. We show up, set up, and feed your people right.</p>
+          <ul class="catering-reasons">
+            <li><span class="num">01</span> Full truck setup at your location</li>
+            <li><span class="num">02</span> Custom menu built for your headcount and event</li>
+            <li><span class="num">03</span> BBQ and Cajun options that cover every taste</li>
+            <li><span class="num">04</span> Corporate, private, and community events welcome</li>
+            <li><span class="num">05</span> Reach out and we handle everything from there</li>
+          </ul>
+        </div>
+
+        <div class="catering-form rise">
+          <h3>REQUEST A QUOTE</h3>
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="c-name">Your Name</label>
+                <input type="text" id="c-name" placeholder="First Last" autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="c-phone">Phone Number</label>
+                <input type="tel" id="c-phone" placeholder="(555) 000-0000" autocomplete="tel" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="c-email">Email Address</label>
+              <input type="email" id="c-email" placeholder="you@email.com" autocomplete="email" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="c-date">Event Date</label>
+                <input type="date" id="c-date" />
+              </div>
+              <div class="form-group">
+                <label for="c-guests">Guest Count</label>
+                <select id="c-guests">
+                  <option value="">Select range</option>
+                  <option>Under 25</option>
+                  <option>25 to 50</option>
+                  <option>50 to 100</option>
+                  <option>100 to 200</option>
+                  <option>200 and up</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="c-details">Event Details</label>
+              <textarea id="c-details" placeholder="Type, location, any special requests..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-red form-submit">Send Catering Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#top" class="footer-logo">SMOKED<span>OUT</span></a>
+        <p>Real BBQ. Real Cajun. Thursday through Sunday — and available to cater your next event.</p>
+      </div>
+      <div class="footer-col">
+        <h4>On This Page</h4>
+        <ul>
+          <li><a href="#menu">Signature Plates</a></li>
+          <li><a href="#find-us">Find the Truck</a></li>
+          <li><a href="#catering">Catering</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>
+            <a href="#instagram" class="footer-ig-link">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              @YourInstagramHandle
+            </a>
+          </li>
+          <li><a href="tel:+10000000000">(000) 000-0000</a></li>
+          <li><a href="mailto:info@smokedoutcatering.com">info@smokedoutcatering.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Smoked Out Catering. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('up'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.rise').forEach(el => obs.observe(el));
+
+    // Mobile nav
+    const hamburger = document.querySelector('.nav-hamburger');
+    const mobileNav = document.querySelector('.mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+
+    document.querySelector('.catering-form form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.form-submit');
+      btn.textContent = 'Request Sent. We Will Be in Touch.';
+      btn.style.background = '#2a6e3a';
+      btn.disabled = true;
+    });
+  </script>
+</body>
+</html>

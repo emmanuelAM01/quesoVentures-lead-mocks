@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multiverse Spa | Personalized Skincare in Humble & Kingwood, TX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --deep:    #0d0b1a;
+      --plum:    #2a1a3e;
+      --violet:  #6b3fa0;
+      --rose:    #c8849a;
+      --blush:   #f2dce6;
+      --cream:   #fdf8f5;
+      --gold:    #c9a96e;
+      --white:   #ffffff;
+      --text:    #2c1f3a;
+      --muted:   #7a6a8a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background: rgba(13, 11, 26, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-book {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--deep);
+      background: var(--gold);
+      padding: 0.55rem 1.4rem;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .nav-book:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--deep);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 7rem 5% 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Starfield */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 45% 60%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 70% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 75%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 85%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 60% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 35%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 5%  50%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(2px 2px at 38% 28%, rgba(201,169,110,0.5) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 78% 55%, rgba(200,132,154,0.4) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* Glow orbs */
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(107,63,160,0.25) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--rose);
+    }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      margin-top: 1rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--deep);
+      background: var(--gold);
+      padding: 1rem 2.6rem;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s;
+    }
+
+    .hero-cta:hover {
+      background: var(--rose);
+      color: var(--white);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
+    }
+
+    /* ── INTRO STRIP ── */
+    .intro {
+      background: var(--plum);
+      padding: 4rem 5%;
+      text-align: center;
+    }
+
+    .intro p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.82);
+      max-width: 780px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .intro p span {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 5%; }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--violet);
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 1.8rem;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--cream); }
+
+    .services-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .services-header .divider { margin: 0 auto 1.8rem; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      border-top: 2px solid var(--gold);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(107,63,160,0.1);
+    }
+
+    .service-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.7rem;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ── EXPERIENCE ── */
+    .experience {
+      background: var(--deep);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .experience .section-title { color: var(--white); }
+    .experience .section-title em { color: var(--rose); }
+    .experience .section-label { color: var(--gold); }
+    .experience .divider { margin: 0 auto 1.8rem; }
+
+    .experience p {
+      max-width: 640px;
+      margin: 0 auto 3rem;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      line-height: 1.85;
+    }
+
+    .pillars {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .pillar {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,169,110,0.4);
+      padding: 0.6rem 1.4rem;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--blush);
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      line-height: 1.85;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .about-stat {
+      background: var(--white);
+      padding: 2rem;
+      border-left: 3px solid var(--rose);
+    }
+
+    .about-stat .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--violet);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .about-stat .stat-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── BOOKING / CTA ── */
+    .booking {
+      background: var(--plum);
+      text-align: center;
+      color: var(--white);
+    }
+
+    .booking .section-title { color: var(--white); }
+    .booking .section-title em { color: var(--gold); }
+    .booking .section-label { color: var(--rose); }
+    .booking .divider { margin: 0 auto 1.8rem; }
+
+    .booking p {
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+    }
+
+    .booking-cta {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--deep);
+      background: var(--gold);
+      padding: 1.1rem 3rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .booking-cta:hover {
+      background: var(--rose);
+      color: var(--white);
+    }
+
+    /* ── LOCATION ── */
+    .location {
+      background: var(--cream);
+    }
+
+    .location-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .location-info p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .location-info strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .location-block {
+      margin-bottom: 2rem;
+    }
+
+    .location-block-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 0.5rem;
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 320px;
+      background: linear-gradient(135deg, var(--plum) 0%, var(--deep) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-placeholder iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(20%) contrast(1.05);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep);
+      padding: 3rem 5%;
+      text-align: center;
+      border-top: 1px solid rgba(201,169,110,0.15);
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.08em;
+    }
+
+    footer p a {
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+
+      .about-inner,
+      .location-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .about-visual {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .about-stat { flex: 1; min-width: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">Multiverse Spa</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#location">Location</a></li>
+    </ul>
+    <a class="nav-book" href="#book">Book Now</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Humble &amp; Kingwood, Texas</p>
+    <h1>Step Into Your<br /><em>Selfcare Universe</em></h1>
+    <p class="hero-sub">Your portal to a personalized skincare experience — where results meet deep relaxation.</p>
+    <a class="hero-cta" href="#book">Reserve Your Facial</a>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Explore
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <p>
+      Every treatment at Multiverse Spa is <span>customized to your skin goals</span> — blending
+      results-driven skincare with the kind of relaxation your whole body will thank you for.
+    </p>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="services-inner">
+      <div class="services-header">
+        <p class="section-label">What We Offer</p>
+        <h2 class="section-title">Treatments Tailored<br /><em>to Your Skin</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">✦</div>
+          <h3>Acne Clarifying</h3>
+          <p>Targeted treatments designed to reduce breakouts, calm inflammation, and restore clarity — without stripping your skin.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">✦</div>
+          <h3>Discoloration &amp; Brightening</h3>
+          <p>Fade hyperpigmentation, sunspots, and uneven tone with customized protocols that reveal a luminous complexion.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">✦</div>
+          <h3>Skin Rejuvenation</h3>
+          <p>Revive your skin's natural radiance with restorative treatments that smooth texture, boost hydration, and turn back the clock.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">✦</div>
+          <h3>Facial Massage</h3>
+          <p>Sculpting and lymphatic techniques that relieve tension, depuff, and promote circulation for a lifted, healthy glow.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">✦</div>
+          <h3>Shoulder &amp; Arm Massage</h3>
+          <p>Every facial includes a complimentary soothing shoulder and/or hand and arm massage — because true wellness goes beyond your face.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">✦</div>
+          <h3>Custom Consultation</h3>
+          <p>No two skins are the same. Each visit begins with a personalized skin analysis to guide your treatment for maximum results.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="experience">
+    <p class="section-label">The Multiverse Difference</p>
+    <h2 class="section-title">Results-Driven.<br /><em>Deeply Relaxing.</em></h2>
+    <div class="divider"></div>
+    <p>
+      We believe skincare should do two things at once: deliver real, visible results and
+      leave you feeling genuinely restored. Every detail of your experience is designed
+      with both in mind.
+    </p>
+    <div class="pillars">
+      <span class="pillar">Personalized</span>
+      <span class="pillar">Results-Driven</span>
+      <span class="pillar">Deeply Relaxing</span>
+      <span class="pillar">Full-Body Wellness</span>
+      <span class="pillar">Expert Care</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <p class="section-label">About the Spa</p>
+        <h2 class="section-title">Where Skincare<br /><em>Meets Sanctuary</em></h2>
+        <div class="divider"></div>
+        <p>
+          Multiverse Spa is a boutique skincare studio serving the Houston, Humble, and Kingwood
+          communities. We specialize in facial treatments that are as unique as the person in
+          the chair — no cookie-cutter protocols, no rushed appointments.
+        </p>
+        <p>
+          From your first visit, our goal is to understand your skin and your goals,
+          then build a treatment experience around you. Whether you're managing acne,
+          targeting stubborn discoloration, or simply carving out time for yourself,
+          you've found the right place.
+        </p>
+        <p>
+          Come in as a client. Leave as part of the universe.
+        </p>
+      </div>
+      <div class="about-visual">
+        <div class="about-stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Customized Treatments</div>
+        </div>
+        <div class="about-stat">
+          <div class="stat-num">4+</div>
+          <div class="stat-label">Skin Specialties</div>
+        </div>
+        <div class="about-stat">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Possibilities for Your Skin</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING CTA -->
+  <section class="booking" id="book">
+    <p class="section-label">Ready to Begin?</p>
+    <h2 class="section-title">Book Your<br /><em>Personalized Facial</em></h2>
+    <div class="divider"></div>
+    <p>
+      Appointments are available online. Select your service, choose a time,
+      and step into your selfcare universe.
+    </p>
+    <a class="booking-cta" href="#" target="_blank" rel="noopener">Book Your Appointment</a>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location" id="location">
+    <div class="location-inner">
+      <div class="location-info">
+        <p class="section-label">Find Us</p>
+        <h2 class="section-title">Visit<br /><em>Multiverse Spa</em></h2>
+        <div class="divider"></div>
+
+        <div class="location-block">
+          <p class="location-block-label">Address</p>
+          <strong>304 Wilson Rd</strong>
+          <p>Humble, TX 77338</p>
+          <p>Serving Humble &amp; Kingwood, Houston</p>
+        </div>
+
+        <div class="location-block">
+          <p class="location-block-label">Book Online</p>
+          <p>Appointments available through our online booking portal.<br />Walk-ins welcome based on availability.</p>
+        </div>
+
+        <div class="location-block">
+          <p class="location-block-label">Hours</p>
+          <p>By appointment — book online to see real-time availability.</p>
+        </div>
+      </div>
+
+      <div class="map-placeholder">
+        <iframe
+          title="Multiverse Spa Location"
+          src="https://maps.google.com/maps?q=304+Wilson+Rd,+Humble,+TX+77338&z=15&output=embed"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Multiverse Spa</div>
+    <p>304 Wilson Rd · Humble, TX 77338 · Serving Houston, Humble &amp; Kingwood</p>
+    <br />
+    <p>&copy; 2026 Multiverse Spa. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

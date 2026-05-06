@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>High Level Blendz — Barbershop in Kingwood, TX</title>
+  <meta name="description" content="High Level Blendz — precision fades, lineups, and kids cuts in Kingwood, TX. Open 8AM–8PM every day. Book online now." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:        #0a0a0a;
+      --bg2:       #111111;
+      --bg3:       #181818;
+      --white:     #ffffff;
+      --grey:      #888888;
+      --blue:      #00b4ff;
+      --blue-dim:  rgba(0, 180, 255, 0.1);
+      --blue-glow: rgba(0, 180, 255, 0.3);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── Shared hex SVG pattern ─── */
+    .hex-bg {
+      position: absolute; inset: 0; z-index: 0;
+      overflow: hidden; pointer-events: none;
+    }
+    .hex-bg svg { width: 100%; height: 100%; position: absolute; inset: 0; opacity: 0.045; }
+
+    /* ─── Buttons ─── */
+    .btn {
+      display: inline-block;
+      background: var(--blue);
+      color: #000;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px; font-weight: 800;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 15px 38px;
+      border: none; cursor: pointer;
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .btn:hover { background: #29c3ff; transform: translateY(-2px); }
+    .btn-lg { font-size: 18px; padding: 20px 54px; }
+    .btn-outline {
+      background: transparent;
+      color: var(--blue);
+      border: 1.5px solid var(--blue);
+      clip-path: none;
+      padding: 13px 32px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { background: var(--blue-dim); }
+
+    /* ─── Container ─── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── Section spacing ─── */
+    section { position: relative; }
+
+    /* ─── Section title block (centered, no label) ─── */
+    .section-head {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(40px, 7vw, 68px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .section-title span { color: var(--blue); }
+    .section-sub {
+      font-size: 16px;
+      color: var(--grey);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════
+       NAV
+    ══════════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(10,10,10,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: border-color 0.3s;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px; font-weight: 900;
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .nav-logo span { color: var(--blue); }
+    .nav-links {
+      display: flex; gap: 30px; list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--grey); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    @media (max-width: 680px) { .nav-links { display: none; } }
+
+    /* ══════════════════════════════════
+       HERO
+    ══════════════════════════════════ */
+    #hero {
+      min-height: 100svh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 90px 24px 60px;
+      background: #000;
+    }
+    .hero-hex {
+      position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+    }
+    .hero-hex svg {
+      width: 100%; height: 100%;
+      position: absolute; inset: 0;
+      opacity: 0.05;
+    }
+    /* blue glow centered behind logo */
+    .hero-glow {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: min(800px, 110vw); height: min(800px, 110vw);
+      background: radial-gradient(ellipse at center,
+        rgba(0,180,255,0.10) 0%,
+        rgba(0,180,255,0.03) 40%,
+        transparent 65%);
+      pointer-events: none; z-index: 0;
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.8; transform: translate(-50%,-50%) scale(1); }
+      50% { opacity: 1; transform: translate(-50%,-50%) scale(1.06); }
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0;
+    }
+    /* Logo — mix-blend-mode: screen makes the black background vanish */
+    .hero-logo {
+      width: min(420px, 88vw);
+      mix-blend-mode: screen;
+      filter: brightness(1.05) contrast(1.02);
+      margin-bottom: 8px;
+    }
+    .hero-tagline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(13px, 2.5vw, 16px);
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 36px;
+    }
+    .hero-tagline span { color: rgba(255,255,255,0.5); }
+    .hero-ctas {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      justify-content: center;
+    }
+    .hero-scroll-hint {
+      margin-top: 64px;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .hero-scroll-hint span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+    .hero-scroll-hint::after {
+      content: '';
+      display: block; width: 1px; height: 40px;
+      background: linear-gradient(to bottom, rgba(0,180,255,0.5), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* ══════════════════════════════════
+       SERVICES
+    ══════════════════════════════════ */
+    #services {
+      padding: 96px 0;
+      background: var(--bg2);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    @media (max-width: 640px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 400px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+    .service-card {
+      background: var(--bg2);
+      padding: 32px 26px;
+      display: flex; flex-direction: column;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .service-card:hover { background: var(--bg3); }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--blue);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.03em;
+      margin-bottom: 8px;
+    }
+    .service-desc {
+      font-size: 13px; color: var(--grey);
+      line-height: 1.55; flex: 1;
+      margin-bottom: 20px;
+    }
+    .service-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 34px; font-weight: 900; color: var(--blue);
+    }
+    .service-price sup { font-size: 16px; vertical-align: super; }
+    .services-note {
+      text-align: center; margin-top: 20px;
+      font-size: 13px; color: rgba(255,255,255,0.25);
+    }
+
+    /* ══════════════════════════════════
+       BOOKING BANNER (between services & team)
+    ══════════════════════════════════ */
+    #book-banner {
+      padding: 80px 24px 88px;
+      background: var(--bg);
+      text-align: center;
+    }
+    .book-banner-inner { position: relative; z-index: 1; max-width: 660px; margin: 0 auto; }
+    .book-banner-glow {
+      position: absolute; left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: min(700px, 120vw); height: 400px;
+      background: radial-gradient(ellipse, rgba(0,180,255,0.09) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .book-h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(48px, 10vw, 88px);
+      font-weight: 900; text-transform: uppercase; line-height: 0.95;
+      margin-bottom: 18px;
+    }
+    .book-h2 span { color: var(--blue); }
+    .book-sub { font-size: 16px; color: var(--grey); margin-bottom: 36px; }
+    .booking-box {
+      background: var(--bg2);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 48px 32px;
+    }
+    .booking-box-note { font-size: 13px; color: var(--grey); margin-bottom: 24px; }
+    .booking-steps {
+      display: flex; justify-content: center; gap: 32px;
+      margin-bottom: 36px; flex-wrap: wrap;
+    }
+    .booking-step {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .step-num {
+      width: 32px; height: 32px;
+      border: 1.5px solid var(--blue);
+      color: var(--blue);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--grey);
+    }
+    .booking-confirm {
+      font-size: 12px; color: rgba(255,255,255,0.2);
+      margin-top: 16px;
+    }
+
+    /* ══════════════════════════════════
+       TEAM
+    ══════════════════════════════════ */
+    #team {
+      padding: 96px 0;
+      background: var(--bg2);
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 700px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 440px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+    .barber-card { background: var(--bg3); overflow: hidden; }
+    .barber-photo {
+      aspect-ratio: 3/4;
+      background: var(--bg);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px;
+    }
+    .barber-silhouette {
+      width: 72px; height: 72px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .barber-silhouette svg { opacity: 0.35; }
+    .barber-photo-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
+    }
+    .barber-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: var(--blue); color: #000;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 800; letter-spacing: 0.14em;
+      text-transform: uppercase; padding: 4px 10px;
+    }
+    .barber-info {
+      padding: 20px;
+      border-top: 2px solid var(--bg);
+      transition: border-color 0.2s;
+    }
+    .barber-card:hover .barber-info { border-top-color: var(--blue); }
+    .barber-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px; font-weight: 800; text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .barber-title { font-size: 13px; color: var(--grey); margin-bottom: 10px; }
+    .barber-specialty {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--blue);
+    }
+
+    /* ══════════════════════════════════
+       GALLERY
+    ══════════════════════════════════ */
+    #gallery {
+      padding: 96px 0;
+      background: var(--bg);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    @media (max-width: 580px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .gallery-item {
+      aspect-ratio: 1;
+      background: var(--bg3);
+      position: relative; overflow: hidden;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-placeholder-icon {
+      width: 34px; height: 34px;
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gallery-item span {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+    }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,180,255,0.15);
+      border: 2px solid var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .gallery-overlay-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .gallery-ig {
+      text-align: center; margin-top: 30px;
+    }
+
+    /* ─── Instagram strip ─── */
+    #instagram {
+      padding: 72px 24px;
+      background: var(--bg2);
+      text-align: center;
+    }
+    .ig-inner { max-width: 600px; margin: 0 auto; }
+    .ig-handle {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(36px, 8vw, 64px);
+      font-weight: 900; text-transform: uppercase;
+      color: var(--white); margin-bottom: 10px; line-height: 1;
+    }
+    .ig-handle span { color: var(--blue); }
+    .ig-sub {
+      font-size: 15px; color: var(--grey);
+      margin-bottom: 32px;
+    }
+    .ig-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--white); color: #000;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 15px 36px;
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .ig-btn:hover { background: var(--blue); transform: translateY(-2px); }
+    .ig-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* ══════════════════════════════════
+       LOCATION
+    ══════════════════════════════════ */
+    #location {
+      padding: 96px 0;
+      background: var(--bg2);
+    }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (max-width: 720px) {
+      .location-grid { grid-template-columns: 1fr; }
+    }
+    .location-map {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .location-map iframe {
+      width: 100%; height: 100%;
+      border: none; filter: invert(0.92) hue-rotate(180deg) saturate(0.6) brightness(0.85);
+    }
+    .info-block { margin-bottom: 30px; }
+    .info-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 10px;
+    }
+    .info-text { font-size: 16px; line-height: 1.7; }
+    .hours-row {
+      display: flex; justify-content: space-between;
+      font-size: 15px; padding: 9px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .hours-row .day { color: var(--grey); }
+    .hours-row .time { font-weight: 500; }
+    .social-links { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+    .social-btn {
+      display: flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 11px 20px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--white);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .social-btn:hover { border-color: var(--blue); color: var(--blue); }
+    .social-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+    /* ══════════════════════════════════
+       FOOTER
+    ══════════════════════════════════ */
+    footer {
+      padding: 28px 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: var(--bg);
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 17px; font-weight: 900; text-transform: uppercase;
+    }
+    .footer-logo span { color: var(--blue); }
+    .footer-copy { font-size: 13px; color: var(--grey); }
+    .footer-links { display: flex; gap: 22px; }
+    .footer-links a {
+      font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--grey); transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    /* ══════════════════════════════════
+       FLOATING BOOK BUTTON
+    ══════════════════════════════════ */
+    .float-book {
+      position: fixed; bottom: 24px; right: 24px; z-index: 300;
+      background: var(--blue); color: #000;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      box-shadow: 0 4px 24px rgba(0,180,255,0.4);
+      transition: background 0.2s, transform 0.15s, opacity 0.3s;
+      opacity: 0; pointer-events: none;
+    }
+    .float-book.visible { opacity: 1; pointer-events: auto; }
+    .float-book:hover { background: #29c3ff; transform: translateY(-2px); }
+
+    /* ─── Fade-in on scroll ─── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+
+    /* ── Phone portrait + small tablets (≤ 640px) ── */
+    @media (max-width: 640px) {
+      /* Sections */
+      #services, #team, #gallery, #location, #book-banner, #instagram { padding-top: 60px; padding-bottom: 60px; }
+      #book-banner { padding-left: 20px; padding-right: 20px; }
+      #instagram { padding-left: 20px; padding-right: 20px; }
+      .section-head { margin-bottom: 32px; }
+
+      /* Hero */
+      #hero { padding: 80px 20px 48px; }
+      .hero-logo { width: min(320px, 80vw); }
+      .hero-tagline { font-size: 12px; letter-spacing: 0.2em; margin-bottom: 28px; }
+      .hero-ctas { flex-direction: column; align-items: center; gap: 12px; }
+      .btn-lg { font-size: 16px; padding: 16px 44px; }
+      .hero-scroll-hint { margin-top: 40px; }
+
+      /* Services */
+      .service-card { padding: 24px 18px; }
+      .service-name { font-size: 18px; }
+      .service-price { font-size: 28px; }
+
+      /* Booking */
+      .book-h2 { font-size: clamp(40px, 12vw, 60px); }
+      .booking-box { padding: 28px 20px; }
+      .booking-steps { gap: 18px; }
+      .step-label { font-size: 11px; }
+
+      /* Team — 1 col */
+      .team-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+      .barber-photo { aspect-ratio: 4/3; }
+
+      /* Gallery — 2 col */
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 3px; }
+
+      /* Location */
+      .social-links { flex-direction: column; }
+      .social-btn { justify-content: center; }
+
+      /* Footer */
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+      .footer-links { justify-content: center; flex-wrap: wrap; }
+
+      /* Float button */
+      .float-book { bottom: 16px; right: 16px; padding: 12px 22px; font-size: 13px; }
+    }
+
+    /* ── Phone landscape (height ≤ 500px, width > height) ── */
+    @media (orientation: landscape) and (max-height: 500px) {
+      #hero { min-height: auto; padding: 72px 24px 36px; }
+      .hero-logo { width: min(260px, 38vw); margin-bottom: 4px; }
+      .hero-tagline { font-size: 12px; margin-bottom: 20px; }
+      .hero-ctas { flex-direction: row; gap: 12px; }
+      .btn-lg { font-size: 15px; padding: 13px 32px; }
+      .hero-scroll-hint { margin-top: 28px; }
+      .hero-scroll-hint::after { height: 24px; }
+    }
+
+    /* ── iPad portrait (768px) ── */
+    @media (min-width: 641px) and (max-width: 1023px) and (orientation: portrait) {
+      #services, #team, #gallery, #location { padding-top: 80px; padding-bottom: 80px; }
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .team-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .barber-photo { aspect-ratio: 3/4; }
+      .hero-logo { width: min(380px, 70vw); }
+    }
+
+    /* ── iPad landscape (1024px) ── */
+    @media (min-width: 1024px) and (max-width: 1180px) {
+      .container { padding: 0 32px; }
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .team-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* ── Tiny phones (≤ 380px) ── */
+    @media (max-width: 380px) {
+      .nav-inner { padding: 0 14px; }
+      .nav-logo { font-size: 17px; }
+      .hero-logo { width: 82vw; }
+      .book-h2 { font-size: 38px; }
+      .ig-handle { font-size: 32px; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ FLOATING BOOK BUTTON ══ -->
+<a href="#book-banner" class="float-book" id="floatBook">Book Now</a>
+
+<!-- ══ NAV ══ -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <div class="nav-logo">High Level<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#location">Location</a></li>
+    </ul>
+    <a href="#book-banner" class="btn" style="font-size:13px;padding:11px 24px;">Book Now</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-hex">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="hexHero" x="0" y="0" width="88" height="102" patternUnits="userSpaceOnUse">
+          <polygon points="44,2 86,24 86,78 44,100 2,78 2,24" fill="none" stroke="white" stroke-width="1"/>
+          <polygon points="88,52 130,74 130,128 88,150 46,128 46,74" fill="none" stroke="white" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hexHero)"/>
+    </svg>
+  </div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-inner">
+    <img src="highLevelLogo.png" alt="High Level Blendz" class="hero-logo" />
+    <div class="hero-tagline">Kingwood, TX <span>·</span> Open Every Day</div>
+    <div class="hero-ctas">
+      <a href="#book-banner" class="btn btn-lg">Book Your Cut</a>
+      <a href="#services" class="btn btn-outline" style="padding:17px 36px;">See Services</a>
+    </div>
+    <div class="hero-scroll-hint"><span>Scroll</span></div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ══ -->
+<section id="services">
+  <div class="container">
+      <div class="section-head reveal">
+        <h2 class="section-title">Our <span>Services</span></h2>
+        <p class="section-sub">Know what you're paying before you sit down.</p>
+      </div>
+      <div class="services-grid reveal">
+        <div class="service-card">
+          <div class="service-name">Fade</div>
+          <div class="service-desc">Skin to guard, clean blends all the way through.</div>
+          <div class="service-price"><sup>$</sup>35</div>
+        </div>
+        <div class="service-card">
+          <div class="service-name">Lineup</div>
+          <div class="service-desc">Razor-sharp edges — hairline, temples, and neck.</div>
+          <div class="service-price"><sup>$</sup>20</div>
+        </div>
+        <div class="service-card">
+          <div class="service-name">Kids Cut</div>
+          <div class="service-desc">12 and under. Patient, precise, no stress.</div>
+          <div class="service-price"><sup>$</sup>30</div>
+        </div>
+        <div class="service-card">
+          <div class="service-name">Fade + Lineup</div>
+          <div class="service-desc">The full cut. Walk out looking finished, not halfway there.</div>
+          <div class="service-price"><sup>$</sup>50</div>
+        </div>
+        <div class="service-card">
+          <div class="service-name">Beard Trim</div>
+          <div class="service-desc">Shape, taper, or full shave. Standalone or add-on.</div>
+          <div class="service-price"><sup>$</sup>25</div>
+        </div>
+        <div class="service-card">
+          <div class="service-name">Design / Art</div>
+          <div class="service-desc">Custom cut-ins and patterns. Talk to your barber first.</div>
+          <div class="service-price"><sup>$</sup>15<sup style="font-size:13px;color:var(--grey)">+</sup></div>
+        </div>
+      </div>
+      <p class="services-note">* Prices may vary. Confirm with your barber at booking.</p>
+    </div>
+</section>
+
+<!-- ══ BOOKING ══ -->
+<section id="book-banner">
+  <div class="book-banner-glow"></div>
+  <div class="hex-bg">
+    <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="opacity:0.03;">
+      <defs>
+        <pattern id="hexBook" x="0" y="0" width="88" height="102" patternUnits="userSpaceOnUse">
+          <polygon points="44,2 86,24 86,78 44,100 2,78 2,24" fill="none" stroke="white" stroke-width="1"/>
+          <polygon points="88,52 130,74 130,128 88,150 46,128 46,74" fill="none" stroke="white" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hexBook)"/>
+    </svg>
+  </div>
+  <div class="book-banner-inner reveal">
+    <h2 class="book-h2">Book Your <span>Spot.</span></h2>
+    <p class="book-sub">Pick your barber. Pick your time. Takes less than a minute.</p>
+    <div class="booking-box">
+      <p class="booking-box-note">Schedule through Calendly — instant confirmation, no account needed.</p>
+      <div class="booking-steps">
+        <div class="booking-step">
+          <div class="step-num">1</div>
+          <div class="step-label">Pick a Barber</div>
+        </div>
+        <div class="booking-step">
+          <div class="step-num">2</div>
+          <div class="step-label">Choose a Time</div>
+        </div>
+        <div class="booking-step">
+          <div class="step-num">3</div>
+          <div class="step-label">You're In</div>
+        </div>
+      </div>
+      <!-- Replace href with actual Calendly link -->
+      <a href="#" class="btn btn-lg" style="width:100%;display:block;text-align:center;clip-path:none;">
+        Open Booking Calendar
+      </a>
+      <p class="booking-confirm">Free to book · Instant confirmation text</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TEAM ══ -->
+<section id="team">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="section-title">The <span>Team</span></h2>
+      <p class="section-sub">Three chairs. Every barber here trained to deliver, not just to fill a seat.</p>
+    </div>
+    <div class="team-grid reveal">
+
+      <div class="barber-card">
+        <div class="barber-photo">
+          <div class="barber-silhouette">
+            <svg width="34" height="34" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="13" r="8" fill="white"/><path d="M4 34c0-7.732 6.268-14 14-14s14 6.268 14 14" fill="white"/></svg>
+          </div>
+          <div class="barber-photo-label">Photo Coming Soon</div>
+          <div class="barber-badge">Owner</div>
+        </div>
+        <div class="barber-info">
+          <div class="barber-name">The Owner</div>
+          <div class="barber-title">Founder · Head Barber</div>
+          <div class="barber-specialty">Fades · Designs · Beards</div>
+        </div>
+      </div>
+
+      <div class="barber-card">
+        <div class="barber-photo">
+          <div class="barber-silhouette">
+            <svg width="34" height="34" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="13" r="8" fill="white"/><path d="M4 34c0-7.732 6.268-14 14-14s14 6.268 14 14" fill="white"/></svg>
+          </div>
+          <div class="barber-photo-label">Photo Coming Soon</div>
+        </div>
+        <div class="barber-info">
+          <div class="barber-name">Barber 2</div>
+          <div class="barber-title">Senior Barber</div>
+          <div class="barber-specialty">Skin Fades · Lineups</div>
+        </div>
+      </div>
+
+      <div class="barber-card">
+        <div class="barber-photo">
+          <div class="barber-silhouette">
+            <svg width="34" height="34" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="13" r="8" fill="white"/><path d="M4 34c0-7.732 6.268-14 14-14s14 6.268 14 14" fill="white"/></svg>
+          </div>
+          <div class="barber-photo-label">Photo Coming Soon</div>
+        </div>
+        <div class="barber-info">
+          <div class="barber-name">Barber 3</div>
+          <div class="barber-title">Barber</div>
+          <div class="barber-specialty">Tapers · Kids · Classic</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="section-title">The <span>Work</span></h2>
+      <p class="section-sub">Results on repeat. Add your photos to show what we do.</p>
+    </div>
+    <div class="gallery-grid reveal">
+
+      <div class="gallery-item">
+        <div class="gallery-placeholder-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        </div>
+        <span>Cut photo</span>
+        <div class="gallery-overlay"><div class="gallery-overlay-label">View</div></div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-placeholder-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        </div>
+        <span>Cut photo</span>
+        <div class="gallery-overlay"><div class="gallery-overlay-label">View</div></div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-placeholder-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        </div>
+        <span>Cut photo</span>
+        <div class="gallery-overlay"><div class="gallery-overlay-label">View</div></div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-placeholder-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        </div>
+        <span>Shop photo</span>
+        <div class="gallery-overlay"><div class="gallery-overlay-label">View</div></div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-placeholder-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        </div>
+        <span>Shop photo</span>
+        <div class="gallery-overlay"><div class="gallery-overlay-label">View</div></div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-placeholder-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        </div>
+        <span>Cut photo</span>
+        <div class="gallery-overlay"><div class="gallery-overlay-label">View</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ INSTAGRAM ══ -->
+<section id="instagram">
+  <div class="ig-inner reveal">
+    <div class="ig-handle"><span>@</span>highlevelblendz</div>
+    <p class="ig-sub">See fresh cuts daily. Follow for availability, deals, and drop announcements.</p>
+    <a href="https://www.instagram.com/highlevelblendzz/" target="_blank" class="ig-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <rect x="2" y="2" width="20" height="20" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+      </svg>
+      Follow on Instagram
+    </a>
+  </div>
+</section>
+
+<!-- ══ LOCATION ══ -->
+<section id="location">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="section-title">Find <span>Us</span></h2>
+      <p class="section-sub">23856 US-59, Kingwood, TX — open every day, no excuses.</p>
+    </div>
+    <div class="location-grid reveal">
+
+      <div class="location-map">
+        <iframe
+          title="High Level Blendz location"
+          src="https://maps.google.com/maps?q=23856+US-59,+Kingwood,+TX+77339&output=embed"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div>
+        <div class="info-block">
+          <div class="info-heading">Address</div>
+          <div class="info-text">
+            23856 US-59<br/>
+            Kingwood, TX 77339
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-heading">Hours</div>
+          <div class="hours-row"><span class="day">Monday</span><span class="time">8 AM – 8 PM</span></div>
+          <div class="hours-row"><span class="day">Tuesday</span><span class="time">8 AM – 8 PM</span></div>
+          <div class="hours-row"><span class="day">Wednesday</span><span class="time">8 AM – 8 PM</span></div>
+          <div class="hours-row"><span class="day">Thursday</span><span class="time">8 AM – 8 PM</span></div>
+          <div class="hours-row"><span class="day">Friday</span><span class="time">8 AM – 8 PM</span></div>
+          <div class="hours-row"><span class="day">Saturday</span><span class="time">8 AM – 8 PM</span></div>
+          <div class="hours-row"><span class="day">Sunday</span><span class="time">8 AM – 8 PM</span></div>
+        </div>
+        <div class="social-links">
+          <a href="https://instagram.com" target="_blank" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+            </svg>
+            Instagram
+          </a>
+          <a href="tel:+18325550000" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.4 2.14 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+            </svg>
+            Call Us
+          </a>
+          <a href="https://maps.google.com/maps?q=23856+US-59,+Kingwood,+TX+77339" target="_blank" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            Get Directions
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">High Level<span>.</span></div>
+    <div class="footer-copy">© 2026 High Level Blendz · Kingwood, TX</div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#book-banner">Book</a>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll with nav offset
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 68, behavior: 'smooth' });
+    });
+  });
+
+  // Nav border highlight on scroll
+  const nav = document.getElementById('mainNav');
+  const floatBtn = document.getElementById('floatBook');
+  const heroEl = document.getElementById('hero');
+
+  window.addEventListener('scroll', () => {
+    const past = window.scrollY > 80;
+    nav.style.borderBottomColor = past ? 'rgba(0,180,255,0.14)' : 'rgba(255,255,255,0.06)';
+
+    // Show float button after scrolling past hero
+    const heroBottom = heroEl.getBoundingClientRect().bottom;
+    floatBtn.classList.toggle('visible', heroBottom < 0);
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

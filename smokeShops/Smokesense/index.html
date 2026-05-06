@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smokesense Smoke Shop | Humble, TX 77396</title>
+  <meta name="description" content="Smokesense Smoke Shop in Humble, TX — your local source for premium cigars, tobacco, vapes, hookah, and smoking accessories in the Greater Houston area." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:       #b8181d;
+      --red-hover: #d41e24;
+      --cream:     #f9f5f1;
+      --cream-alt: #f2ede8;
+      --dark:      #1e1a17;
+      --body-text: #3d3330;
+      --muted:     #7a6c68;
+      --border:    #e0d5cf;
+      --white:     #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--cream);
+      color: var(--body-text);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 62px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dark);
+    }
+    .nav-logo span { color: var(--red); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
+    }
+    .nav-links a { color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--dark); }
+
+    .nav-cta {
+      background: var(--red);
+      color: #fff !important;
+      padding: 0.45rem 1.2rem;
+      border-radius: 2px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--red-hover) !important; }
+
+    /* ── Hamburger ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--dark);
+      border-radius: 1px;
+      transition: all 0.25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1.2rem; }
+
+      .nav-hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 62px; left: 0; right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 0 1rem;
+      }
+      .nav-links.open { display: flex; }
+
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block;
+        padding: 0.85rem 1.5rem;
+        font-size: 0.9rem;
+      }
+      .nav-cta {
+        margin: 0.5rem 1.5rem 0;
+        padding: 0.7rem 1.2rem;
+        text-align: center;
+        border-radius: 2px;
+      }
+    }
+
+    /* ────────────────────────────────────────────
+       HERO
+    ──────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: #e8e2d9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 7rem 1.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 90% at 50% 50%,
+        transparent 35%, rgba(0,0,0,0.07) 100%);
+      pointer-events: none;
+    }
+
+    .hero::after { display: none; }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 680px;
+    }
+
+    .hero-title-name {
+      display: block;
+      font-size: clamp(2.6rem, 6.5vw, 4.5rem);
+      font-weight: bold;
+      line-height: 1;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dark);
+    }
+
+    .hero-rule {
+      width: 44px;
+      height: 2px;
+      background: var(--red);
+      margin: 1.5rem auto;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+      color: var(--body-text);
+      line-height: 1.7;
+      font-style: italic;
+      margin: 0;
+    }
+
+    .hero-pillars {
+      margin-top: 1rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.74rem;
+      color: var(--muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* Bottom category bar pinned to the viewport floor */
+    .hero-bottom-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.9rem;
+      padding: 1.1rem 2.5rem;
+      border-top: 1px solid var(--border);
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-bottom-bar .cat-sep {
+      color: var(--red);
+      opacity: 0.5;
+      font-size: 0.55rem;
+    }
+
+    .hero-bar-location {
+      margin-left: auto;
+      color: var(--body-text);
+    }
+
+    @media (max-width: 640px) {
+      .hero-bottom-bar {
+        gap: 0.5rem;
+        padding: 0.9rem 1rem;
+        flex-wrap: wrap;
+        font-size: 0.65rem;
+      }
+      .hero-bar-location { display: none; }
+    }
+
+    .hero-cta-group {
+      margin-top: 2.6rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2.2rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: var(--red); color: #fff; border: 1px solid var(--red); }
+    .btn-primary:hover { background: var(--red-hover); border-color: var(--red-hover); }
+    .btn-outline-light {
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+    .btn-outline-light:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--dark);
+      border: 1px solid var(--muted);
+    }
+    .btn-outline-dark:hover { border-color: var(--dark); }
+
+    /* ── Section scaffold ── */
+    section { padding: 5.5rem 1.5rem; }
+
+    .container { max-width: 1060px; margin: 0 auto; }
+
+    .section-eyebrow {
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+      font-weight: bold;
+      color: var(--dark);
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+
+    .rule { width: 44px; height: 2px; background: var(--red); margin: 1rem 0 2.5rem; }
+
+    /* ────────────────────────────────────────────
+       IN-STORE SELECTION — editorial, not e-commerce
+    ──────────────────────────────────────────── */
+    .selection { background: var(--white); }
+
+    .selection-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    @media (max-width: 700px) { .selection-layout { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    .selection-prose p {
+      font-size: 0.97rem;
+      color: var(--body-text);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .selection-prose p:last-child { margin-bottom: 0; }
+
+    .selection-list-label {
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .selection-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .sel-item {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .sel-item:nth-child(odd)  { padding-right: 1.5rem; }
+    .sel-item:nth-child(even) { padding-left: 1rem; border-left: 1px solid var(--border); }
+
+    .sel-item strong {
+      font-size: 0.92rem;
+      color: var(--dark);
+      font-family: Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .sel-item span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+    }
+
+    /* ── About ── */
+    .about { background: var(--cream-alt); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+
+    .why-item { display: flex; gap: 1rem; align-items: flex-start; }
+
+    .why-check {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-family: Arial, sans-serif;
+      margin-top: 3px;
+    }
+
+    .why-item h4 { font-size: 0.97rem; color: var(--dark); margin-bottom: 0.3rem; }
+    .why-item p  { font-size: 0.86rem; color: var(--muted); }
+
+    /* ── Hours & Location ── */
+    .location { background: var(--white); }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    @media (max-width: 640px) { .location-grid { grid-template-columns: 1fr; } }
+
+    .addr-name   { font-size: 1.1rem; font-weight: bold; color: var(--dark); margin-bottom: 0.4rem; }
+    .addr-detail { font-size: 0.92rem; color: var(--muted); line-height: 1.9; }
+    .addr-phone  { margin-top: 1rem; font-size: 0.95rem; color: var(--dark); font-family: Arial, sans-serif; }
+
+    .hours-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 1rem; }
+    .hours-table tr { border-bottom: 1px solid var(--border); }
+    .hours-table td { padding: 0.65rem 0; color: var(--muted); }
+    .hours-table td:first-child { color: var(--dark); font-weight: bold; width: 48%; }
+    .hours-note { margin-top: 1rem; font-size: 0.78rem; color: var(--muted); font-style: italic; font-family: Arial, sans-serif; }
+
+    /* ── Hours block (above location cards) ── */
+    .hours-block {
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Locations ── */
+    .locations { background: var(--cream-alt); }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    @media (max-width: 720px) { .locations-grid { grid-template-columns: 1fr; } }
+
+    .loc-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .loc-card iframe {
+      display: block;
+      width: 100%;
+      height: 240px;
+      border: none;
+    }
+
+    .loc-card-body {
+      padding: 1.4rem 1.5rem 1.5rem;
+    }
+
+    .loc-card-name {
+      font-size: 0.92rem;
+      font-weight: bold;
+      color: var(--dark);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
+      margin-bottom: 0.35rem;
+    }
+
+    .loc-card-addr {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+
+    .loc-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .loc-actions .btn {
+      flex: 1;
+      text-align: center;
+      padding: 0.65rem 1rem;
+      font-size: 0.78rem;
+    }
+
+    /* ── CTA Banner ── */
+    .cta-banner { background: var(--dark); text-align: center; padding: 5rem 1.5rem; }
+    .cta-banner h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: #fff; letter-spacing: 0.04em; margin-bottom: 0.75rem; }
+    .cta-banner p  { color: rgba(255,255,255,0.48); font-style: italic; margin-bottom: 2rem; font-size: 0.97rem; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.05em;
+    }
+    footer span { color: rgba(255,255,255,0.6); }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Smoke<span>sense</span></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#selection" class="nav-link-item">Products</a></li>
+      <li><a href="#about" class="nav-link-item">About</a></li>
+      <li><a href="#hours" class="nav-link-item">Hours</a></li>
+      <li><a href="#contact" class="nav-cta nav-link-item">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <script>
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    document.querySelectorAll('.nav-link-item').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+  </script>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title-name">Smokesense</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-tagline">Your smoke shop.<br>The way it should be.</p>
+      <p class="hero-pillars">Knowledgeable Staff &nbsp;&middot;&nbsp; Real Selection &nbsp;&middot;&nbsp; Fair Prices</p>
+      <div class="hero-cta-group">
+        <a href="#selection" class="btn btn-primary">Explore Our Selection</a>
+        <a href="#hours" class="btn btn-outline-dark">Hours &amp; Location</a>
+      </div>
+    </div>
+    <div class="hero-bottom-bar">
+      <span>Cigars</span>
+      <span class="cat-sep">·</span>
+      <span>Tobacco</span>
+      <span class="cat-sep">·</span>
+      <span>Vapes</span>
+      <span class="cat-sep">·</span>
+      <span>Hookah</span>
+      <span class="cat-sep">·</span>
+      <span>Glass</span>
+      <span class="cat-sep">·</span>
+      <span>Accessories</span>
+      <span class="hero-bar-location">Humble &amp; Missouri City, TX</span>
+    </div>
+  </section>
+
+  <!-- IN-STORE SELECTION -->
+  <section class="selection" id="selection">
+    <div class="container">
+      <p class="section-eyebrow">In-Store Selection</p>
+      <h2 class="section-title">Everything You Need,<br>All Under One Roof</h2>
+      <div class="rule"></div>
+
+      <div class="selection-layout">
+
+        <div class="selection-prose">
+          <p>Smokesense Smoke Shop is Humble's go-to destination for smokers of every preference. Whether you're a seasoned cigar enthusiast, a hookah hobbyist, or exploring the world of vaping, our shelves are stocked with the brands and products you're actually looking for — not just what's easy to source.</p>
+          <p>We take pride in keeping a well-rounded, quality-first inventory. Our staff knows the products firsthand and can point you toward exactly what fits your preference and budget. No guesswork, no pressure — just good recommendations from people who know what they carry.</p>
+          <p>Stop in and browse. We're always happy to answer questions, explain differences between products, or help you find something new to try.</p>
+        </div>
+
+        <div>
+          <p class="selection-list-label">You'll find in store</p>
+          <div class="selection-list">
+
+            <div class="sel-item">
+              <strong>Cigars &amp; Tobacco</strong>
+              <span>Premium, handpicked brands</span>
+            </div>
+
+            <div class="sel-item">
+              <strong>Vapes &amp; E-Liquids</strong>
+              <span>Hardware, coils &amp; flavors</span>
+            </div>
+
+            <div class="sel-item">
+              <strong>Hookah &amp; Shisha</strong>
+              <span>Full setups &amp; supplies</span>
+            </div>
+
+            <div class="sel-item">
+              <strong>Glass &amp; Accessories</strong>
+              <span>Grinders, papers &amp; more</span>
+            </div>
+
+            <div class="sel-item">
+              <strong>Lighters &amp; Torch</strong>
+              <span>Everyday &amp; premium options</span>
+            </div>
+
+            <div class="sel-item">
+              <strong>Rolling Supplies</strong>
+              <span>Trays, wraps &amp; filters</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <p class="section-eyebrow">About Us</p>
+      <h2 class="section-title">Your Local Smoke Shop,<br>Done Right</h2>
+      <div class="rule"></div>
+
+      <div class="why-grid">
+
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Locally Owned</h4>
+            <p>We're part of the Humble community — not a chain, not a franchise. Real people, real service.</p>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Knowledgeable Staff</h4>
+            <p>Have a question about a product? We actually know the answer. Come in and talk to us.</p>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Competitive Prices</h4>
+            <p>Quality products at fair prices. No gimmicks, no markups. Just good value for our customers.</p>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Wide Selection</h4>
+            <p>From budget-friendly picks to premium products — we keep the shelves stocked for every preference.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOURS & LOCATIONS -->
+  <section class="location" id="hours">
+    <div class="container">
+      <p class="section-eyebrow">Visit Us</p>
+      <h2 class="section-title">Hours &amp; Locations</h2>
+      <div class="rule"></div>
+
+      <div class="locations-grid">
+
+        <div class="loc-card">
+          <iframe
+            src="https://maps.google.com/maps?q=9025+N+Sam+Houston+Pkwy+E+%23200,+Humble,+TX+77396&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Smokesense Humble location map"
+          ></iframe>
+          <div class="loc-card-body">
+            <p class="loc-card-name">Humble</p>
+            <p class="loc-card-addr">9025 N Sam Houston Pkwy E #200, Humble, TX 77396</p>
+            <table class="hours-table">
+              <tr><td>Monday – Thursday</td><td>10:00 AM – 9:00 PM</td></tr>
+              <tr><td>Friday – Saturday</td><td>10:00 AM – 10:00 PM</td></tr>
+              <tr><td>Sunday</td><td>10:00 AM – 8:00 PM</td></tr>
+            </table>
+            <p class="hours-note">Hours may vary on holidays.</p>
+            <div class="loc-actions">
+              <a
+                href="https://www.google.com/maps/dir//9025+N+Sam+Houston+Pkwy+E+%23200,+Humble,+TX+77396"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-primary"
+              >Get Directions</a>
+              <a href="tel:+18327770494" class="btn btn-outline-dark">Call</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="loc-card">
+          <iframe
+            src="https://maps.google.com/maps?q=1711+Texas+Pkwy,+Missouri+City,+TX+77489&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Smokesense Missouri City location map"
+          ></iframe>
+          <div class="loc-card-body">
+            <p class="loc-card-name">Missouri City</p>
+            <p class="loc-card-addr">1711 Texas Pkwy, Missouri City, TX 77489</p>
+            <table class="hours-table">
+              <tr><td>Monday – Thursday</td><td>10:00 AM – 9:00 PM</td></tr>
+              <tr><td>Friday – Saturday</td><td>10:00 AM – 10:00 PM</td></tr>
+              <tr><td>Sunday</td><td>10:00 AM – 8:00 PM</td></tr>
+            </table>
+            <p class="hours-note">Hours may vary on holidays.</p>
+            <div class="loc-actions">
+              <a
+                href="https://www.google.com/maps/dir//1711+Texas+Pkwy,+Missouri+City,+TX+77489"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-primary"
+              >Get Directions</a>
+              <a href="tel:" class="btn btn-outline-dark">Call</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner" id="contact">
+    <div class="container">
+      <h2>Come See Us Today</h2>
+      <p>Walk-ins always welcome.</p>
+      <a href="tel:+" class="btn btn-primary">Call Us</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 <span>Smokesense Smoke Shop</span> &mdash; Humble &amp; Missouri City, TX. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

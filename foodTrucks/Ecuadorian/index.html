@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ecuadorian Kitchen &amp; More | Authentic Food Truck | Houston, TX</title>
+  <meta name="description" content="Houston's most authentic Ecuadorian food truck. Serving Humble, TX and the greater Houston area. Catering available for all events." />
+  <meta property="og:title" content="Ecuadorian Kitchen &amp; More Food Truck | Houston, TX" />
+  <meta property="og:description" content="Authentic Ecuadorian flavors in Houston, TX. Seco de Pollo, Encebollado, Llapingachos &amp; more. Catering available." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & VARIABLES ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --yellow:  #FFD100;
+      --red:     #CE1126;
+      --blue:    #003DA5;
+      --cream:   #FFFBF2;
+      --dark:    #161616;
+      --text:    #2E2E2E;
+      --muted:   #666;
+      --white:   #FFFFFF;
+      --radius:  14px;
+      --shadow:  0 6px 28px rgba(0,0,0,0.13);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; }
+
+    /* ─── ECUADOR STRIPE ─── */
+    .ecuador-stripe {
+      height: 7px;
+      background: linear-gradient(to right,
+        var(--yellow) 0%,   var(--yellow) 50%,
+        var(--blue)   50%,  var(--blue)   75%,
+        var(--red)    75%,  var(--red)    100%
+      );
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 7px; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 3px solid var(--yellow);
+      padding: 0 5%;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
+
+    .nav-logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .nav-logo .sub {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-center a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+    }
+    .nav-center a:hover { color: var(--red); }
+
+    .nav-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--yellow);
+      color: var(--dark);
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .nav-phone:hover { background: var(--red); color: var(--white); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px; height: 3px;
+      background: var(--dark);
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 75px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: -20px;
+      background-image: url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: blur(6px) brightness(0.45);
+      transform: scale(1.08);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(0,61,165,0.35) 0%,
+        rgba(0,0,0,0.2) 45%,
+        rgba(206,17,38,0.35) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+      max-width: 960px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--dark);
+      padding: 7px 22px;
+      border-radius: 50px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s ease 0.1s both;
+    }
+    .hero h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(62px, 11vw, 120px);
+      color: var(--white);
+      line-height: 0.92;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 2px 5px 30px rgba(0,0,0,0.45);
+      margin-bottom: 20px;
+      animation: fadeUp 0.8s ease 0.25s both;
+    }
+    .hero h1 em {
+      color: var(--yellow);
+      font-style: normal;
+      display: block;
+    }
+    .hero-sub {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(16px, 2.5vw, 24px);
+      color: rgba(255,255,255,0.88);
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 44px;
+      animation: fadeUp 0.8s ease 0.4s both;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s ease 0.55s both;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-scroll span {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+    .scroll-dot {
+      width: 24px; height: 40px;
+      border: 2px solid rgba(255,255,255,0.5);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      padding-top: 6px;
+    }
+    .scroll-dot::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: var(--yellow);
+      border-radius: 50%;
+      animation: scrollBounce 1.8s ease-in-out infinite;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      padding: 18px 42px;
+      border-radius: 50px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 3px solid var(--red);
+      transition: all 0.22s;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--red);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      padding: 18px 42px;
+      border-radius: 50px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 3px solid rgba(255,255,255,0.8);
+      transition: all 0.22s;
+      display: inline-block;
+    }
+    .btn-secondary:hover {
+      background: var(--yellow);
+      color: var(--dark);
+      border-color: var(--yellow);
+    }
+    .btn-dark {
+      background: var(--dark);
+      color: var(--white);
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 3px solid var(--dark);
+      transition: all 0.22s;
+      display: inline-block;
+    }
+    .btn-dark:hover {
+      background: var(--yellow);
+      color: var(--dark);
+      border-color: var(--yellow);
+    }
+
+    /* ─── SECTION COMMON ─── */
+    .section { padding: 90px 5%; }
+    .section-tag {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--dark);
+      padding: 5px 18px;
+      border-radius: 50px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .section-center { text-align: center; }
+    .section-center p {
+      font-size: 19px;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 14px auto 0;
+    }
+    h2.display {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(38px, 5.5vw, 60px);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.05;
+      color: var(--dark);
+    }
+    h2.display span { color: var(--red); }
+
+    /* ─── TICKER BANNER ─── */
+    .ticker-wrap {
+      background: var(--red);
+      overflow: hidden;
+      padding: 10px 0;
+    }
+    .ticker-track {
+      display: flex;
+      gap: 0;
+      animation: ticker 28s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-item {
+      font-family: 'Oswald', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--white);
+      padding: 0 40px;
+    }
+    .ticker-item::after {
+      content: '🇪🇨';
+      margin-left: 40px;
+    }
+
+    /* ─── ABOUT ─── */
+    .about { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .about-text h2 { margin-bottom: 22px; }
+    .about-text p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+    .about-text p + p { margin-top: 16px; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .stat {
+      background: var(--cream);
+      border-left: 5px solid var(--yellow);
+      padding: 18px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .stat-number {
+      font-family: 'Anton', sans-serif;
+      font-size: 48px;
+      color: var(--red);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .about-image {
+      position: relative;
+    }
+    .about-image img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .about-flag {
+      position: absolute;
+      bottom: -18px;
+      right: -18px;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      border: 4px solid var(--white);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      background: var(--cream);
+    }
+    .about-img-label {
+      position: absolute;
+      top: 20px; left: 20px;
+      background: var(--yellow);
+      color: var(--dark);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ─── MENU ─── */
+    .menu { background: var(--cream); }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto 54px;
+    }
+    .menu-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .menu-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 14px 48px rgba(0,0,0,0.18);
+    }
+    .menu-card-img-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: var(--cream);
+    }
+    .menu-card-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .menu-card:hover .menu-card-img-wrap img { transform: scale(1.06); }
+    .menu-card-emoji {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 72px;
+      background: linear-gradient(135deg, #fff8e1, #ffecb3);
+      display: none;
+    }
+    .menu-card-body { padding: 22px; }
+    .menu-card-type {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    .menu-card-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--dark);
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+    .menu-card-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ─── GALLERY ─── */
+    .gallery {
+      background: var(--dark);
+      padding: 90px 5%;
+    }
+    .gallery .section-tag { background: var(--red); color: var(--white); }
+    .gallery h2.display { color: var(--white); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 300px 260px;
+      gap: 14px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #222;
+    }
+    .gallery-item:nth-child(1) {
+      grid-row: span 2;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s;
+    }
+    .gallery-item:hover img { transform: scale(1.07); }
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+    .gallery-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    /* Placeholder gallery items */
+    .gallery-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+      border: 2px dashed rgba(255,255,255,0.15);
+      border-radius: var(--radius);
+      gap: 12px;
+    }
+    .gallery-placeholder .ph-icon {
+      font-size: 56px;
+      opacity: 0.5;
+    }
+    .gallery-placeholder .ph-text {
+      font-family: 'Oswald', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ─── LOCATION ─── */
+    .location { background: var(--white); }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .location-info h2 { margin-bottom: 36px; }
+    .location-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 28px;
+    }
+    .loc-icon {
+      width: 52px; height: 52px;
+      min-width: 52px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .loc-text strong {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+    .loc-text p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .hours-rows { margin-top: 6px; }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 16px;
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row .day { color: var(--text); font-weight: 700; }
+    .hours-row .time { color: var(--red); font-weight: 700; }
+    .hours-row.closed .time { color: var(--muted); font-weight: 400; }
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      height: 440px;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; }
+    .location-follow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--cream);
+      border: 2px solid var(--yellow);
+      border-radius: 50px;
+      padding: 12px 22px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 8px;
+    }
+
+    /* ─── CATERING / CONTACT ─── */
+    .contact { background: var(--cream); }
+    .contact-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 50px rgba(0,0,0,0.14);
+    }
+    .contact-head {
+      background: linear-gradient(135deg, var(--blue) 0%, #001f6e 50%, var(--red) 100%);
+      padding: 44px 50px;
+      text-align: center;
+    }
+    .contact-head h2 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(34px, 5vw, 56px);
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .contact-head p {
+      color: rgba(255,255,255,0.82);
+      font-size: 18px;
+    }
+    .contact-head .contact-badges {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .contact-badge {
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+      padding: 5px 16px;
+      border-radius: 50px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .contact-form-body { padding: 48px 52px; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-group { margin-bottom: 22px; }
+    .form-group label {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid #E5E5E5;
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      color: var(--dark);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--yellow);
+      box-shadow: 0 0 0 3px rgba(255,209,0,0.18);
+    }
+    .form-group textarea { height: 130px; resize: vertical; }
+    .form-note {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .form-submit {
+      width: 100%;
+      background: var(--red);
+      color: var(--white);
+      padding: 20px;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.22s;
+    }
+    .form-submit:hover {
+      background: var(--blue);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,61,165,0.3);
+    }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 30px 0 10px;
+    }
+    .form-success .success-icon { font-size: 64px; margin-bottom: 12px; }
+    .form-success h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--dark);
+    }
+    .form-success p { font-size: 17px; color: var(--muted); margin-top: 8px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 64px 5% 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      max-width: 1140px;
+      margin: 0 auto 50px;
+    }
+    .footer-brand h3 {
+      font-family: 'Anton', sans-serif;
+      font-size: 30px;
+      color: var(--yellow);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .footer-brand p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.75;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .social-btn {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+    .social-btn:hover { background: var(--yellow); transform: translateY(-3px); }
+    .footer-col h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--yellow);
+      margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      font-size: 15px;
+      color: rgba(255,255,255,0.62);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--yellow); }
+    .footer-contact-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.62);
+    }
+    .footer-contact-item .icon { font-size: 18px; min-width: 22px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1140px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 14px; color: rgba(255,255,255,0.4); }
+    .footer-flag {
+      display: flex;
+      gap: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 18px;
+    }
+    .footer-flag div { width: 30px; }
+    .flag-y { background: var(--yellow); }
+    .flag-b { background: var(--blue); }
+    .flag-r { background: var(--red); }
+
+    /* ─── FLOATING CALL BTN (mobile) ─── */
+    .float-call {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      z-index: 99;
+      background: var(--red);
+      color: var(--white);
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 6px 24px rgba(206,17,38,0.45);
+      text-decoration: none;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50%       { transform: translateY(10px); opacity: 0.3; }
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 6px 24px rgba(206,17,38,0.45); }
+      50%       { box-shadow: 0 6px 36px rgba(206,17,38,0.75); }
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid, .location-grid { grid-template-columns: 1fr; }
+      .about-image { order: -1; }
+      .about-image img { height: 360px; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 240px 220px 220px;
+      }
+      .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 4%; }
+      .hamburger { display: flex; }
+      .nav-center {
+        display: none;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--white);
+        flex-direction: column;
+        padding: 22px 5%;
+        gap: 18px;
+        border-bottom: 3px solid var(--yellow);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+      }
+      .nav-center.open { display: flex; }
+      .nav-phone { font-size: 15px; padding: 9px 16px; }
+
+      .hero h1 { font-size: 58px; }
+      .hero-sub { font-size: 14px; letter-spacing: 2px; }
+      .btn-primary, .btn-secondary { font-size: 17px; padding: 16px 28px; }
+
+      .section { padding: 70px 5%; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item { height: 180px; }
+      .gallery-item:nth-child(1) { grid-column: span 2; height: 220px; }
+
+      .contact-form-body { padding: 28px 22px; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-head { padding: 32px 24px; }
+
+      .float-call { display: flex; }
+      .hero-scroll { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ecuador stripe -->
+  <div class="ecuador-stripe"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo">
+      Ecuadorian Kitchen &amp; More
+      <span class="sub">Comida Ecuatoriana &middot; Houston, TX</span>
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-center" id="nav-links">
+      <li><a href="#menu" onclick="closeMenu()">Menu</a></li>
+      <li><a href="#gallery" onclick="closeMenu()">Gallery</a></li>
+      <li><a href="#location" onclick="closeMenu()">Location</a></li>
+      <li><a href="#catering" onclick="closeMenu()">Catering</a></li>
+    </ul>
+
+    <a href="tel:+18320000000" class="nav-phone">&#128222;&nbsp;(832) 000-0000</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">&#127466;&#127464;&nbsp; Houston's Authentic Ecuadorian Food Truck</div>
+      <h1>
+        Ecuadorian
+        <em>Kitchen</em>
+        &amp; More
+      </h1>
+      <p class="hero-sub">Authentic Flavors &nbsp;&middot;&nbsp; Humble, Texas &nbsp;&middot;&nbsp; Greater Houston</p>
+      <div class="hero-ctas">
+        <a href="#menu" class="btn-primary">Explore Our Menu</a>
+        <a href="#catering" class="btn-secondary">Book Catering</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="ticker">
+      <span class="ticker-item">Seco de Pollo</span>
+      <span class="ticker-item">Encebollado</span>
+      <span class="ticker-item">Llapingachos</span>
+      <span class="ticker-item">Hornado de Chancho</span>
+      <span class="ticker-item">Ceviche de Camar&oacute;n</span>
+      <span class="ticker-item">Patacones</span>
+      <span class="ticker-item">Catering Available</span>
+      <span class="ticker-item">Serving Greater Houston</span>
+      <span class="ticker-item">Seco de Pollo</span>
+      <span class="ticker-item">Encebollado</span>
+      <span class="ticker-item">Llapingachos</span>
+      <span class="ticker-item">Hornado de Chancho</span>
+      <span class="ticker-item">Ceviche de Camar&oacute;n</span>
+      <span class="ticker-item">Patacones</span>
+      <span class="ticker-item">Catering Available</span>
+      <span class="ticker-item">Serving Greater Houston</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section about fade-in" id="about">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-tag">Our Story</div>
+        <h2 class="display">Straight From <span>Ecuador</span><br>to Houston</h2>
+        <p>Born from a deep love of Ecuadorian culture and tradition, our food truck brings the vibrant, bold flavors of Ecuador directly to the streets of Humble and Greater Houston. Every single dish is made from authentic family recipes passed down through generations.</p>
+        <p>Whether you're Ecuadorian and craving a taste of home, or discovering our cuisine for the very first time &mdash; every bite tells a story of flavor, culture, and pride.</p>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Authentic Recipes</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Years Serving Houston</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Menu Items</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">Events Catered</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-image">
+        <span class="about-img-label">Our Truck &mdash; Humble, TX</span>
+        <img
+          src="https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?auto=format&fit=crop&w=900&q=80"
+          alt="Ecuadorian Kitchen &amp; More Food Truck"
+          loading="lazy"
+          onerror="this.style.background='#f5c518';this.alt='';this.style.minHeight='520px'"
+        />
+        <div class="about-flag">&#127466;&#127464;</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section menu fade-in" id="menu">
+    <div class="section-center" style="margin-bottom:56px">
+      <div class="section-tag">What We Serve</div>
+      <h2 class="display">Our Menu <span>Favorites</span></h2>
+      <p>Handcrafted with authentic Ecuadorian spices and techniques. Made fresh every single day.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <!-- Card 1 -->
+      <div class="menu-card">
+        <div class="menu-card-img-wrap">
+          <img
+            src="https://source.unsplash.com/700x440/?chicken-stew,latin-food,rice-chicken"
+            alt="Seco de Pollo"
+            loading="lazy"
+            onerror="this.parentElement.querySelector('.menu-card-emoji').style.display='flex';this.style.display='none';"
+          />
+          <div class="menu-card-emoji">&#127831;</div>
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-type">Main Dish &mdash; Plato Principal</div>
+          <div class="menu-card-name">Seco de Pollo</div>
+          <p class="menu-card-desc">Tender chicken slow-cooked in a rich Ecuadorian stew of beer, cilantro, tomato, and aji amarillo. Served with rice, fried plantains, and avocado.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="menu-card">
+        <div class="menu-card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1608835291093-394b0c943a75?auto=format&fit=crop&w=700&q=80"
+            alt="Encebollado"
+            loading="lazy"
+            onerror="this.parentElement.querySelector('.menu-card-emoji').style.display='flex';this.style.display='none';"
+          />
+          <div class="menu-card-emoji">&#127844;</div>
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-type">Soup &mdash; Sopa</div>
+          <div class="menu-card-name">Encebollado</div>
+          <p class="menu-card-desc">Ecuador's most iconic soup. Albacore tuna, yuca, tomato, cilantro, and pickled red onion in a bold broth. A national treasure in every bowl.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="menu-card">
+        <div class="menu-card-img-wrap">
+          <img
+            src="https://source.unsplash.com/700x440/?empanadas,fried-pastry,latin-snack"
+            alt="Llapingachos"
+            loading="lazy"
+            onerror="this.parentElement.querySelector('.menu-card-emoji').style.display='flex';this.style.display='none';"
+          />
+          <div class="menu-card-emoji">&#129363;</div>
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-type">Appetizer / Side &mdash; Entrada</div>
+          <div class="menu-card-name">Llapingachos</div>
+          <p class="menu-card-desc">Crispy pan-fried potato cakes stuffed with cheese, served with peanut sauce, fried egg, chorizo, and a fresh tomato curtido salad.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="menu-card">
+        <div class="menu-card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80"
+            alt="Hornado"
+            loading="lazy"
+            onerror="this.parentElement.querySelector('.menu-card-emoji').style.display='flex';this.style.display='none';"
+          />
+          <div class="menu-card-emoji">&#129385;</div>
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-type">Main Dish &mdash; Plato Principal</div>
+          <div class="menu-card-name">Hornado de Chancho</div>
+          <p class="menu-card-desc">Slow-roasted whole pork, crisped to perfection in Ecuadorian spices. Served with mote, llapingachos, and aji sauce. A true feast.</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="menu-card">
+        <div class="menu-card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?auto=format&fit=crop&w=700&q=80"
+            alt="Ceviche de Camarón"
+            loading="lazy"
+            onerror="this.parentElement.querySelector('.menu-card-emoji').style.display='flex';this.style.display='none';"
+          />
+          <div class="menu-card-emoji">&#129424;</div>
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-type">Ceviche &mdash; Mariscos</div>
+          <div class="menu-card-name">Ceviche de Camar&oacute;n</div>
+          <p class="menu-card-desc">Fresh shrimp cured in lime juice, tomato, onion, and cilantro. Served with chifles (plantain chips) and canguil. Bright, bold, refreshing.</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="menu-card">
+        <div class="menu-card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=700&q=80"
+            alt="Patacones"
+            loading="lazy"
+            onerror="this.parentElement.querySelector('.menu-card-emoji').style.display='flex';this.style.display='none';"
+          />
+          <div class="menu-card-emoji">&#127807;</div>
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-type">Snack / Side &mdash; Bocadillo</div>
+          <div class="menu-card-name">Patacones con Todo</div>
+          <p class="menu-card-desc">Twice-fried green plantain rounds, crispy on the outside, loaded with your choice of shrimp ceviche, pulled pork, or black bean &amp; avocado.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center">
+      <a href="#catering" class="btn-dark">Full Menu Available at the Truck &mdash; Ask Us About Catering</a>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery fade-in" id="gallery">
+    <div class="section-center" style="margin-bottom:52px">
+      <div class="section-tag">Photos</div>
+      <h2 class="display" style="color:var(--white)">Our <span>Food, Truck</span><br>&amp; People</h2>
+    </div>
+
+    <div class="gallery-grid">
+
+      <!-- Large feature item: truck -->
+      <div class="gallery-item">
+        <img
+          src="https://images.unsplash.com/photo-1626190168029-dbb07a4d52ee?auto=format&fit=crop&w=900&q=80"
+          alt="Our Food Truck"
+          loading="lazy"
+          onerror="this.style.display='none';this.parentElement.classList.add('gallery-placeholder');this.parentElement.innerHTML='<div class=\'ph-icon\'>&#127829;</div><div class=\'ph-text\'>Truck Photo</div>'"
+        />
+        <div class="gallery-item-overlay">
+          <span class="gallery-label">Our Truck</span>
+        </div>
+      </div>
+
+      <!-- Food photo 1 -->
+      <div class="gallery-item">
+        <img
+          src="https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?auto=format&fit=crop&w=700&q=80"
+          alt="Fresh Food"
+          loading="lazy"
+          onerror="this.style.display='none';this.parentElement.classList.add('gallery-placeholder');this.parentElement.innerHTML='<div class=\'ph-icon\'>&#127859;</div><div class=\'ph-text\'>Food Photo</div>'"
+        />
+        <div class="gallery-item-overlay">
+          <span class="gallery-label">Fresh Plates</span>
+        </div>
+      </div>
+
+      <!-- Customers -->
+      <div class="gallery-item">
+        <img
+          src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=700&q=80"
+          alt="Happy Customers"
+          loading="lazy"
+          onerror="this.style.display='none';this.parentElement.classList.add('gallery-placeholder');this.parentElement.innerHTML='<div class=\'ph-icon\'>&#128106;</div><div class=\'ph-text\'>Customers</div>'"
+        />
+        <div class="gallery-item-overlay">
+          <span class="gallery-label">Happy Customers</span>
+        </div>
+      </div>
+
+      <!-- Staff / Kitchen -->
+      <div class="gallery-item">
+        <img
+          src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=700&q=80"
+          alt="Our Kitchen Staff"
+          loading="lazy"
+          onerror="this.style.display='none';this.parentElement.classList.add('gallery-placeholder');this.parentElement.innerHTML='<div class=\'ph-icon\'>&#128104;&#8205;&#127859;</div><div class=\'ph-text\'>Staff &amp; Kitchen</div>'"
+        />
+        <div class="gallery-item-overlay">
+          <span class="gallery-label">Our Team</span>
+        </div>
+      </div>
+
+      <!-- Food photo 2 -->
+      <div class="gallery-item">
+        <img
+          src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&q=80"
+          alt="Catering Setup"
+          loading="lazy"
+          onerror="this.style.display='none';this.parentElement.classList.add('gallery-placeholder');this.parentElement.innerHTML='<div class=\'ph-icon\'>&#129346;</div><div class=\'ph-text\'>Catering</div>'"
+        />
+        <div class="gallery-item-overlay">
+          <span class="gallery-label">Events &amp; Catering</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="section location fade-in" id="location">
+    <div class="location-grid">
+      <div class="location-info">
+        <div class="section-tag">Find Us</div>
+        <h2 class="display">Location &amp; <span>Hours</span></h2>
+
+        <div class="location-item">
+          <div class="loc-icon">&#128205;</div>
+          <div class="loc-text">
+            <strong>Where We Park</strong>
+            <p>Humble, TX &mdash; Greater Houston Area<br>Follow our social media for daily location updates.</p>
+            <a href="https://maps.google.com/?q=Humble+TX" target="_blank" rel="noopener" class="location-follow" style="margin-top:10px">
+              &#128507;&nbsp; Get Directions
+            </a>
+          </div>
+        </div>
+
+        <div class="location-item">
+          <div class="loc-icon">&#128336;</div>
+          <div class="loc-text">
+            <strong>Hours of Operation</strong>
+            <div class="hours-rows">
+              <div class="hours-row"><span class="day">Tuesday &ndash; Thursday</span><span class="time">11:00 AM &ndash; 8:00 PM</span></div>
+              <div class="hours-row"><span class="day">Friday &ndash; Saturday</span><span class="time">11:00 AM &ndash; 9:00 PM</span></div>
+              <div class="hours-row"><span class="day">Sunday</span><span class="time">12:00 PM &ndash; 7:00 PM</span></div>
+              <div class="hours-row closed"><span class="day">Monday</span><span class="time">Closed</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="location-item">
+          <div class="loc-icon">&#128222;</div>
+          <div class="loc-text">
+            <strong>Call or Text Us</strong>
+            <p><a href="tel:+18320000000" style="color:var(--red);font-size:20px;font-family:'Oswald',sans-serif;font-weight:700">(832) 000-0000</a></p>
+          </div>
+        </div>
+
+        <div class="location-item">
+          <div class="loc-icon">&#128279;</div>
+          <div class="loc-text">
+            <strong>Follow for Daily Location</strong>
+            <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap">
+              <a href="#" class="location-follow">&#128248; Instagram</a>
+              <a href="#" class="location-follow">&#128442; Facebook</a>
+              <a href="#" class="location-follow">&#9654; TikTok</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=Humble,+TX+77338&output=embed&z=13"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ecuadorian Kitchen &amp; More Location &mdash; Humble, TX"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATERING / CONTACT -->
+  <section class="section contact fade-in" id="catering">
+    <div class="contact-wrap">
+      <div class="contact-head">
+        <h2>Catering &amp; Contact</h2>
+        <p>Birthday parties, corporate events, community festivals &mdash; we bring the food truck to you.</p>
+        <div class="contact-badges">
+          <span class="contact-badge">&#127874; Birthday Parties</span>
+          <span class="contact-badge">&#128188; Corporate Events</span>
+          <span class="contact-badge">&#127881; Community Festivals</span>
+          <span class="contact-badge">&#127979; School Events</span>
+        </div>
+      </div>
+
+      <div class="contact-form-body">
+        <form id="cateringForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Full Name *</label>
+              <input type="text" id="fname" name="full_name" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" placeholder="(832) 000-0000" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="event_type">Event Type *</label>
+              <select id="event_type" name="event_type" required>
+                <option value="" disabled selected>Select event type</option>
+                <option value="birthday">Birthday Party</option>
+                <option value="wedding">Wedding</option>
+                <option value="corporate">Corporate Event</option>
+                <option value="community">Community Festival</option>
+                <option value="private">Private Party</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="event_date">Event Date *</label>
+              <input type="date" id="event_date" name="event_date" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guests">Expected Guests</label>
+              <select id="guests" name="guests">
+                <option value="" disabled selected>How many guests?</option>
+                <option value="under25">Under 25</option>
+                <option value="25-50">25 &ndash; 50</option>
+                <option value="50-100">50 &ndash; 100</option>
+                <option value="100-200">100 &ndash; 200</option>
+                <option value="200+">200+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="location">Event City / Area</label>
+              <input type="text" id="location" name="location" placeholder="e.g. Humble, Kingwood, Houston" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell Us About Your Event</label>
+            <textarea id="message" name="message" placeholder="Any details, special requests, or questions..."></textarea>
+          </div>
+
+          <p class="form-note">We'll respond within 24 hours. For urgent inquiries, call us at <strong>(832) 000-0000</strong>.</p>
+
+          <button type="submit" class="form-submit">Send Catering Request &#8594;</button>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">&#127881;</div>
+          <h3>Request Received!</h3>
+          <p>We'll reach out to you within 24 hours to discuss your event.<br>For quicker response, call us at <strong>(832) 000-0000</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Ecuadorian Kitchen &amp; More</h3>
+        <p>Bringing the authentic flavors of Ecuador to the streets of Humble, TX and Greater Houston. Every dish made with love, tradition, and real Ecuadorian ingredients.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Instagram">&#128247;</a>
+          <a href="#" class="social-btn" aria-label="Facebook">&#128441;</a>
+          <a href="#" class="social-btn" aria-label="TikTok">&#9654;</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#menu">Our Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#location">Location &amp; Hours</a></li>
+          <li><a href="#catering">Book Catering</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <span class="icon">&#128222;</span>
+          <span>(832) 000-0000</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon">&#128205;</span>
+          <span>Humble, TX<br>Greater Houston Area</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon">&#128336;</span>
+          <span>Tue&ndash;Sun<br>11 AM &ndash; 9 PM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Ecuadorian Kitchen &amp; More. All rights reserved.</p>
+      <div class="footer-flag">
+        <div class="flag-y"></div>
+        <div class="flag-b"></div>
+        <div class="flag-r"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating call button (mobile) -->
+  <a href="tel:+18320000000" class="float-call" aria-label="Call us">&#128222;</a>
+
+  <script>
+    // ── NAV: scroll shadow + hamburger ──
+    const navbar    = document.getElementById('navbar');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    function closeMenu() {
+      navLinks.classList.remove('open');
+    }
+
+    // ── SCROLL FADE-IN ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── FORM SUBMIT ──
+    document.getElementById('cateringForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const required = this.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        if (!field.value.trim()) {
+          field.style.borderColor = 'var(--red)';
+          valid = false;
+        } else {
+          field.style.borderColor = '#E5E5E5';
+        }
+      });
+
+      if (!valid) {
+        return;
+      }
+
+      // Simulate form submission
+      this.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    });
+
+    // Re-validate on input
+    document.querySelectorAll('#cateringForm [required]').forEach(field => {
+      field.addEventListener('input', () => {
+        if (field.value.trim()) {
+          field.style.borderColor = '#E5E5E5';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
