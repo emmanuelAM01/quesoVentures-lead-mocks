@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smoke Villa | Texas Smoke Shop — Humble, Spring, Magnolia, Montgomery, Splendora & Rosenberg</title>
+  <meta name="description" content="Smoke Villa is Texas' premier smoke shop with 6 locations across Greater Houston and surrounding areas. Diverse inventory, knowledgeable staff, and a rewarding loyalty program. Open 7 days a week.">
+  <meta name="keywords" content="smoke shop Texas, smoke shop Humble TX, smoke shop Spring TX, smoke shop Magnolia TX, smoke shop Montgomery TX, smoke shop Splendora TX, smoke shop Rosenberg TX, vape shop Houston, tobacco shop Texas">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://smokevilla.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Smoke Villa | Texas' Premier Smoke Shop">
+  <meta property="og:description" content="Six Texas locations. Diverse inventory, knowledgeable staff, and a loyalty program that gives back. Open 7 days a week.">
+  <meta property="og:image" content="smokeVillaLogo.jpg">
+  <meta property="og:url" content="https://smokevilla.com/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:            #0a0a0a;
+      --surface:       #111111;
+      --surface-2:     #161616;
+      --green-dark:    #1a3a1a;
+      --green-mid:     #2a5230;
+      --green-accent:  #3a6b3a;
+      --green-bright:  #5a9e5a;
+      --brown:         #6b3f1e;
+      --text:          #f0ede8;
+      --text-muted:    #888888;
+      --text-dim:      #444444;
+      --border:        #1d1d1d;
+      --border-green:  rgba(58, 107, 58, 0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 66px;
+      background: rgba(10, 10, 10, 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-bottom-color: var(--border); }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav-badge img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+    .nav-wordmark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.73rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      background: var(--green-mid);
+      padding: 0.52rem 1.3rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--green-accent); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text);
+      transition: all 0.25s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 66px;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 10, 0.98);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.75rem 2.5rem;
+      z-index: 99;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 65% 55% at 50% 45%, rgba(30, 62, 30, 0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-seal {
+      width: 172px;
+      height: 172px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2.75rem;
+      position: relative;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.08),
+        0 0 50px rgba(42, 82, 48, 0.4),
+        0 0 100px rgba(42, 82, 48, 0.15);
+    }
+    .hero-seal img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+    }
+
+    .hero-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.8rem, 10vw, 7.5rem);
+      line-height: 0.93;
+      letter-spacing: 0.025em;
+      color: var(--text);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-sub {
+      font-size: 0.85rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2.75rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text);
+      background: var(--green-mid);
+      padding: 0.9rem 2.75rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--green-accent);
+      transform: translateY(-2px);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .scroll-hint-line {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, var(--text-dim), transparent);
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:0.25} 50%{opacity:0.9} }
+
+    /* ── SHARED SECTION STYLES ── */
+    section { padding: 6.5rem 2rem; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.6rem, 5.5vw, 4rem);
+      letter-spacing: 0.04em;
+      text-align: center;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-rule {
+      width: 36px;
+      height: 2px;
+      background: var(--green-accent);
+      margin: 0 auto 3.75rem;
+    }
+
+    /* ── PILLARS ── */
+    #why { background: var(--surface); }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .pillar-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border-green);
+      border-radius: 6px;
+      padding: 2.75rem 2rem 2.25rem;
+      text-align: center;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+    .pillar-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--green-accent);
+      box-shadow: 0 12px 40px rgba(30, 62, 30, 0.25);
+    }
+
+    .pillar-icon {
+      width: 44px;
+      height: 44px;
+      color: var(--green-bright);
+      margin: 0 auto 1.5rem;
+      display: block;
+    }
+
+    .pillar-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.07em;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .pillar-desc {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    /* ── LOYALTY ── */
+    #loyalty {
+      background: var(--green-dark);
+      border-top: 1px solid rgba(58, 107, 58, 0.18);
+      border-bottom: 1px solid rgba(58, 107, 58, 0.18);
+      text-align: center;
+    }
+    #loyalty .section-rule { background: rgba(240, 237, 232, 0.2); }
+
+    .loyalty-icon {
+      width: 52px;
+      height: 52px;
+      color: rgba(240, 237, 232, 0.45);
+      margin: 0 auto 2rem;
+      display: block;
+    }
+
+    .loyalty-body {
+      max-width: 540px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(240, 237, 232, 0.65);
+      line-height: 1.85;
+    }
+
+    /* <!-- LOYALTY CTA PLACEHOLDER: uncomment and add href when loyalty program URL is ready -->
+    .btn-loyalty {
+      display: inline-block;
+      margin-top: 2.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text);
+      border: 1px solid rgba(240,237,232,0.3);
+      padding: 0.9rem 2.5rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    */
+
+    /* ── LOCATIONS ── */
+    #locations { background: var(--bg); }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .location-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.75rem;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+    .location-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--green-mid);
+      box-shadow: 0 10px 36px rgba(30, 62, 30, 0.28);
+    }
+
+    .location-city {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.07em;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .location-address {
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.4rem;
+    }
+
+    .hours-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green-bright);
+      margin-bottom: 0.55rem;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+    .hours-table td {
+      font-size: 0.77rem;
+      padding: 3px 0;
+      color: var(--text-muted);
+      vertical-align: top;
+    }
+    .hours-table td:first-child {
+      font-weight: 500;
+      color: var(--text);
+      width: 46%;
+      padding-right: 0.5rem;
+    }
+
+    .directions-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.71rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green-bright);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .directions-link:hover { color: var(--text); }
+    .directions-link svg { flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-seal {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.1rem;
+    }
+    .footer-seal img {
+      width: 62px;
+      height: 62px;
+      object-fit: contain;
+    }
+
+    .footer-tagline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.2em;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .footer-socials a {
+      color: var(--text-dim);
+      transition: color 0.2s;
+      line-height: 0;
+    }
+    .footer-socials a:hover { color: var(--text-muted); }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+    }
+
+    /* ── RESPONSIVE ── */
+
+    /* Tablet portrait + landscape phones (768px – 900px) */
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .pillars-grid  { grid-template-columns: 1fr 1fr; }
+      .locations-grid { grid-template-columns: 1fr 1fr; }
+      /* Center the orphaned 3rd pillar card in the 2-col grid */
+      .pillar-card:last-child {
+        grid-column: 1 / -1;
+        max-width: calc(50% - 0.625rem);
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    /* Phone portrait (≤ 560px) */
+    @media (max-width: 560px) {
+      nav { padding: 0 1.25rem; }
+      section { padding: 4.5rem 1.25rem; }
+      .pillars-grid  { grid-template-columns: 1fr; }
+      .pillar-card:last-child { grid-column: auto; max-width: 100%; }
+      .locations-grid { grid-template-columns: 1fr; }
+      .hero-seal {
+        width: 130px;
+        height: 130px;
+        margin-bottom: 2rem;
+      }
+      .hero-seal img { width: 112px; height: 112px; }
+      .hero-sub {
+        font-size: 0.78rem;
+        letter-spacing: 0.1em;
+      }
+      .directions-link { padding: 0.55rem 0; }
+    }
+
+    /* Phone landscape — short viewport */
+    @media (orientation: landscape) and (max-height: 500px) {
+      #hero {
+        min-height: auto;
+        padding: 5rem 2rem 3rem;
+      }
+      .hero-seal {
+        width: 96px;
+        height: 96px;
+        margin-bottom: 1.25rem;
+      }
+      .hero-seal img { width: 82px; height: 82px; }
+      .hero-headline {
+        font-size: clamp(2.4rem, 7vh, 3.2rem);
+        margin-bottom: 1rem;
+      }
+      .hero-sub { margin-bottom: 1.75rem; }
+      .scroll-hint { display: none; }
+    }
+  </style>
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Smoke Villa",
+    "description": "Texas smoke shop chain with 6 locations offering diverse inventory, expert staff, and a rewarding loyalty program.",
+    "url": "https://smokevilla.com",
+    "logo": "https://smokevilla.com/smokeVillaLogo.jpg",
+    "areaServed": {
+      "@type": "State",
+      "name": "Texas"
+    }
+  }
+  </script>
+
+  <!-- LocalBusiness Schema — all 6 locations -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Smoke Villa — Humble",
+      "url": "https://smokevilla.com/#locations",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10711 N Sam Houston Pkwy E Ste A",
+        "addressLocality": "Humble",
+        "addressRegion": "TX",
+        "postalCode": "77396",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Sunday"],
+          "opens": "09:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Thursday","Friday","Saturday"],
+          "opens": "09:00",
+          "closes": "00:00"
+        }
+      ],
+      "parentOrganization": { "@type": "Organization", "name": "Smoke Villa" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Smoke Villa — Splendora",
+      "url": "https://smokevilla.com/#locations",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "26796 FM 2090 Unit B",
+        "addressLocality": "Splendora",
+        "addressRegion": "TX",
+        "postalCode": "77372",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Sunday"],
+          "opens": "09:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Thursday","Friday","Saturday"],
+          "opens": "09:00",
+          "closes": "23:00"
+        }
+      ],
+      "parentOrganization": { "@type": "Organization", "name": "Smoke Villa" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Smoke Villa — Spring",
+      "url": "https://smokevilla.com/#locations",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "30668 Aldine Westfield Rd STE A",
+        "addressLocality": "Spring",
+        "addressRegion": "TX",
+        "postalCode": "77386",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Sunday"],
+          "opens": "09:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Thursday","Friday","Saturday"],
+          "opens": "09:00",
+          "closes": "23:00"
+        }
+      ],
+      "parentOrganization": { "@type": "Organization", "name": "Smoke Villa" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Smoke Villa — Montgomery",
+      "url": "https://smokevilla.com/#locations",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "14650 FM 2854 Rd Unit A",
+        "addressLocality": "Montgomery",
+        "addressRegion": "TX",
+        "postalCode": "77316",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Sunday"],
+          "opens": "09:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Thursday","Friday","Saturday"],
+          "opens": "09:00",
+          "closes": "23:00"
+        }
+      ],
+      "parentOrganization": { "@type": "Organization", "name": "Smoke Villa" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Smoke Villa — Magnolia",
+      "url": "https://smokevilla.com/#locations",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "18535 FM 1488 STE 115",
+        "addressLocality": "Magnolia",
+        "addressRegion": "TX",
+        "postalCode": "77354",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Sunday"],
+          "opens": "09:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Thursday","Friday","Saturday"],
+          "opens": "09:00",
+          "closes": "00:00"
+        }
+      ],
+      "parentOrganization": { "@type": "Organization", "name": "Smoke Villa" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Smoke Villa — Rosenberg",
+      "url": "https://smokevilla.com/#locations",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "535 Minonite Rd Suite 106",
+        "addressLocality": "Rosenberg",
+        "addressRegion": "TX",
+        "postalCode": "77469",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "09:00",
+          "closes": "22:00"
+        }
+      ],
+      "parentOrganization": { "@type": "Organization", "name": "Smoke Villa" }
+    }
+  ]
+  </script>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-brand">
+      <div class="nav-badge">
+        <img src="smokeVillaLogo.jpg" alt="Smoke Villa">
+      </div>
+      <span class="nav-wordmark">Smoke Villa</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#loyalty">Loyalty</a></li>
+      <li><a href="#locations">Locations</a></li>
+    </ul>
+    <a href="#locations" class="nav-cta">Find Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#why"       onclick="closeMobile()">Why Us</a>
+    <a href="#loyalty"   onclick="closeMobile()">Loyalty</a>
+    <a href="#locations" onclick="closeMobile()">Locations</a>
+  </div>
+
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-seal">
+      <img src="smokeVillaLogo.jpg" alt="Smoke Villa Smoke Shop — Texas">
+    </div>
+    <h1 class="hero-headline">Your Neighborhood<br>Smoke Shop.</h1>
+    <p class="hero-sub">Six Texas locations. One standard.</p>
+    <a href="#locations" class="btn-primary">Find Your Location</a>
+    <div class="scroll-hint">
+      <div class="scroll-hint-line"></div>
+    </div>
+  </section>
+
+
+  <!-- WHY SMOKE VILLA -->
+  <section id="why">
+    <div class="container">
+      <h2 class="section-title">Why Smoke Villa</h2>
+      <div class="section-rule"></div>
+      <div class="pillars-grid">
+
+        <div class="pillar-card">
+          <!-- Diverse Selection icon: grid of 4 squares -->
+          <svg class="pillar-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4"  y="4"  width="16" height="16" rx="2"/>
+            <rect x="24" y="4"  width="16" height="16" rx="2"/>
+            <rect x="4"  y="24" width="16" height="16" rx="2"/>
+            <rect x="24" y="24" width="16" height="16" rx="2"/>
+          </svg>
+          <h3 class="pillar-title">Diverse Selection</h3>
+          <p class="pillar-desc">From vapes and wraps to glass, accessories, and everything in between — our shelves are stocked wide. Whatever you came for, we have it.</p>
+        </div>
+
+        <div class="pillar-card">
+          <!-- Knowledgeable Staff icon: person with check -->
+          <svg class="pillar-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="22" cy="14" r="8"/>
+            <path d="M8 38c0-7.732 6.268-14 14-14s14 6.268 14 14"/>
+            <path d="M17 14l3 3 6-6"/>
+          </svg>
+          <h3 class="pillar-title">Knowledgeable Staff</h3>
+          <p class="pillar-desc">Our staff knows the products — not just the prices. Come in with a question and leave with the right answer, every single time.</p>
+        </div>
+
+        <div class="pillar-card">
+          <!-- Efficient Service icon: clock -->
+          <svg class="pillar-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="22" cy="22" r="17"/>
+            <path d="M22 11v11l7 4"/>
+          </svg>
+          <h3 class="pillar-title">In and Out</h3>
+          <p class="pillar-desc">We respect your time. Efficient service, organized shelves, and staff that moves with purpose. Get what you need and get on with your day.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- LOYALTY -->
+  <section id="loyalty">
+    <div class="container">
+      <!-- Gift / reward icon -->
+      <svg class="loyalty-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="6" y="20" width="40" height="6" rx="2"/>
+        <rect x="10" y="26" width="32" height="20" rx="2"/>
+        <path d="M26 20V46"/>
+        <path d="M26 20c0 0-6-2-6-8s6-6 6 0"/>
+        <path d="M26 20c0 0 6-2 6-8s-6-6-6 0"/>
+      </svg>
+      <h2 class="section-title">A Program That Gives Back</h2>
+      <div class="section-rule"></div>
+      <p class="loyalty-body">
+        At Smoke Villa, your loyalty doesn't go unnoticed. Our rewards program is built to put something real back in your pocket — the more you shop, the more you earn. Ask any of our staff about the program at your nearest location.
+      </p>
+      <!-- LOYALTY CTA: add <a> button pointing to sign-up page when available -->
+    </div>
+  </section>
+
+
+  <!-- LOCATIONS -->
+  <section id="locations">
+    <div class="container">
+      <h2 class="section-title">Find Us</h2>
+      <div class="section-rule"></div>
+      <div class="locations-grid">
+
+        <!-- Humble -->
+        <div class="location-card">
+          <h3 class="location-city">Humble</h3>
+          <address class="location-address">
+            10711 N Sam Houston Pkwy E Ste A<br>Humble, TX 77396
+          </address>
+          <p class="hours-label">Hours</p>
+          <table class="hours-table">
+            <tbody>
+              <tr><td>Mon – Wed</td><td>9 AM – 10 PM</td></tr>
+              <tr><td>Thu – Sat</td><td>9 AM – 12 AM</td></tr>
+              <tr><td>Sun</td><td>9 AM – 10 PM</td></tr>
+            </tbody>
+          </table>
+          <a class="directions-link" href="https://www.google.com/maps/search/?api=1&query=10711+N+Sam+Houston+Pkwy+E+Ste+A%2C+Humble%2C+TX+77396" target="_blank" rel="noopener noreferrer">
+            Get Directions
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8L8 2M8 2H4M8 2v4"/></svg>
+          </a>
+        </div>
+
+        <!-- Splendora -->
+        <div class="location-card">
+          <h3 class="location-city">Splendora</h3>
+          <address class="location-address">
+            26796 FM 2090 Unit B<br>Splendora, TX 77372
+          </address>
+          <p class="hours-label">Hours</p>
+          <table class="hours-table">
+            <tbody>
+              <tr><td>Mon – Wed</td><td>9 AM – 10 PM</td></tr>
+              <tr><td>Thu – Sat</td><td>9 AM – 11 PM</td></tr>
+              <tr><td>Sun</td><td>9 AM – 10 PM</td></tr>
+            </tbody>
+          </table>
+          <a class="directions-link" href="https://www.google.com/maps/search/?api=1&query=26796+FM+2090+Unit+B%2C+Splendora%2C+TX+77372" target="_blank" rel="noopener noreferrer">
+            Get Directions
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8L8 2M8 2H4M8 2v4"/></svg>
+          </a>
+        </div>
+
+        <!-- Spring -->
+        <div class="location-card">
+          <h3 class="location-city">Spring</h3>
+          <address class="location-address">
+            30668 Aldine Westfield Rd STE A<br>Spring, TX 77386
+          </address>
+          <p class="hours-label">Hours</p>
+          <table class="hours-table">
+            <tbody>
+              <tr><td>Mon – Wed</td><td>9 AM – 10 PM</td></tr>
+              <tr><td>Thu – Sat</td><td>9 AM – 11 PM</td></tr>
+              <tr><td>Sun</td><td>9 AM – 10 PM</td></tr>
+            </tbody>
+          </table>
+          <a class="directions-link" href="https://www.google.com/maps/search/?api=1&query=30668+Aldine+Westfield+Rd+STE+A%2C+Spring%2C+TX+77386" target="_blank" rel="noopener noreferrer">
+            Get Directions
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8L8 2M8 2H4M8 2v4"/></svg>
+          </a>
+        </div>
+
+        <!-- Montgomery -->
+        <div class="location-card">
+          <h3 class="location-city">Montgomery</h3>
+          <address class="location-address">
+            14650 FM 2854 Rd Unit A<br>Montgomery, TX 77316
+          </address>
+          <p class="hours-label">Hours</p>
+          <table class="hours-table">
+            <tbody>
+              <tr><td>Mon – Wed</td><td>9 AM – 10 PM</td></tr>
+              <tr><td>Thu – Sat</td><td>9 AM – 11 PM</td></tr>
+              <tr><td>Sun</td><td>9 AM – 10 PM</td></tr>
+            </tbody>
+          </table>
+          <a class="directions-link" href="https://www.google.com/maps/search/?api=1&query=14650+FM+2854+Rd+Unit+A%2C+Montgomery%2C+TX+77316" target="_blank" rel="noopener noreferrer">
+            Get Directions
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8L8 2M8 2H4M8 2v4"/></svg>
+          </a>
+        </div>
+
+        <!-- Magnolia -->
+        <div class="location-card">
+          <h3 class="location-city">Magnolia</h3>
+          <address class="location-address">
+            18535 FM 1488 STE 115<br>Magnolia, TX 77354
+          </address>
+          <p class="hours-label">Hours</p>
+          <table class="hours-table">
+            <tbody>
+              <tr><td>Mon – Wed</td><td>9 AM – 10 PM</td></tr>
+              <tr><td>Thu – Sat</td><td>9 AM – 12 AM</td></tr>
+              <tr><td>Sun</td><td>9 AM – 10 PM</td></tr>
+            </tbody>
+          </table>
+          <a class="directions-link" href="https://www.google.com/maps/search/?api=1&query=18535+FM+1488+STE+115%2C+Magnolia%2C+TX+77354" target="_blank" rel="noopener noreferrer">
+            Get Directions
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8L8 2M8 2H4M8 2v4"/></svg>
+          </a>
+        </div>
+
+        <!-- Rosenberg -->
+        <div class="location-card">
+          <h3 class="location-city">Rosenberg</h3>
+          <address class="location-address">
+            535 Minonite Rd Suite 106<br>Rosenberg, TX 77469
+          </address>
+          <p class="hours-label">Hours</p>
+          <table class="hours-table">
+            <tbody>
+              <tr><td>Mon – Sun</td><td>9 AM – 10 PM</td></tr>
+            </tbody>
+          </table>
+          <a class="directions-link" href="https://www.google.com/maps/search/?api=1&query=535+Minonite+Rd+Suite+106%2C+Rosenberg%2C+TX+77469" target="_blank" rel="noopener noreferrer">
+            Get Directions
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8L8 2M8 2H4M8 2v4"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-seal">
+      <img src="smokeVillaLogo.jpg" alt="Smoke Villa">
+    </div>
+    <p class="footer-tagline">Smoke Villa — Texas' Smoke Shop</p>
+    <div class="footer-socials">
+      <!-- Instagram placeholder — add real href when accounts are unified -->
+      <a href="#" aria-label="Smoke Villa on Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+      </a>
+    </div>
+    <p class="footer-copy">© 2025 Smoke Villa. All rights reserved.</p>
+  </footer>
+
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+    }
+  </script>
+
+</body>
+</html>
