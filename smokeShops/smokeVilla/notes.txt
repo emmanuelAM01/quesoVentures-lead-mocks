@@ -260,3 +260,31 @@ Sunday
 
     9 AM–10 PM
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+I need to add an "Our Story" section to the landing page, placed between the "Who We Are" section and the "What We Carry" section. Here is the direction:
+The story to tell:
+8th Avenue is seed to shelf — they grow, cultivate, harvest, and sell their own product. Nothing is sourced from a third party. The team brings 60+ years of combined cannabis experience and the business infrastructure to back it up. In an industry that is only 6 years old in Texas, that depth is rare. This place was a long time coming.
+Do not namedrop any names — no Ashley, no Mouse, no one by name.
+Tone: same as the rest of the site — clean, modern, minimal, confident. No fluff. Short punchy sentences over long paragraphs.
+Section structure suggestion:
+
+A headline like "Grown Here. By Us." or "Seed to Shelf." — something that captures the vertical integration angle immediately
+2-3 short paragraphs max covering: the seed to shelf story, the 60+ years of experience, and why that matters in a 6-year-old Texas industry
+Optional: 3 small stat/callout tiles — "60+ Years Combined Experience", "Seed to Shelf", "Texas Grown" — displayed horizontally in the same light wood and white aesthetic
+
+Keep it consistent with the existing design system already on the page.
