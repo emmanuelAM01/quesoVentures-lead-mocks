@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frostbite Shaved Ice N'More | Shaved Ice Catering Houston TX</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ice:      #22D3EE;
+      --ice-dk:   #0891B2;
+      --ice-lite: #E0F8FF;
+      --deep:     #0A3550;
+      --deep-dk:  #062336;
+      --orange:   #F97316;
+      --orange-dk:#D96211;
+      --bg:       #EEF9FF;
+      --white:    #FFFFFF;
+      --border:   #BAE6FD;
+      --muted:    #4E7A8E;
+      --ph-bg:    #D0EEF8;
+      --ph-fg:    #84C7DC;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--bg);
+      color: var(--deep);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 2px solid var(--ice);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 2rem;
+      height: 54px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      padding: 0.4rem 0.9rem;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--deep); }
+    .nav-book {
+      background: var(--orange) !important;
+      color: var(--white) !important;
+      padding: 0.5rem 1.2rem !important;
+    }
+    .nav-book:hover { background: var(--orange-dk) !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--deep);
+      transition: transform 0.25s, opacity 0.25s;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 54px; left: 0; right: 0;
+      background: var(--white);
+      border-bottom: 2px solid var(--border);
+      z-index: 199;
+      flex-direction: column;
+      padding: 0.5rem 0 1rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      padding: 0.9rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav .m-book {
+      margin: 0.75rem 2rem 0;
+      background: var(--orange);
+      color: var(--white) !important;
+      text-align: center;
+      border-bottom: none;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      margin-top: 54px;
+      min-height: calc(100vh - 54px);
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.8rem;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero-logo {
+      width: min(360px, 86vw);
+      height: auto;
+      filter: drop-shadow(0 12px 36px rgba(10,53,80,0.18));
+    }
+
+    .hero-tag {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      letter-spacing: 0.06em;
+      color: var(--deep);
+      line-height: 1.15;
+      max-width: 640px;
+    }
+    .hero-tag span { color: var(--ice-dk); }
+
+    .hero-cta {
+      font-family: 'Bangers', cursive;
+      font-size: 1.4rem;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      padding: 0.9rem 3rem;
+      background: var(--orange);
+      color: var(--white);
+      transition: background 0.15s;
+      display: inline-block;
+    }
+    .hero-cta:hover { background: var(--orange-dk); }
+
+    /* ── GALLERY ── */
+    .gallery {
+      background: var(--white);
+      padding-top: 4rem;
+    }
+
+    .gallery h2 {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(3rem, 7vw, 5rem);
+      letter-spacing: 0.08em;
+      color: var(--deep);
+      text-align: center;
+      padding-bottom: 2.5rem;
+      line-height: 1;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 3px;
+    }
+
+    .g-cell {
+      aspect-ratio: 1;
+      background: var(--ph-bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .g-cell-inner {
+      position: absolute; inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .g-cell-inner svg { width: 28px; height: 28px; fill: var(--ph-fg); }
+    .g-cell-inner span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ph-fg);
+    }
+
+    /* ── HOURS & LOCATION ── */
+    .find {
+      background: var(--deep);
+      padding: 5rem 2rem;
+    }
+
+    .find-inner { max-width: 860px; margin: 0 auto; }
+
+    .section-h {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(3rem, 7vw, 5rem);
+      letter-spacing: 0.08em;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 2.5rem;
+    }
+
+    .find-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .block-label {
+      font-family: 'Bangers', cursive;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      color: var(--ice);
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .hours-row:first-of-type { border-top: 1px solid rgba(255,255,255,0.07); }
+
+    .h-day {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.85);
+    }
+    .h-time {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--ice);
+    }
+
+    .area-note {
+      margin-top: 1.5rem;
+      padding: 0.9rem 1.1rem;
+      border-left: 3px solid var(--ice);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.55;
+    }
+
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .contact-item a {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .c-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+    .c-val {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--white);
+      transition: color 0.15s;
+    }
+    .contact-item a:hover .c-val { color: var(--ice); }
+
+    /* ── BOOK ── */
+    .book {
+      background: var(--ice-lite);
+      padding: 5rem 2rem;
+    }
+
+    .book-inner { max-width: 540px; margin: 0 auto; }
+
+    .book .section-h { color: var(--deep); }
+
+    .book-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      margin-top: -1rem;
+    }
+
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.38rem;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      background: var(--white);
+      border: 2px solid var(--border);
+      padding: 0.85rem 1rem;
+      color: var(--deep);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      appearance: none;
+      border-radius: 0;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus,
+    .form-group select:focus { border-color: var(--ice-dk); }
+
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      font-family: 'Bangers', cursive;
+      font-size: 1.5rem;
+      letter-spacing: 0.12em;
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .form-submit:hover { background: var(--orange-dk); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep-dk);
+      padding: 1.4rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    footer p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.18);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 760px) {
+      .find-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 380px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .rise { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .rise.up { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#find-us">Hours &amp; Location</a></li>
+      <li><a href="#book" class="nav-book">Book an Event</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#gallery">Gallery</a>
+    <a href="#find-us">Hours &amp; Location</a>
+    <a href="#book" class="m-book">Book an Event</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <img src="logo.png" class="hero-logo" alt="Frostbite Shaved Ice N'More — Houston TX Shaved Ice Catering" />
+    <p class="hero-tag rise">
+      Houston's Shaved Ice Catering for<br/>
+      <span>Birthday Parties, Fundraisers &amp; Every Celebration</span>
+    </p>
+    <a href="#book" class="hero-cta rise">Book Your Event</a>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <h2 class="rise">GALLERY</h2>
+    <div class="gallery-grid rise">
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+    </div>
+  </section>
+
+  <!-- HOURS & LOCATION -->
+  <section class="find" id="find-us">
+    <div class="find-inner">
+      <h2 class="section-h rise">HOURS &amp; LOCATION</h2>
+      <div class="find-grid">
+        <div class="rise">
+          <p class="block-label">Hours</p>
+          <div class="hours-row"><span class="h-day">Monday</span><span class="h-time">2:00 – 7:30 PM</span></div>
+          <div class="hours-row"><span class="h-day">Tuesday</span><span class="h-time">2:00 – 7:30 PM</span></div>
+          <div class="hours-row"><span class="h-day">Wednesday</span><span class="h-time">2:00 – 7:30 PM</span></div>
+          <div class="hours-row"><span class="h-day">Thursday</span><span class="h-time">2:00 – 7:30 PM</span></div>
+          <div class="hours-row"><span class="h-day">Friday</span><span class="h-time">2:00 – 7:30 PM</span></div>
+          <div class="hours-row"><span class="h-day">Saturday</span><span class="h-time">2:00 – 7:30 PM</span></div>
+          <div class="hours-row"><span class="h-day">Sunday</span><span class="h-time">2:00 – 7:30 PM</span></div>
+          <p class="area-note">We travel to you — serving Houston, TX and surrounding areas for private events and catering.</p>
+        </div>
+        <div class="rise">
+          <p class="block-label">Contact</p>
+          <ul class="contact-list">
+            <li class="contact-item">
+              <a href="tel:+18324027030">
+                <span class="c-label">Phone</span>
+                <span class="c-val">(832) 402-7030</span>
+              </a>
+            </li>
+            <li class="contact-item">
+              <a href="mailto:frostbiteshaveicemobile@gmail.com">
+                <span class="c-label">Email</span>
+                <span class="c-val">frostbiteshaveicemobile@gmail.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK AN EVENT -->
+  <section class="book" id="book">
+    <div class="book-inner">
+      <h2 class="section-h rise">BOOK YOUR EVENT</h2>
+      <p class="book-sub rise">
+        We bring the truck to you. Available for birthday parties, fundraisers, church events,
+        school &amp; daycare events, sports teams, block parties, outdoor concerts, and community
+        events across Houston, TX.
+      </p>
+      <form class="rise">
+        <div class="form-group">
+          <label for="f-name">Name</label>
+          <input type="text" id="f-name" placeholder="Your full name" autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label for="f-contact">Phone or Email</label>
+          <input type="text" id="f-contact" placeholder="Best way to reach you" />
+        </div>
+        <div class="form-group">
+          <label for="f-date">Event Date</label>
+          <input type="date" id="f-date" />
+        </div>
+        <div class="form-group">
+          <label for="f-type">Event Type</label>
+          <select id="f-type">
+            <option value="">Select your event</option>
+            <option>Birthday Party</option>
+            <option>Church Event</option>
+            <option>Fundraiser</option>
+            <option>School / Daycare Event</option>
+            <option>Sports Team Event</option>
+            <option>Block Party</option>
+            <option>Outdoor Concert</option>
+            <option>Community Popup</option>
+            <option>Corporate Event</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">Send Request</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Frostbite Shaved Ice N'More — Houston, TX</p>
+    <p>Built by Queso Ventures</p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('up'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.rise').forEach(el => obs.observe(el));
+
+    const burger = document.querySelector('.nav-hamburger');
+    const mNav   = document.querySelector('.mobile-nav');
+    burger.addEventListener('click', () => {
+      const open = mNav.classList.toggle('open');
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open);
+    });
+    mNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mNav.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', false);
+    }));
+
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.form-submit');
+      btn.textContent = "Request Sent — We'll Be in Touch!";
+      btn.style.background = '#1a7a4a';
+      btn.disabled = true;
+    });
+  </script>
+</body>
+</html>
