@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cowgirl Coffee Co | Coffee Cart Catering Humble TX</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:     #FAF8F4;
+      --parchment: #F0EAE0;
+      --espresso:  #1A1410;
+      --espresso2: #2C2018;
+      --wood:      #9A6828;
+      --wood-dk:   #784E18;
+      --sand:      #D4C4A8;
+      --white:     #FFFFFF;
+      --muted:     #8C7B6B;
+      --border:    #DDD5C8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--cream);
+      color: var(--espresso);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 2px solid var(--sand);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 2rem;
+      height: 54px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      padding: 0.4rem 0.9rem;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--espresso); }
+    .nav-book {
+      background: var(--wood) !important;
+      color: var(--white) !important;
+      padding: 0.5rem 1.2rem !important;
+    }
+    .nav-book:hover { background: var(--wood-dk) !important; color: var(--white) !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--espresso);
+      transition: transform 0.25s, opacity 0.25s;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 54px; left: 0; right: 0;
+      background: var(--white);
+      border-bottom: 2px solid var(--border);
+      z-index: 199;
+      flex-direction: column;
+      padding: 0.5rem 0 1rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      padding: 0.9rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav .m-book {
+      margin: 0.75rem 2rem 0;
+      background: var(--wood);
+      color: var(--white) !important;
+      text-align: center;
+      border-bottom: none;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      margin-top: 54px;
+      min-height: calc(100vh - 54px);
+      background:
+        linear-gradient(rgba(250,248,244,0.87), rgba(240,234,224,0.92)),
+        url('betterInterior.png') center / cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(3.2rem, 9vw, 7rem);
+      color: var(--espresso);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(0.85rem, 2.2vw, 1.05rem);
+      font-weight: 700;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0.6rem;
+    }
+
+    .hero-cta {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.9rem 2.6rem;
+      background: var(--wood);
+      color: var(--white);
+      transition: background 0.15s;
+      display: inline-block;
+    }
+    .hero-cta:hover { background: var(--wood-dk); }
+
+    .hero-cta-sec {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.9rem 2.6rem;
+      border: 2px solid var(--espresso);
+      color: var(--espresso);
+      background: transparent;
+      transition: background 0.15s, color 0.15s;
+      display: inline-block;
+    }
+    .hero-cta-sec:hover { background: var(--espresso); color: var(--white); }
+
+    /* ── GALLERY ── */
+    .gallery {
+      background: var(--white);
+      padding-top: 4rem;
+    }
+
+    .gallery h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      color: var(--espresso);
+      text-align: center;
+      padding-bottom: 2.5rem;
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 3px;
+    }
+
+    .g-cell {
+      aspect-ratio: 1;
+      background: #ede8e0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .g-cell-inner {
+      position: absolute; inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .g-cell-inner svg { width: 28px; height: 28px; fill: #c8bfb3; }
+    .g-cell-inner span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c8bfb3;
+    }
+
+    /* ── FIND US ── */
+    .find {
+      background: var(--espresso);
+      padding: 5rem 2rem;
+    }
+
+    .find-inner { max-width: 940px; margin: 0 auto; }
+
+    .section-h {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      letter-spacing: -0.01em;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 2.5rem;
+    }
+
+    .find-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .block-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .hours-row:first-of-type { border-top: 1px solid rgba(255,255,255,0.07); }
+
+    .h-day {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.85);
+    }
+    .h-time {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--sand);
+    }
+
+    .area-note {
+      margin-top: 1.5rem;
+      padding: 0.9rem 1.1rem;
+      border-left: 3px solid var(--wood);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.55;
+    }
+
+    .map-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ── BOOK ── */
+    .book {
+      background: var(--parchment);
+      padding: 5rem 2rem;
+    }
+
+    .book-inner { max-width: 540px; margin: 0 auto; }
+
+    .book .section-h { color: var(--espresso); }
+
+    .book-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      margin-top: -1rem;
+    }
+
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.38rem;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      background: var(--white);
+      border: 2px solid var(--border);
+      padding: 0.85rem 1rem;
+      color: var(--espresso);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      appearance: none;
+      border-radius: 0;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus,
+    .form-group select:focus { border-color: var(--wood); }
+
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: var(--wood);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .form-submit:hover { background: var(--wood-dk); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--espresso);
+      padding: 1.4rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    footer p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.18);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 760px) {
+      .find-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .map-wrap { aspect-ratio: 16 / 9; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 380px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .rise { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .rise.up { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#find-us">Hours &amp; Location</a></li>
+      <li><a href="https://www.instagram.com/cowgirlcoffeecooftx/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="#book" class="nav-book">Book an Event</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#gallery">Gallery</a>
+    <a href="#find-us">Hours &amp; Location</a>
+    <a href="https://www.instagram.com/cowgirlcoffeecooftx/" target="_blank" rel="noopener">Instagram</a>
+    <a href="#book" class="m-book">Book an Event</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <h1 class="hero-name rise">Cowgirl Coffee Co</h1>
+    <p class="hero-sub rise">Coffee Cart &middot; Humble, Texas</p>
+    <div class="hero-ctas rise">
+      <a href="#book" class="hero-cta">Book an Event</a>
+      <a href="https://www.instagram.com/cowgirlcoffeecooftx/" target="_blank" rel="noopener" class="hero-cta-sec">Find Us on Instagram</a>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <h2 class="rise">Gallery</h2>
+    <div class="gallery-grid rise">
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+      <div class="g-cell"><div class="g-cell-inner"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Photo</span></div></div>
+    </div>
+  </section>
+
+  <!-- HOURS & LOCATION -->
+  <section class="find" id="find-us">
+    <div class="find-inner">
+      <h2 class="section-h rise">Hours &amp; Location</h2>
+      <div class="find-grid">
+        <div class="rise">
+          <p class="block-label">Hours</p>
+          <div class="hours-row"><span class="h-day">Monday</span><span class="h-time">Closed</span></div>
+          <div class="hours-row"><span class="h-day">Tuesday</span><span class="h-time">7:00 AM – 2:00 PM</span></div>
+          <div class="hours-row"><span class="h-day">Wednesday</span><span class="h-time">7:00 AM – 2:00 PM</span></div>
+          <div class="hours-row"><span class="h-day">Thursday</span><span class="h-time">7:00 AM – 2:00 PM</span></div>
+          <div class="hours-row"><span class="h-day">Friday</span><span class="h-time">7:00 AM – 2:00 PM</span></div>
+          <div class="hours-row"><span class="h-day">Saturday</span><span class="h-time">8:00 AM – 2:00 PM</span></div>
+          <div class="hours-row"><span class="h-day">Sunday</span><span class="h-time">Closed</span></div>
+          <p class="area-note">11715 Greens Rd &middot; Humble, TX 77346. Available for private events and catering — contact us to book.</p>
+        </div>
+        <div class="rise map-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=11715+Greens+Rd,+Humble,+TX+77346&output=embed"
+            title="Cowgirl Coffee Co — 11715 Greens Rd, Humble TX"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK AN EVENT -->
+  <section class="book" id="book">
+    <div class="book-inner">
+      <h2 class="section-h rise">Book an Event</h2>
+      <p class="book-sub rise">
+        Bring the cart to your next event. Available for corporate office service, weddings, bridal showers,
+        birthday parties, pop-ups, and more across the Humble, TX area.
+      </p>
+      <form class="rise">
+        <div class="form-group">
+          <label for="f-name">Name</label>
+          <input type="text" id="f-name" placeholder="Your full name" autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label for="f-contact">Phone or Email</label>
+          <input type="text" id="f-contact" placeholder="Best way to reach you" />
+        </div>
+        <div class="form-group">
+          <label for="f-date">Event Date</label>
+          <input type="date" id="f-date" />
+        </div>
+        <div class="form-group">
+          <label for="f-type">Event Type</label>
+          <select id="f-type">
+            <option value="">Select your event</option>
+            <option>Corporate / Office Service</option>
+            <option>Wedding</option>
+            <option>Bridal Shower</option>
+            <option>Baby Shower</option>
+            <option>Birthday Party</option>
+            <option>Graduation Party</option>
+            <option>Pop-up Event</option>
+            <option>Farmers Market / Festival</option>
+            <option>Church Event</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">Send Request</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Cowgirl Coffee Co &mdash; Humble, TX</p>
+    <p>Built by Queso Ventures</p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('up'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.rise').forEach(el => obs.observe(el));
+
+    const burger = document.querySelector('.nav-hamburger');
+    const mNav   = document.querySelector('.mobile-nav');
+    burger.addEventListener('click', () => {
+      const open = mNav.classList.toggle('open');
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open);
+    });
+    mNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mNav.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', false);
+    }));
+
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.form-submit');
+      btn.textContent = "Request Sent — We'll Be in Touch!";
+      btn.style.background = '#4a7a50';
+      btn.disabled = true;
+    });
+  </script>
+</body>
+</html>
