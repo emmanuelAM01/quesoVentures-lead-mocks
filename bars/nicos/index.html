@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nico's Bar & Grill is a neighborhood bar and grill at 22610 Loop 494 in Kingwood, Texas. Open daily 11 AM to 2 AM. Live music, weekly events, pool, darts, stone-fired pizza, and an outdoor patio.">
+  <title>Nico's Bar & Grill | Neighborhood Bar in Kingwood, TX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --red: #D72638;
+      --red-dark: #b51e2c;
+      --text: #1a1a1a;
+      --text-mid: #4a4540;
+      --text-light: #6e6860;
+      --bg: #ffffff;
+      --bg-warm: #f5f1ec;
+      --border: #e2ddd7;
+    }
+
+    body {
+      font-family: 'Open Sans', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      height: 68px;
+    }
+    .navbar.scrolled {
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+    /* Logo sits naturally on white — no pill needed */
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--red); }
+    .nav-phone-link {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--red);
+      color: #fff !important;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: .88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+    .nav-phone-link:hover { background: var(--red-dark); }
+    .nav-phone-link svg { width: 15px; height: 15px; fill: #fff; flex-shrink: 0; }
+
+    /* Mobile call button — always visible next to hamburger */
+    .nav-call {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      background: var(--red);
+      color: #fff;
+      padding: 9px 14px;
+      border-radius: 4px;
+      font-size: .82rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .nav-call:hover { background: var(--red-dark); }
+    .nav-call svg { width: 15px; height: 15px; fill: #fff; flex-shrink: 0; }
+
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      transition: transform .3s, opacity .3s;
+    }
+
+    @media (max-width: 900px) {
+      .nav-call { display: flex; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 8px 0 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,.07);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block;
+        padding: 11px 28px;
+        font-size: 1rem;
+      }
+      .nav-phone-link {
+        margin: 8px 28px 0;
+        justify-content: center;
+      }
+    }
+    /* On very small phones hide the number, keep just the icon */
+    @media (max-width: 380px) {
+      .nav-call-num { display: none; }
+      .nav-call { padding: 9px 12px; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 80px 64px;
+      overflow: hidden;
+      /* Dark tinted background — replace with a real photo:
+         background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('photo-exterior.jpg');
+         background-size: cover; background-position: center;
+      */
+      background: #1a1614;
+    }
+    /* Subtle texture to make the solid bg feel less flat */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 70% at 60% 40%, rgba(215,38,56,.18) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 60% at 5% 80%, rgba(244,168,48,.07) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+    .hero h1 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: rgba(255,255,255,.78);
+      margin-bottom: 36px;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 64px 28px; min-height: 480px; }
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas .btn { text-align: center; justify-content: center; }
+    }
+    /* Landscape on phones — don't let the hero eat the whole screen */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero { min-height: unset; padding: 52px 40px; }
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 30px;
+      border-radius: 4px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: .92rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid transparent;
+      transition: background .2s, border-color .2s, color .2s, transform .15s;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-red   { background: var(--red); color: #fff; border-color: var(--red); }
+    .btn-red:hover { background: var(--red-dark); border-color: var(--red-dark); }
+    .btn-white { background: transparent; color: #fff; border-color: rgba(255,255,255,.55); }
+    .btn-white:hover { border-color: #fff; color: #fff; }
+    .btn-outline { background: transparent; color: var(--red); border-color: var(--red); }
+    .btn-outline:hover { background: var(--red); color: #fff; }
+
+    /* ── QUICK INFO STRIP ── */
+    .info-strip {
+      background: var(--red);
+      color: #fff;
+      padding: 18px 28px;
+    }
+    .info-strip-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 48px;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+    .info-item svg { width: 15px; height: 15px; fill: rgba(255,255,255,.8); flex-shrink: 0; }
+    .info-item a { color: #fff; text-decoration: none; }
+    .info-item a:hover { text-decoration: underline; }
+
+    /* ── SECTIONS ── */
+    .section { padding: 72px 28px; }
+    .section-warm { background: var(--bg-warm); }
+    .container { max-width: 1100px; margin: 0 auto; }
+    @media (max-width: 600px) {
+      .section { padding: 52px 20px; }
+    }
+
+    h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 40px;
+      line-height: 1.15;
+    }
+
+    /* ── EVENTS ── */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+    }
+    .event-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 22px 10px 20px;
+      text-align: center;
+      position: relative;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    .event-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,.08);
+      transform: translateY(-2px);
+    }
+    .event-card.tonight {
+      border-color: var(--red) !important;
+      box-shadow: 0 0 0 1px var(--red), 0 4px 20px rgba(215,38,56,.15) !important;
+    }
+    .tonight-badge {
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--red);
+      color: #fff;
+      font-size: .6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .event-emoji { display: block; font-size: 1.8rem; margin-bottom: 10px; line-height: 1; }
+    .event-day {
+      display: block;
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--red);
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .event-name { font-size: .87rem; color: var(--text-mid); font-weight: 600; line-height: 1.3; }
+
+    @media (max-width: 900px) { .events-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 560px) { .events-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 340px) { .events-grid { grid-template-columns: 1fr; } }
+
+    /* ── GALLERY ── */
+    .gallery-section { padding: 0; overflow: hidden; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 280px 280px;
+    }
+    .gallery-grid .g-main {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+    }
+    .gallery-photo {
+      position: relative;
+      overflow: hidden;
+      background: #2a2420;
+    }
+    .gallery-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #2e2520 0%, #1e1815 100%);
+      opacity: .4;
+    }
+    /* Subtle noise texture on placeholders */
+    .gallery-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+      z-index: 1;
+    }
+    .gallery-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .gallery-photo:hover img { transform: scale(1.04); }
+    /* Placeholder label shown when no real photo */
+    .gallery-photo .ph-label {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.2);
+      font-size: .75rem;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    @media (max-width: 700px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 180px 180px 180px;
+      }
+      .gallery-grid .g-main {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+      }
+    }
+
+    /* ── ABOUT / VIBE ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .about-photo {
+      aspect-ratio: 4/3;
+      background: #2a2420;
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #302820 0%, #1e1815 100%);
+    }
+    .about-photo .ph-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.18);
+      font-size: .75rem;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .about-text h2 { margin-bottom: 20px; }
+    .about-text p {
+      color: var(--text-mid);
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+    .about-text p:last-of-type { margin-bottom: 28px; }
+
+    @media (max-width: 700px) {
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ── AMENITIES ── */
+    .amenities-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .amenity-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 20px 20px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--text-mid);
+    }
+    .amenity-item .ai { font-size: 1.5rem; flex-shrink: 0; }
+
+    @media (max-width: 700px) { .amenities-list { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 460px) { .amenities-list { grid-template-columns: 1fr; } }
+
+    /* ── HOURS ── */
+    .hours-card {
+      max-width: 560px;
+    }
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .97rem;
+    }
+    .hours-table tr { border-bottom: 1px solid var(--border); }
+    .hours-table tr:last-child { border-bottom: none; }
+    .hours-table td {
+      padding: 14px 0;
+      color: var(--text-mid);
+    }
+    .hours-table td:first-child { font-weight: 600; color: var(--text); width: 180px; }
+    .hours-table td:last-child { text-align: right; }
+    .hours-table tr.today-row td { color: var(--red); font-weight: 700; }
+    @media (max-width: 420px) {
+      .hours-table { font-size: .88rem; }
+      .hours-table td:first-child { width: 120px; }
+      .hours-table td { padding: 11px 0; }
+    }
+    .hours-note {
+      margin-top: 20px;
+      padding: 14px 18px;
+      background: var(--bg-warm);
+      border-left: 3px solid var(--red);
+      font-size: .9rem;
+      color: var(--text-mid);
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+    .contact-detail svg { width: 18px; height: 18px; fill: var(--red); flex-shrink: 0; margin-top: 3px; }
+    .contact-detail strong { display: block; font-weight: 700; margin-bottom: 2px; }
+    .contact-detail a { color: var(--text); text-decoration: none; }
+    .contact-detail a:hover { color: var(--red); }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .map-wrap {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    }
+    .map-wrap iframe { display: block; width: 100%; height: 360px; border: none; }
+
+    @media (max-width: 700px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a1a1a;
+      color: rgba(255,255,255,.55);
+      padding: 36px 28px 28px;
+      text-align: center;
+      border-top: 3px solid var(--red);
+    }
+    .footer-inner { max-width: 800px; margin: 0 auto; }
+    .footer-name {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      margin-bottom: 20px;
+    }
+    .footer-link {
+      color: rgba(255,255,255,.5);
+      text-decoration: none;
+      font-size: .85rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color .2s;
+    }
+    .footer-link svg { width: 13px; height: 13px; fill: currentColor; }
+    .footer-link:hover { color: #fff; }
+    .footer-copy { font-size: .75rem; color: rgba(255,255,255,.3); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="logo.png" alt="Nico's Bar & Grill">
+    </a>
+    <a href="tel:+12813586653" class="nav-call">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      <span class="nav-call-num">(281) 358-6653</span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#events">Weekly Events</a></li>
+      <li><a href="#hours">Hours</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="tel:+12813586653" class="nav-phone-link">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          (281) 358-6653
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <!-- Replace background with a real photo in CSS:
+       background-image: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('your-photo.jpg');
+       background-size: cover; background-position: center; -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Nico's Bar &amp; Grill</h1>
+      <p>Your neighborhood bar and grill in Kingwood, Texas. Cold drinks, great food, live music, and something going on every night of the week.</p>
+      <div class="hero-ctas">
+        <a href="#events" class="btn btn-red">See Weekly Events</a>
+        <a href="tel:+12813586653" class="btn btn-white">Call (281) 358-6653</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-strip-inner">
+      <div class="info-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span>22610 Loop 494, Kingwood, TX</span>
+      </div>
+      <div class="info-item">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <a href="tel:+12813586653">(281) 358-6653</a>
+      </div>
+      <div class="info-item">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+        <span>Open Daily &mdash; 11:00 AM to 2:00 AM</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEKLY EVENTS -->
+  <section class="section" id="events">
+    <div class="container">
+      <h2>Weekly Events</h2>
+      <div class="events-grid">
+        <div class="event-card" data-day="1">
+          <span class="event-emoji">🥩</span>
+          <span class="event-day">Monday</span>
+          <span class="event-name">Steak Night</span>
+        </div>
+        <div class="event-card" data-day="2">
+          <span class="event-emoji">🃏</span>
+          <span class="event-day">Tuesday</span>
+          <span class="event-name">Queen of Hearts</span>
+        </div>
+        <div class="event-card" data-day="3">
+          <span class="event-emoji">🎵</span>
+          <span class="event-day">Wednesday</span>
+          <span class="event-name">Singo Bingo</span>
+        </div>
+        <div class="event-card" data-day="4">
+          <span class="event-emoji">🎤</span>
+          <span class="event-day">Thursday</span>
+          <span class="event-name">Karaoke Night</span>
+        </div>
+        <div class="event-card" data-day="5">
+          <span class="event-emoji">🎸</span>
+          <span class="event-day">Friday</span>
+          <span class="event-name">Live Music</span>
+        </div>
+        <div class="event-card" data-day="6">
+          <span class="event-emoji">🎶</span>
+          <span class="event-day">Saturday</span>
+          <span class="event-name">Swingo Bingo</span>
+        </div>
+        <div class="event-card" data-day="0">
+          <span class="event-emoji">🎻</span>
+          <span class="event-day">Sunday</span>
+          <span class="event-name">Acoustic Music</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <!-- Replace .gallery-photo divs with <img> tags once photos are available -->
+  <div class="gallery-section">
+    <div class="gallery-grid">
+      <div class="gallery-photo g-main">
+        <div class="ph-label">Add bar/patio photo here</div>
+      </div>
+      <div class="gallery-photo">
+        <div class="ph-label">Stage photo</div>
+      </div>
+      <div class="gallery-photo">
+        <div class="ph-label">Crowd/patio photo</div>
+      </div>
+      <div class="gallery-photo">
+        <div class="ph-label">Food/drink photo</div>
+      </div>
+      <div class="gallery-photo">
+        <div class="ph-label">Interior photo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section section-warm">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo">
+          <div class="ph-label">Add interior/patio photo here</div>
+        </div>
+        <div class="about-text">
+          <h2>A Neighborhood Bar Since Day One</h2>
+          <p>Nico's Bar &amp; Grill is located at 22610 Loop 494 in Kingwood, Texas. We're a full-service bar and grill with a covered outdoor patio, a live music stage, pool tables, and dart boards.</p>
+          <p>We serve stone-fired pizza and a full drink menu. There's something happening every night of the week — from live bands on Friday nights to karaoke on Thursdays.</p>
+          <p>We're open every day from 11:00 AM to 2:00 AM. Walk-ins are always welcome.</p>
+          <a href="#contact" class="btn btn-red">Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section class="section">
+    <div class="container">
+      <h2>What We Have</h2>
+      <div class="amenities-list">
+        <div class="amenity-item"><span class="ai">🎸</span> Live Music Stage</div>
+        <div class="amenity-item"><span class="ai">🌿</span> Covered Outdoor Patio</div>
+        <div class="amenity-item"><span class="ai">🎱</span> Pool Tables</div>
+        <div class="amenity-item"><span class="ai">🎯</span> Dart Boards</div>
+        <div class="amenity-item"><span class="ai">🍕</span> Stone Fired Pizza</div>
+        <div class="amenity-item"><span class="ai">🚭</span> Non-Smoking Inside</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOURS -->
+  <section class="section section-warm" id="hours">
+    <div class="container">
+      <h2>Hours</h2>
+      <div class="hours-card">
+        <table class="hours-table">
+          <tbody>
+            <tr data-day="1"><td>Monday</td><td>11:00 AM – 2:00 AM</td></tr>
+            <tr data-day="2"><td>Tuesday</td><td>11:00 AM – 2:00 AM</td></tr>
+            <tr data-day="3"><td>Wednesday</td><td>11:00 AM – 2:00 AM</td></tr>
+            <tr data-day="4"><td>Thursday</td><td>11:00 AM – 2:00 AM</td></tr>
+            <tr data-day="5"><td>Friday</td><td>11:00 AM – 2:00 AM</td></tr>
+            <tr data-day="6"><td>Saturday</td><td>11:00 AM – 2:00 AM</td></tr>
+            <tr data-day="0"><td>Sunday</td><td>11:00 AM – 2:00 AM</td></tr>
+          </tbody>
+        </table>
+        <div class="hours-note">
+          Closing time is 2:00 AM. Kitchen hours may vary — call us at <a href="tel:+12813586653" style="color:inherit;font-weight:700;">(281) 358-6653</a> for details.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2>Visit Us</h2>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-detail">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div>
+              <strong>Address</strong>
+              22610 Loop 494<br>Kingwood, TX 77339
+            </div>
+          </div>
+          <div class="contact-detail">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <div>
+              <strong>Phone</strong>
+              <a href="tel:+12813586653">(281) 358-6653</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:nicos494@gmail.com">nicos494@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+            <div>
+              <strong>Hours</strong>
+              Open Daily, 11:00 AM – 2:00 AM
+            </div>
+          </div>
+          <div class="contact-actions">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=22610+Loop+494+Kingwood+TX+77339"
+               target="_blank" rel="noopener noreferrer" class="btn btn-red">Get Directions</a>
+            <a href="#" class="btn btn-outline">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+              Find Us on Facebook
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="map-wrap">
+            <iframe
+              src="https://maps.google.com/maps?q=Nico%27s+Bar+%26+Grill+22610+Loop+494+Kingwood+TX&output=embed&z=15"
+              title="Nico's Bar & Grill location map"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-name">Nico's Bar &amp; Grill</div>
+      <div class="footer-links">
+        <a href="tel:+12813586653" class="footer-link">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          (281) 358-6653
+        </a>
+        <a href="mailto:nicos494@gmail.com" class="footer-link">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          nicos494@gmail.com
+        </a>
+        <a href="#" class="footer-link">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Nico's Bar &amp; Grill &nbsp;&middot;&nbsp; 22610 Loop 494, Kingwood, TX 77339 &nbsp;&middot;&nbsp; Open Daily 11 AM – 2 AM</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll shadow
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    // Close on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+      });
+    });
+
+    // Today's event card highlight
+    (function () {
+      const day = new Date().getDay();
+      const card = document.querySelector(`.event-card[data-day="${day}"]`);
+      if (card) {
+        card.classList.add('tonight');
+        const badge = document.createElement('span');
+        badge.className = 'tonight-badge';
+        badge.textContent = 'Tonight';
+        card.prepend(badge);
+      }
+    })();
+
+    // Today's hours row highlight
+    (function () {
+      const day = new Date().getDay();
+      const row = document.querySelector(`.hours-table tr[data-day="${day}"]`);
+      if (row) row.classList.add('today-row');
+    })();
+  </script>
+</body>
+</html>
