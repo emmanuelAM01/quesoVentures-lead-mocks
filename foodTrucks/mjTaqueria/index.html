@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MJ Taqueria — Mexican Food Truck. Humble, TX.</title>
+  <meta name="description" content="MJ Taqueria — Mexican street food truck at 5410 Atascocita Road, Humble TX. Tacos, gorditas, burritos, and aguas frescas." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "MJ Taqueria",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5410 Atascocita Road",
+      "addressLocality": "Humble",
+      "addressRegion": "TX",
+      "postalCode": "77346"
+    },
+    "telephone": "(000) 000-0000",
+    "servesCuisine": "Mexican",
+    "priceRange": "$$"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Chivo:wght@400;700;900&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Domine:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:    #F5C200;
+      --yellow-hi: #FFD025;
+      --black:     #0D0D0D;
+      --charcoal:  #1C1C1C;
+      --off-white: #F5F0E8;
+      --warm-gray: #C8C0B0;
+      --li-dark:   rgba(245,194,0,.12);
+      --li-light:  rgba(13,13,13,.09);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Domine', serif;
+      background: var(--off-white);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .22s; }
+    .d3 { transition-delay: .34s; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      height: 60px;
+      padding: 0 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid transparent;
+      transition: background .35s, border-color .35s, backdrop-filter .35s;
+    }
+    nav.scrolled {
+      background: rgba(13,13,13,.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom-color: var(--li-dark);
+    }
+    .nav-brand {
+      font-family: 'Bangers', cursive;
+      font-size: 1.45rem;
+      letter-spacing: .1em;
+      text-decoration: none;
+      color: var(--yellow);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Courier Prime', monospace;
+      font-size: .88rem;
+      text-decoration: none;
+      letter-spacing: .04em;
+      color: rgba(245,194,0,.65);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--yellow); }
+    .nav-links .pill {
+      background: var(--yellow);
+      color: var(--black) !important;
+      padding: .44rem 1.1rem;
+      border-radius: 2px;
+      font-family: 'Chivo', sans-serif;
+      font-weight: 700;
+      font-size: .72rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      transition: background .2s !important;
+    }
+    .nav-links .pill:hover { background: var(--yellow-hi); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 6vw;
+      text-align: center;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(13,13,13,.66);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .hero-title {
+      font-family: 'Bangers', cursive;
+      font-size: 5.2rem;
+      letter-spacing: .06em;
+      color: var(--yellow);
+      line-height: 1;
+      margin-bottom: .5rem;
+    }
+    .hero-tagline {
+      font-family: 'Courier Prime', monospace;
+      font-size: .92rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,.62);
+      margin-bottom: 2.2rem;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--black);
+      padding: .9rem 2.4rem;
+      border-radius: 2px;
+      font-family: 'Chivo', sans-serif;
+      font-weight: 900;
+      font-size: .82rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--yellow);
+      transition: background .2s, border-color .2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--yellow-hi); border-color: var(--yellow-hi); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--off-white);
+      padding: .9rem 2.4rem;
+      border-radius: 2px;
+      font-family: 'Chivo', sans-serif;
+      font-weight: 700;
+      font-size: .82rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid rgba(245,240,232,.38);
+      transition: border-color .2s;
+      display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--off-white); }
+
+    /* ── SHARED SECTION ── */
+    section { padding: 7rem 6vw; text-align: center; }
+
+    h2.section-heading {
+      font-family: 'Chivo', sans-serif;
+      font-weight: 900;
+      font-size: 1.9rem;
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      margin-bottom: 2.8rem;
+    }
+
+    /* ── MENU ── */
+    .menu { background: var(--off-white); }
+    .menu h2.section-heading { color: var(--black); }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.6rem;
+      text-align: left;
+    }
+    .menu-cat-title {
+      font-family: 'Chivo', sans-serif;
+      font-weight: 900;
+      font-size: .92rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--black);
+      border-bottom: 2px solid var(--yellow);
+      padding-bottom: .4rem;
+      margin-bottom: 1rem;
+    }
+    .menu-cat + .menu-cat { margin-top: 2rem; }
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: .5rem;
+      padding: .46rem 0;
+      border-bottom: 1px solid var(--li-light);
+    }
+    .menu-item:last-child { border-bottom: none; }
+    .item-name {
+      font-family: 'Domine', serif;
+      font-size: .97rem;
+      color: var(--black);
+      line-height: 1.4;
+    }
+    .item-price {
+      font-family: 'Courier Prime', monospace;
+      font-size: .88rem;
+      color: #555;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── ORDER BAND ── */
+    .order-band {
+      background: var(--yellow);
+      padding: 5rem 6vw;
+    }
+    .order-band h2.section-heading { color: var(--black); margin-bottom: .8rem; }
+    .order-note {
+      font-family: 'Courier Prime', monospace;
+      font-size: .9rem;
+      color: rgba(13,13,13,.5);
+      letter-spacing: .06em;
+      max-width: 52ch;
+      margin: 0 auto 2.2rem;
+    }
+    .btn-dark {
+      background: var(--black);
+      color: var(--yellow);
+      padding: .9rem 2.4rem;
+      border-radius: 2px;
+      font-family: 'Chivo', sans-serif;
+      font-weight: 900;
+      font-size: .82rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--black);
+      transition: background .2s;
+      display: inline-block;
+    }
+    .btn-dark:hover { background: var(--charcoal); border-color: var(--charcoal); }
+
+    /* ── LOCATION ── */
+    .location-section { background: var(--black); }
+    .location-section h2.section-heading { color: var(--yellow); margin-bottom: 3rem; }
+
+    .location-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      text-align: left;
+    }
+    .map-frame {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border: none;
+      border-radius: 2px;
+    }
+    .location-addr-block { margin-bottom: 2.6rem; }
+    .location-name {
+      font-family: 'Chivo', sans-serif;
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: var(--off-white);
+      margin-bottom: .45rem;
+    }
+    .location-addr {
+      font-family: 'Courier Prime', monospace;
+      font-size: .9rem;
+      color: rgba(245,240,232,.42);
+      line-height: 1.65;
+      letter-spacing: .03em;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: .72rem 0;
+      border-bottom: 1px solid var(--li-dark);
+    }
+    .hours-row:first-child { border-top: 1px solid var(--li-dark); }
+    .hours-day {
+      font-family: 'Courier Prime', monospace;
+      font-size: .88rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,.38);
+    }
+    .hours-time {
+      font-family: 'Chivo', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--off-white);
+      letter-spacing: -.01em;
+    }
+    .hours-time.closed {
+      color: rgba(245,240,232,.2);
+      font-weight: 400;
+      font-family: 'Domine', serif;
+      font-size: .92rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(245,194,0,.08);
+      padding: 1.8rem 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer span {
+      font-family: 'Courier Prime', monospace;
+      font-size: .78rem;
+      color: rgba(245,240,232,.25);
+      letter-spacing: .07em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 5vw; }
+      .nav-links li:not(:last-child) { display: none; }
+      section { padding: 5.5rem 5vw; }
+      .order-band { padding: 5.5rem 5vw; }
+      .hero { padding: 0 5vw; }
+      .hero-title { font-size: 3.4rem; }
+      h2.section-heading { font-size: 1.5rem; }
+      .menu-grid { grid-template-columns: 1fr; gap: 0; }
+      .menu-grid > div + div { border-top: 1px solid var(--li-light); padding-top: 2rem; margin-top: 2rem; }
+      .location-wrap { grid-template-columns: 1fr; gap: 2.8rem; }
+      footer { flex-direction: column; gap: .4rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a href="#" class="nav-brand">MJ Taqueria</a>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#order" class="pill">Order Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- replace src with actual truck photo -->
+    <img src="hero.webp" class="hero-img" alt="" aria-hidden="true" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title reveal">MJ Taqueria</h1>
+      <p class="hero-tagline reveal d1">Mexican Street Food &nbsp;&mdash;&nbsp; Humble, TX.</p>
+      <div class="hero-ctas reveal d2">
+        <a href="#order" class="btn-primary">Order Now</a>
+        <a href="#menu" class="btn-ghost">See Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu" id="menu">
+    <h2 class="section-heading reveal">What we're making today.</h2>
+    <div class="menu-grid">
+
+      <!-- TACOS -->
+      <div class="reveal d1">
+        <div class="menu-cat">
+          <p class="menu-cat-title">Tacos</p>
+          <div class="menu-item"><span class="item-name">Carne Asada</span><span class="item-price">$3.50</span></div>
+          <div class="menu-item"><span class="item-name">Al Pastor</span><span class="item-price">$3.50</span></div>
+          <div class="menu-item"><span class="item-name">Pollo</span><span class="item-price">$3.00</span></div>
+          <div class="menu-item"><span class="item-name">Chorizo</span><span class="item-price">$3.50</span></div>
+          <div class="menu-item"><span class="item-name">Barbacoa</span><span class="item-price">$3.75</span></div>
+          <div class="menu-item"><span class="item-name">Nopalitos</span><span class="item-price">$2.75</span></div>
+        </div>
+        <div class="menu-cat">
+          <p class="menu-cat-title">Gorditas</p>
+          <div class="menu-item"><span class="item-name">Carne Asada</span><span class="item-price">$5.50</span></div>
+          <div class="menu-item"><span class="item-name">Pollo</span><span class="item-price">$5.00</span></div>
+          <div class="menu-item"><span class="item-name">Chicharrón</span><span class="item-price">$5.00</span></div>
+          <div class="menu-item"><span class="item-name">Frijoles con Queso</span><span class="item-price">$4.50</span></div>
+        </div>
+      </div>
+
+      <!-- BURRITOS & QUESADILLAS -->
+      <div class="reveal d2">
+        <div class="menu-cat">
+          <p class="menu-cat-title">Burritos</p>
+          <div class="menu-item"><span class="item-name">Carne Asada</span><span class="item-price">$9.00</span></div>
+          <div class="menu-item"><span class="item-name">Al Pastor</span><span class="item-price">$8.50</span></div>
+          <div class="menu-item"><span class="item-name">Barbacoa</span><span class="item-price">$9.50</span></div>
+          <div class="menu-item"><span class="item-name">Pollo</span><span class="item-price">$8.50</span></div>
+        </div>
+        <div class="menu-cat">
+          <p class="menu-cat-title">Quesadillas</p>
+          <div class="menu-item"><span class="item-name">Carne Asada</span><span class="item-price">$8.00</span></div>
+          <div class="menu-item"><span class="item-name">Pollo</span><span class="item-price">$7.50</span></div>
+          <div class="menu-item"><span class="item-name">Solo Queso</span><span class="item-price">$6.50</span></div>
+        </div>
+      </div>
+
+      <!-- COMBOS & DRINKS -->
+      <div class="reveal d3">
+        <div class="menu-cat">
+          <p class="menu-cat-title">Mix &amp; Match</p>
+          <div class="menu-item"><span class="item-name">3 Tacos</span><span class="item-price">$10.00</span></div>
+          <div class="menu-item"><span class="item-name">4 Tacos</span><span class="item-price">$13.00</span></div>
+          <div class="menu-item"><span class="item-name">Burrito + Drink</span><span class="item-price">$12.00</span></div>
+          <div class="menu-item"><span class="item-name">Quesadilla + Drink</span><span class="item-price">$10.00</span></div>
+        </div>
+        <div class="menu-cat">
+          <p class="menu-cat-title">Aguas Frescas</p>
+          <div class="menu-item"><span class="item-name">Horchata</span><span class="item-price">$3.00</span></div>
+          <div class="menu-item"><span class="item-name">Jamaica</span><span class="item-price">$3.00</span></div>
+          <div class="menu-item"><span class="item-name">Limonada</span><span class="item-price">$3.00</span></div>
+          <div class="menu-item"><span class="item-name">Tamarindo</span><span class="item-price">$3.00</span></div>
+          <div class="menu-item"><span class="item-name">Agua de Melon</span><span class="item-price">$3.00</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ORDER ANCHOR -->
+  <section class="order-band" id="order">
+    <h2 class="section-heading reveal">Ready to eat?</h2>
+    <p class="order-note reveal d1">Online ordering coming soon — call ahead or walk up to the truck.</p>
+    <a href="tel:+10000000000" class="btn-dark reveal d2">Call to Order</a>
+  </section>
+
+  <!-- LOCATION & HOURS -->
+  <section class="location-section" id="location">
+    <h2 class="section-heading reveal">5410 Atascocita Rd, Humble TX.</h2>
+    <div class="location-wrap reveal d1">
+      <iframe
+        class="map-frame"
+        src="https://maps.google.com/maps?q=5410+Atascocita+Road,+Humble,+TX+77346&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="MJ Taqueria map"
+      ></iframe>
+      <div>
+        <div class="location-addr-block">
+          <p class="location-name">MJ Taqueria</p>
+          <p class="location-addr">5410 Atascocita Road<br>Humble, TX 77346</p>
+        </div>
+        <div>
+          <div class="hours-row">
+            <span class="hours-day">Mon – Fri</span>
+            <span class="hours-time">10 AM – 9 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Saturday</span>
+            <span class="hours-time">9 AM – 10 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Sunday</span>
+            <span class="hours-time closed">Closed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>MJ Taqueria</span>
+    <span>(000) 000-0000</span>
+    <span>5410 Atascocita Rd, Humble TX 77346</span>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -16px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
