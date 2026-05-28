@@ -122,72 +122,6 @@
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    @media (max-width: 640px) {
-      nav { padding: 0 1.2rem; }
-
-      .nav-hamburger { display: flex; }
-
-      .nav-links {
-        display: none;
-        position: fixed;
-        top: 62px; left: 0; right: 0;
-        background: var(--bg);
-        border-bottom: 1px solid var(--border);
-        flex-direction: column;
-        gap: 0;
-        padding: 0.5rem 0 1rem;
-      }
-      .nav-links.open { display: flex; }
-
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block;
-        padding: 0.85rem 1.5rem;
-        font-size: 0.9rem;
-      }
-      .nav-cta {
-        margin: 0.5rem 1.5rem 0;
-        padding: 0.7rem 1.2rem;
-        text-align: center;
-        border-radius: 2px;
-      }
-    }
-
-    /* ────────────────────────────────────────────
-       GLOBAL MOBILE
-    ──────────────────────────────────────────── */
-    @media (max-width: 640px) {
-      section { padding: 4rem 1.25rem; }
-
-      .hero { padding: 6rem 1.25rem 3.5rem; min-height: 100svh; }
-
-      .hero-cta-group {
-        flex-direction: column;
-        align-items: stretch;
-        width: 100%;
-        max-width: 320px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .btn { text-align: center; }
-
-      .selection-layout { grid-template-columns: 1fr; gap: 2rem; }
-
-      .why-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-
-      .loc-card iframe { height: 220px; }
-
-      .loc-actions { flex-direction: column; }
-      .loc-actions .btn { flex: none; width: 100%; }
-
-      .hours-table { font-size: 0.82rem; }
-      .hours-table td { padding: 0.55rem 0; }
-
-      .cta-banner { padding: 3.5rem 1.25rem; }
-
-      footer { padding: 1.5rem 1.25rem; font-size: 0.74rem; line-height: 1.7; }
-    }
-
     /* ────────────────────────────────────────────
        HERO
     ──────────────────────────────────────────── */
@@ -487,6 +421,62 @@
       letter-spacing: 0.05em;
     }
     footer span { color: rgba(240, 236, 230, 0.5); }
+
+    /* ── RESPONSIVE — must come last so it overrides base styles ── */
+    @media (max-width: 640px) {
+      /* Nav */
+      nav { padding: 0 1.2rem; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 62px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 0 1rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 0.85rem 1.5rem; font-size: 0.9rem; }
+      .nav-cta { margin: 0.5rem 1.5rem 0; padding: 0.7rem 1.2rem; text-align: center; }
+
+      /* Sections */
+      section { padding: 4rem 1.25rem; }
+      .cta-banner { padding: 3.5rem 1.25rem; }
+
+      /* Hero */
+      .hero { padding: 6rem 1.25rem 3.5rem; min-height: 100vh; min-height: 100svh; }
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .btn { text-align: center; }
+
+      /* Products section */
+      .selection-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .selection-list { grid-template-columns: 1fr; }
+      .sel-item:nth-child(odd)  { padding-right: 0; }
+      .sel-item:nth-child(even) { padding-left: 0; border-left: none; }
+
+      /* About */
+      .why-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+      /* Location */
+      .loc-card iframe { height: 200px; }
+      .loc-actions { flex-direction: column; }
+      .loc-actions .btn { flex: none; width: 100%; }
+      .hours-table { font-size: 0.82rem; }
+      .hours-table td { padding: 0.55rem 0; }
+
+      /* Footer */
+      footer { padding: 1.5rem 1.25rem; font-size: 0.72rem; line-height: 1.75; }
+    }
   </style>
 </head>
 <body>
