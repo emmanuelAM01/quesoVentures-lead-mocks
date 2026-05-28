@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tuki's Cheese — Food Truck | Porter, TX | Tacos, Quesabirrias, Wings & More</title>
+  <meta name="description" content="Tuki's Cheese food truck in Porter, TX. Tacos, quesabirrias, wings, nachos, and more. Open until 2AM. Book the truck for your event — call (346) 706-6668." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "Tuki's Cheese",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "26390 Sorters Rd",
+      "addressLocality": "Porter",
+      "addressRegion": "TX",
+      "postalCode": "77365",
+      "addressCountry": "US"
+    },
+    "telephone": "+13467066668",
+    "servesCuisine": "Mexican",
+    "priceRange": "$$",
+    "description": "Food truck in Porter, TX serving tacos, quesabirrias, wings, nachos, and more. Open late. Available for private event bookings."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Chivo:wght@400;700;900&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Domine:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:    #F5C200;
+      --yellow-hi: #FFD025;
+      --black:     #0D0D0D;
+      --charcoal:  #1C1C1C;
+      --off-white: #F5F0E8;
+      --warm-gray: #C8C0B0;
+      --li-dark:   rgba(245,194,0,.12);
+      --li-light:  rgba(13,13,13,.09);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Domine', serif;
+      background: var(--off-white);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .22s; }
+    .d3 { transition-delay: .34s; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      height: 60px;
+      padding: 0 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid transparent;
+      transition: background .35s, border-color .35s;
+    }
+    nav.scrolled {
+      background: rgba(13,13,13,.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom-color: var(--li-dark);
+    }
+    .nav-brand {
+      font-family: 'Bangers', cursive;
+      font-size: 1.45rem;
+      letter-spacing: .1em;
+      text-decoration: none;
+      color: var(--yellow);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Courier Prime', monospace;
+      font-size: .88rem;
+      text-decoration: none;
+      letter-spacing: .04em;
+      color: rgba(245,194,0,.65);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--yellow); }
+    .nav-links .pill {
+      background: var(--yellow);
+      color: var(--black) !important;
+      padding: .44rem 1.1rem;
+      border-radius: 2px;
+      font-family: 'Chivo', sans-serif;
+      font-weight: 700;
+      font-size: .72rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      transition: background .2s !important;
+    }
+    .nav-links .pill:hover { background: var(--yellow-hi); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 6vw;
+      text-align: center;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(13,13,13,.70);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .hero-logo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      border: 3px solid var(--yellow);
+      margin-bottom: 1.4rem;
+    }
+    .hero-title {
+      font-family: 'Bangers', cursive;
+      font-size: 5.2rem;
+      letter-spacing: .06em;
+      color: var(--yellow);
+      line-height: 1;
+      margin-bottom: .5rem;
+    }
+    .hero-tagline {
+      font-family: 'Courier Prime', monospace;
+      font-size: .92rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,.62);
+      margin-bottom: 2.2rem;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--black);
+      padding: .9rem 2.4rem;
+      border-radius: 2px;
+      font-family: 'Chivo', sans-serif;
+      font-weight: 900;
+      font-size: .82rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--yellow);
+      transition: background .2s, border-color .2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--yellow-hi); border-color: var(--yellow-hi); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--off-white);
+      padding: .9rem 2.4rem;
+      border-radius: 2px;
+      font-family: 'Chivo', sans-serif;
+      font-weight: 700;
+      font-size: .82rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid rgba(245,240,232,.38);
+      transition: border-color .2s;
+      display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--off-white); }
+
+    /* ── SHARED SECTION ── */
+    section { padding: 7rem 6vw; text-align: center; }
+
+    h2.section-heading {
+      font-family: 'Chivo', sans-serif;
+      font-weight: 900;
+      font-size: 1.9rem;
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      margin-bottom: 2.8rem;
+    }
+
+    /* ── PHOTO STRIP ── */
+    .photo-strip {
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+    }
+    .photo-strip img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── MENU ── */
+    .menu { background: var(--off-white); }
+    .menu h2.section-heading { color: var(--black); }
+    .menu-note {
+      font-family: 'Courier Prime', monospace;
+      font-size: .82rem;
+      color: var(--warm-gray);
+      letter-spacing: .06em;
+      margin-top: -.8rem;
+      margin-bottom: 2.8rem;
+      text-transform: uppercase;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.6rem;
+      text-align: left;
+    }
+    .menu-cat-title {
+      font-family: 'Chivo', sans-serif;
+      font-weight: 900;
+      font-size: .92rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--black);
+      border-bottom: 2px solid var(--yellow);
+      padding-bottom: .4rem;
+      margin-bottom: 1rem;
+    }
+    .menu-cat + .menu-cat { margin-top: 2rem; }
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: .5rem;
+      padding: .46rem 0;
+      border-bottom: 1px solid var(--li-light);
+    }
+    .menu-item:last-child { border-bottom: none; }
+    .item-name {
+      font-family: 'Domine', serif;
+      font-size: .97rem;
+      color: var(--black);
+      line-height: 1.4;
+    }
+    .item-desc {
+      font-family: 'Courier Prime', monospace;
+      font-size: .78rem;
+      color: var(--warm-gray);
+      margin-top: .12rem;
+      display: block;
+    }
+
+    /* ── BOOK BAND ── */
+    .book-band {
+      background: var(--yellow);
+      padding: 6rem 6vw;
+    }
+    .book-band h2.section-heading {
+      color: var(--black);
+      margin-bottom: .8rem;
+    }
+    .book-note {
+      font-family: 'Courier Prime', monospace;
+      font-size: .9rem;
+      color: rgba(13,13,13,.52);
+      letter-spacing: .04em;
+      max-width: 52ch;
+      margin: 0 auto 2.4rem;
+      line-height: 1.7;
+    }
+    .book-ctas {
+      display: flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-dark {
+      background: var(--black);
+      color: var(--yellow);
+      padding: .9rem 2.4rem;
+      border-radius: 2px;
+      font-family: 'Chivo', sans-serif;
+      font-weight: 900;
+      font-size: .82rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--black);
+      transition: background .2s;
+      display: inline-block;
+    }
+    .btn-dark:hover { background: var(--charcoal); border-color: var(--charcoal); }
+    .btn-dark-outline {
+      background: transparent;
+      color: var(--black);
+      padding: .9rem 2.4rem;
+      border-radius: 2px;
+      font-family: 'Chivo', sans-serif;
+      font-weight: 700;
+      font-size: .82rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid rgba(13,13,13,.38);
+      transition: border-color .2s;
+      display: inline-block;
+    }
+    .btn-dark-outline:hover { border-color: var(--black); }
+
+    /* ── LOCATION ── */
+    .location-section { background: var(--black); }
+    .location-section h2.section-heading { color: var(--yellow); margin-bottom: 3rem; }
+
+    .location-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      text-align: left;
+    }
+    .map-frame {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border: none;
+      border-radius: 2px;
+    }
+    .location-addr-block { margin-bottom: 2.6rem; }
+    .location-name {
+      font-family: 'Chivo', sans-serif;
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: var(--off-white);
+      margin-bottom: .45rem;
+    }
+    .location-addr {
+      font-family: 'Courier Prime', monospace;
+      font-size: .9rem;
+      color: rgba(245,240,232,.42);
+      line-height: 1.65;
+      letter-spacing: .03em;
+    }
+    .location-note {
+      font-family: 'Domine', serif;
+      font-size: .88rem;
+      color: rgba(245,194,0,.55);
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: .72rem 0;
+      border-bottom: 1px solid var(--li-dark);
+    }
+    .hours-row:first-child { border-top: 1px solid var(--li-dark); }
+    .hours-day {
+      font-family: 'Courier Prime', monospace;
+      font-size: .88rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,.38);
+    }
+    .hours-time {
+      font-family: 'Chivo', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--off-white);
+      letter-spacing: -.01em;
+    }
+    .hours-time.closed {
+      color: rgba(245,240,232,.2);
+      font-weight: 400;
+      font-family: 'Domine', serif;
+      font-size: .92rem;
+    }
+    .location-fb {
+      margin-top: 2rem;
+      font-family: 'Courier Prime', monospace;
+      font-size: .82rem;
+      color: rgba(245,240,232,.35);
+      letter-spacing: .04em;
+    }
+    .location-fb a {
+      color: var(--yellow);
+      text-decoration: none;
+    }
+    .location-fb a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(245,194,0,.08);
+      padding: 1.8rem 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer span {
+      font-family: 'Courier Prime', monospace;
+      font-size: .78rem;
+      color: rgba(245,240,232,.25);
+      letter-spacing: .07em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      /* NAV */
+      nav { padding: 0 5vw; }
+      .nav-links li:not(:last-child) { display: none; }
+
+      /* HERO — use svh so mobile browser chrome doesn't clip content */
+      .hero {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100svh;
+        padding: 0 5vw;
+      }
+      .hero-logo { width: 96px; height: 96px; }
+      .hero-title { font-size: 3.2rem; }
+      .hero-tagline {
+        font-size: .76rem;
+        letter-spacing: .1em;  /* reduce from .2em — prevents overflow */
+        line-height: 1.6;
+      }
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: .7rem;
+      }
+      .hero-ctas a { text-align: center; }
+
+      /* SECTIONS */
+      section { padding: 4.5rem 5vw; }
+      .book-band { padding: 4.5rem 5vw; }
+      h2.section-heading { font-size: 1.5rem; margin-bottom: 2rem; }
+
+      /* PHOTO STRIP */
+      .photo-strip { grid-template-columns: repeat(2, 1fr); }
+
+      /* MENU */
+      .menu-note { font-size: .75rem; }
+      .menu-grid { grid-template-columns: 1fr; gap: 0; }
+      .menu-grid > div + div {
+        border-top: 1px solid var(--li-light);
+        padding-top: 2rem;
+        margin-top: 2rem;
+      }
+
+      /* BOOK */
+      .book-note { font-size: .85rem; }
+      .book-ctas { flex-direction: column; align-items: center; }
+      .book-ctas a { width: 100%; max-width: 320px; text-align: center; }
+
+      /* LOCATION */
+      .location-wrap { grid-template-columns: 1fr; gap: 2.4rem; }
+      .map-frame { aspect-ratio: 16/9; }  /* shorter on mobile */
+      .location-addr-block { margin-bottom: 1.8rem; }
+
+      /* FOOTER */
+      footer {
+        flex-direction: column;
+        gap: .5rem;
+        text-align: center;
+        padding: 1.5rem 5vw;
+      }
+    }
+
+    /* Extra-small screens (iPhone SE, Galaxy A series, etc.) */
+    @media (max-width: 390px) {
+      .hero-title { font-size: 2.6rem; }
+      .hero-tagline { font-size: .68rem; letter-spacing: .07em; }
+      .nav-brand { font-size: 1.2rem; }
+      .btn-primary, .btn-ghost,
+      .btn-dark, .btn-dark-outline { padding: .8rem 1.6rem; font-size: .78rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a href="#" class="nav-brand">Tuki's Cheese</a>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#book" class="pill">Book the Truck</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="food1.jpg" class="hero-img" alt="" aria-hidden="true" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="logo.jpg" class="hero-logo reveal" alt="Tuki's Cheese logo" />
+      <h1 class="hero-title reveal d1">Tuki's Cheese</h1>
+      <p class="hero-tagline reveal d2">Tacos · Quesabirrias · Wings · Nachos &nbsp;—&nbsp; Porter, TX</p>
+      <div class="hero-ctas reveal d3">
+        <a href="#book" class="btn-primary">Book the Truck</a>
+        <a href="#menu" class="btn-ghost">See the Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO STRIP -->
+  <div class="photo-strip">
+    <img src="food2.jpg" alt="Tuki's food" />
+    <img src="food3.jpg" alt="Tuki's food" />
+    <img src="food4.jpg" alt="Tuki's food" />
+    <img src="truck.jpg" alt="Tuki's Cheese truck" />
+  </div>
+
+  <!-- MENU -->
+  <section class="menu" id="menu">
+    <h2 class="section-heading reveal">What we're serving.</h2>
+    <p class="menu-note reveal d1">Prices posted at the truck — menu subject to change.</p>
+    <div class="menu-grid">
+
+      <!-- TACOS & QUESABIRRIAS -->
+      <div class="reveal d1">
+        <div class="menu-cat">
+          <p class="menu-cat-title">Tacos &amp; Quesabirrias</p>
+          <div class="menu-item">
+            <div><span class="item-name">Taco</span></div>
+          </div>
+          <div class="menu-item">
+            <div><span class="item-name">Quesabirria Tacos</span><span class="item-desc">Birria dipped &amp; crispy, served w/ consommé</span></div>
+          </div>
+          <div class="menu-item">
+            <div><span class="item-name">Quesadilla</span></div>
+          </div>
+          <div class="menu-item">
+            <div><span class="item-name">Magic Quesadilla</span><span class="item-desc">Tuki's signature loaded quesadilla</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAINS -->
+      <div class="reveal d2">
+        <div class="menu-cat">
+          <p class="menu-cat-title">Mains</p>
+          <div class="menu-item">
+            <div><span class="item-name">Wings</span><span class="item-desc">Crispy, sauced your way</span></div>
+          </div>
+          <div class="menu-item">
+            <div><span class="item-name">Yummy Nachos</span><span class="item-desc">Loaded with cheese &amp; toppings</span></div>
+          </div>
+          <div class="menu-item">
+            <div><span class="item-name">Tuki's Torta</span><span class="item-desc">Our signature sandwich</span></div>
+          </div>
+          <div class="menu-item">
+            <div><span class="item-name">Chicken Sandwich</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDES & DRINKS -->
+      <div class="reveal d3">
+        <div class="menu-cat">
+          <p class="menu-cat-title">Sides &amp; Drinks</p>
+          <div class="menu-item">
+            <div><span class="item-name">Elotaso</span><span class="item-desc">Street corn bowl</span></div>
+          </div>
+          <div class="menu-item">
+            <div><span class="item-name">Jalapeño Poppers</span></div>
+          </div>
+          <div class="menu-item">
+            <div><span class="item-name">Seasoned Fries</span></div>
+          </div>
+          <div class="menu-item">
+            <div><span class="item-name">Aguas Frescas</span><span class="item-desc">Ask for today's flavor</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BOOK THE TRUCK -->
+  <section class="book-band" id="book">
+    <h2 class="section-heading reveal">Book the Truck.</h2>
+    <p class="book-note reveal d1">
+      Tuki's is available for bar nights, private parties, and late-night events.
+      We bring the truck, the food, and the good energy — you focus on your guests.
+      Call or message on Facebook to check availability and pricing.
+    </p>
+    <div class="book-ctas reveal d2">
+      <a href="tel:+13467066668" class="btn-dark">Call (346) 706-6668</a>
+      <a href="https://www.facebook.com/tukischeese" target="_blank" rel="noopener" class="btn-dark-outline">Message on Facebook</a>
+    </div>
+  </section>
+
+  <!-- LOCATION & HOURS -->
+  <section class="location-section" id="location">
+    <h2 class="section-heading reveal">Find the Truck.</h2>
+    <div class="location-wrap reveal d1">
+      <iframe
+        class="map-frame"
+        src="https://maps.google.com/maps?q=26390+Sorters+Rd,+Porter,+TX+77365&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Tuki's Cheese location map"
+      ></iframe>
+      <div>
+        <div class="location-addr-block">
+          <p class="location-name">Tuki's Cheese</p>
+          <p class="location-addr">
+            26390 Sorters Rd<br>
+            Porter, TX 77365<br><br>
+            Regular spot: Outside Nowhere Lounge
+          </p>
+          <p class="location-note">Location may vary for private bookings.<br>Check Facebook for tonight's spot.</p>
+        </div>
+        <div>
+          <div class="hours-row">
+            <span class="hours-day">Fri – Sat</span>
+            <span class="hours-time">Evenings – 2 AM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Other Nights</span>
+            <span class="hours-time">Check Facebook</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Private Events</span>
+            <span class="hours-time">By Booking</span>
+          </div>
+        </div>
+        <p class="location-fb">
+          Follow <a href="https://www.facebook.com/tukischeese" target="_blank" rel="noopener">@tukischeese</a> on Facebook for daily location updates.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>Tuki's Cheese</span>
+    <span>(346) 706-6668</span>
+    <span>26390 Sorters Rd, Porter TX 77365</span>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -16px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

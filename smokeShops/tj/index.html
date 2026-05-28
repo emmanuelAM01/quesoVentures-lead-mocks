@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TJ's Smoke Shop – Heights | Vape, CBD, Tobacco, Hookah, Cigars, 7ohm, Kratom | Houston, TX</title>
+  <meta name="description" content="TJ's Smoke Shop in the Houston Heights — vape, CBD, tobacco, hookah, cigars, kratom, 7ohm, glassware, and accessories. 126 Heights Blvd #112-B, Houston, TX 77007." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "TJ's Smoke Shop – Heights",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "126 Heights Blvd #112-B",
+      "addressLocality": "Houston",
+      "addressRegion": "TX",
+      "postalCode": "77007",
+      "addressCountry": "US"
+    },
+    "telephone": "+17134975100",
+    "openingHours": ["Mo-Sa 09:00-22:00", "Su 10:00-20:00"],
+    "description": "Smoke shop in the Houston Heights carrying vape, CBD, kratom, 7ohm, hookah, cigars, tobacco, glassware, and accessories."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #2db84e;
+      --green-hover: #27a845;
+      --bg:          #0a0a0a;
+      --bg-alt:      #111111;
+      --surface:     #181818;
+      --border:      #252525;
+      --text:        #f0ece6;
+      --body-text:   #c0bdb8;
+      --muted:       #7a7570;
+      --dark:        #0a0a0a;
+      --white:       #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--bg);
+      color: var(--body-text);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 62px;
+      background: rgba(10, 10, 10, 0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(6px);
+    }
+
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: bold;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .nav-logo span { color: var(--green); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
+    }
+    .nav-links a { color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--green);
+      color: #0a0a0a !important;
+      font-weight: bold;
+      padding: 0.45rem 1.2rem;
+      border-radius: 2px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--green-hover) !important; }
+
+    /* ── Hamburger ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--text);
+      border-radius: 1px;
+      transition: all 0.25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1.2rem; }
+
+      .nav-hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 62px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 0 1rem;
+      }
+      .nav-links.open { display: flex; }
+
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block;
+        padding: 0.85rem 1.5rem;
+        font-size: 0.9rem;
+      }
+      .nav-cta {
+        margin: 0.5rem 1.5rem 0;
+        padding: 0.7rem 1.2rem;
+        text-align: center;
+        border-radius: 2px;
+      }
+    }
+
+    /* ────────────────────────────────────────────
+       GLOBAL MOBILE
+    ──────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      section { padding: 4rem 1.25rem; }
+
+      .hero { padding: 6rem 1.25rem 3.5rem; min-height: 100svh; }
+
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .btn { text-align: center; }
+
+      .selection-layout { grid-template-columns: 1fr; gap: 2rem; }
+
+      .why-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+      .loc-card iframe { height: 220px; }
+
+      .loc-actions { flex-direction: column; }
+      .loc-actions .btn { flex: none; width: 100%; }
+
+      .hours-table { font-size: 0.82rem; }
+      .hours-table td { padding: 0.55rem 0; }
+
+      .cta-banner { padding: 3.5rem 1.25rem; }
+
+      footer { padding: 1.5rem 1.25rem; font-size: 0.74rem; line-height: 1.7; }
+    }
+
+    /* ────────────────────────────────────────────
+       HERO
+    ──────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 7rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('store.jpg') center/cover no-repeat;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.68);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 680px;
+    }
+
+    .hero-title-name {
+      display: block;
+      font-size: clamp(2.6rem, 6.5vw, 4.5rem);
+      font-weight: bold;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .hero-title-sub {
+      display: block;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: normal;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-top: 0.5rem;
+      font-family: Arial, sans-serif;
+      font-style: normal;
+    }
+
+    .hero-rule {
+      width: 44px;
+      height: 2px;
+      background: var(--green);
+      margin: 1.5rem auto;
+    }
+
+    .hero-tagline {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: rgba(240, 236, 230, 0.75);
+      line-height: 1.7;
+      font-style: italic;
+      margin: 0;
+    }
+
+    .hero-cta-group {
+      margin-top: 2.6rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2.2rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: var(--green); color: #0a0a0a; font-weight: bold; border: 1px solid var(--green); }
+    .btn-primary:hover { background: var(--green-hover); border-color: var(--green-hover); }
+    .btn-outline-light {
+      background: transparent;
+      color: rgba(240, 236, 230, 0.75);
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+    .btn-outline-light:hover { border-color: rgba(255,255,255,0.5); color: var(--text); }
+
+    /* ── Section scaffold ── */
+    section { padding: 5.5rem 1.5rem; }
+
+    .container { max-width: 1060px; margin: 0 auto; }
+
+    .section-eyebrow {
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+      font-weight: bold;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+
+    .rule { width: 44px; height: 2px; background: var(--green); margin: 1rem 0 2.5rem; }
+
+    /* ────────────────────────────────────────────
+       IN-STORE SELECTION
+    ──────────────────────────────────────────── */
+    .selection { background: var(--surface); }
+
+    .selection-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .selection-layout .section-eyebrow,
+    .selection-layout .section-title,
+    .selection-layout .rule {
+      margin-bottom: 0;
+    }
+
+    .selection-layout .rule {
+      margin: 1rem 0 1.5rem;
+    }
+
+    .selection-prose p {
+      font-size: 0.97rem;
+      color: var(--body-text);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .selection-prose p:last-child { margin-bottom: 0; }
+
+    .selection-list-label {
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .selection-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .sel-item {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .sel-item:nth-child(odd)  { padding-right: 1.5rem; }
+    .sel-item:nth-child(even) { padding-left: 1rem; border-left: 1px solid var(--border); }
+
+    .sel-item strong {
+      font-size: 0.92rem;
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .sel-item span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+    }
+
+    /* ── About ── */
+    .about { background: var(--bg-alt); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+
+    .why-item { display: flex; gap: 1rem; align-items: flex-start; }
+
+    .why-check {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #0a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      margin-top: 3px;
+    }
+
+    .why-item h4 { font-size: 0.97rem; color: var(--text); margin-bottom: 0.3rem; }
+    .why-item p  { font-size: 0.86rem; color: var(--muted); }
+
+    /* ── Location ── */
+    .location { background: var(--surface); }
+
+    .loc-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .loc-card iframe {
+      display: block;
+      width: 100%;
+      height: 280px;
+      border: none;
+    }
+
+    .loc-card-body {
+      padding: 1.4rem 1.5rem 1.5rem;
+    }
+
+    .loc-card-name {
+      font-size: 0.92rem;
+      font-weight: bold;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
+      margin-bottom: 0.35rem;
+    }
+
+    .loc-card-addr {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+
+    .hours-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 1rem; }
+    .hours-table tr { border-bottom: 1px solid var(--border); }
+    .hours-table td { padding: 0.65rem 0; color: var(--muted); }
+    .hours-table td:first-child { color: var(--text); font-weight: bold; width: 48%; }
+    .hours-note { margin-top: 1rem; font-size: 0.78rem; color: var(--muted); font-style: italic; font-family: Arial, sans-serif; }
+
+    .loc-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .loc-actions .btn {
+      flex: 1;
+      text-align: center;
+      padding: 0.65rem 1rem;
+      font-size: 0.78rem;
+    }
+
+    /* ── CTA Banner ── */
+    .cta-banner { background: #050505; border-top: 1px solid var(--border); text-align: center; padding: 5rem 1.5rem; }
+    .cta-banner h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--text); letter-spacing: 0.04em; margin-bottom: 0.75rem; }
+    .cta-banner p  { color: var(--muted); font-style: italic; margin-bottom: 2rem; font-size: 0.97rem; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    footer span { color: rgba(240, 236, 230, 0.5); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">TJ's <span>Smoke Shop</span></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#selection" class="nav-link-item">Products</a></li>
+      <li><a href="#about" class="nav-link-item">About</a></li>
+      <li><a href="#hours" class="nav-link-item">Hours</a></li>
+      <li><a href="#contact" class="nav-cta nav-link-item">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <script>
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    document.querySelectorAll('.nav-link-item').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+  </script>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>
+        <span class="hero-title-name">TJ's Smoke Shop</span>
+        <span class="hero-title-sub">Heights</span>
+      </h1>
+      <div class="hero-rule"></div>
+      <p class="hero-tagline">126 Heights Blvd, Houston Heights, TX</p>
+      <div class="hero-cta-group">
+        <a href="#selection" class="btn btn-primary">See What We Carry</a>
+        <a href="#hours" class="btn btn-outline-light">Hours &amp; Location</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IN-STORE SELECTION -->
+  <section class="selection" id="selection">
+    <div class="container">
+      <div class="selection-layout">
+
+        <div>
+          <p class="section-eyebrow">In-Store Selection</p>
+          <h2 class="section-title">Everything You Need,<br>All Under One Roof</h2>
+          <div class="rule"></div>
+          <div class="selection-prose">
+            <p>TJ's Smoke Shop is the Heights' go-to spot for vape products, CBD, kratom, hookah, cigars, tobacco, and glassware. We carry a wide range of brands at different price points — from budget picks to premium products.</p>
+            <p>Stop in and browse. We're always happy to answer questions or help you find what you're looking for.</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="selection-list-label">You'll find in store</p>
+          <div class="selection-list">
+
+            <div class="sel-item">
+              <strong>Vapes &amp; Disposables</strong>
+              <span>Disposables, pod systems &amp; mods</span>
+            </div>
+
+            <div class="sel-item">
+              <strong>CBD</strong>
+              <span>Tinctures, gummies &amp; flower</span>
+            </div>
+
+            <div class="sel-item">
+              <strong>Kratom</strong>
+              <span>Powder, capsules &amp; extracts</span>
+            </div>
+
+            <div class="sel-item">
+              <strong>7ohm</strong>
+              <span>Gummies, tinctures &amp; shots</span>
+            </div>
+
+            <div class="sel-item">
+              <strong>Hookah &amp; Shisha</strong>
+              <span>Full setups &amp; supplies</span>
+            </div>
+
+            <div class="sel-item">
+              <strong>Cigars &amp; Tobacco</strong>
+              <span>Premium &amp; budget brands</span>
+            </div>
+
+            <div class="sel-item">
+              <strong>Glassware</strong>
+              <span>Pipes, water pipes &amp; bubblers</span>
+            </div>
+
+            <div class="sel-item">
+              <strong>Accessories</strong>
+              <span>Lighters, papers &amp; grinders</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <p class="section-eyebrow">About Us</p>
+      <h2 class="section-title">Your Neighborhood<br>Smoke Shop</h2>
+      <div class="rule"></div>
+
+      <div class="why-grid">
+
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>In the Heights</h4>
+            <p>Located at 126 Heights Blvd — easy to get to and plenty of parking in the area.</p>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Wide Selection</h4>
+            <p>Vapes, CBD, kratom, 7ohm, hookah, cigars, glassware, and more — all in one place.</p>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Competitive Prices</h4>
+            <p>We carry brands at different price points so there's something for every budget.</p>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Walk-Ins Welcome</h4>
+            <p>No appointment needed. Come in and we'll point you to the right product.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOURS & LOCATION -->
+  <section class="location" id="hours">
+    <div class="container">
+      <p class="section-eyebrow">Visit Us</p>
+      <h2 class="section-title">Hours &amp; Location</h2>
+      <div class="rule"></div>
+
+      <div class="loc-card">
+        <iframe
+          src="https://maps.google.com/maps?q=126+Heights+Blvd+%23112-B,+Houston,+TX+77007&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="TJ's Smoke Shop Heights location map"
+        ></iframe>
+        <div class="loc-card-body">
+          <p class="loc-card-name">TJ's Smoke Shop – Heights</p>
+          <p class="loc-card-addr">126 Heights Blvd #112-B, Houston, TX 77007<br>(713) 497-5100</p>
+          <table class="hours-table">
+            <tr><td>Monday – Saturday</td><td>9:00 AM – 10:00 PM</td></tr>
+            <tr><td>Sunday</td><td>10:00 AM – 8:00 PM</td></tr>
+          </table>
+          <p class="hours-note">Hours may vary on holidays.</p>
+          <div class="loc-actions">
+            <a
+              href="https://www.google.com/maps/dir//126+Heights+Blvd+%23112-B,+Houston,+TX+77007"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+            >Get Directions</a>
+            <a href="tel:+17134975100" class="btn btn-outline-light">Call Us</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner" id="contact">
+    <div class="container">
+      <h2>Come See Us Today</h2>
+      <p>Walk-ins always welcome. Heights, Houston TX.</p>
+      <a href="tel:+17134975100" class="btn btn-primary">(713) 497-5100</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 <span>TJ's Smoke Shop – Heights</span> &mdash; 126 Heights Blvd #112-B, Houston, TX 77007 &mdash; (713) 497-5100</p>
+    <p style="margin-top:0.4rem;">21+ only. Valid ID required.</p>
+  </footer>
+
+</body>
+</html>
