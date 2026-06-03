@@ -514,14 +514,19 @@
 
       #order .section-headline { font-size: 2rem; }
 
-      .product-grid { grid-template-columns: 1fr; }
+      .product-grid { grid-template-columns: 1fr 1fr; }
 
       footer { padding: 4rem 6vw 2.5rem; }
     }
 
     @media (max-width: 480px) {
+      .hero-logo { width: 140px; }
+      #menu .section-headline { font-size: 1.6rem; }
+      .product-grid { grid-template-columns: 1fr; }
       .hero-ctas,
       .order-ctas { flex-direction: column; align-items: center; }
+      .btn-dark,
+      .btn-outline-white { width: 100%; text-align: center; }
     }
   </style>
 </head>
