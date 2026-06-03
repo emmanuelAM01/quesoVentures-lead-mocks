@@ -1,0 +1,13 @@
+{
+  "name": "queso-ventures-leads",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "AI mock generator for Queso Ventures leads",
+  "scripts": {
+    "generate": "node generate.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "dotenv": "^16.4.5"
+  }
+}

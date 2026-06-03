@@ -1,0 +1,13 @@
+{
+  "businessName": "Business Name Here",
+  "cityNeighborhood": "City, TX",
+  "businessType": "food_truck",
+  "primaryServiceHook": "One-line hook — e.g. 'taco catering for events' or 'shaved ice & snow cones'",
+  "posLink": "https://...",
+  "anythingSpecial": "Optional — farmers market on weekends, only open Fri-Sun, catering only, etc.",
+  "nap": {
+    "address": "123 Main St, City TX 77000",
+    "phone": "281-000-0000",
+    "address2": ""
+  }
+}

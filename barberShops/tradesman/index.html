@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tradesmen. | Houston Barbershop — Heights & Montrose</title>
+  <meta name="description" content="Tradesmen Barber — Houston's first pink barbershop. Premium cuts and craft at Heights and Montrose." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@400;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --hero: #C2D0C8;
+      --body: #FAF8F5;
+      --pink: #F0C8C8;
+      --ink: #1A1A1A;
+      --muted: #6B6B6B;
+      --border: #E0E0E0;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--body);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─────────── NAV ─────────── */
+
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      height: 68px;
+      padding: 0 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: transparent;
+      transition: background 0.35s ease;
+    }
+
+    nav.scrolled { background: var(--hero); }
+
+    .nav-logo img {
+      height: 36px;
+      display: block;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.825rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 0.45; }
+
+    .nav-book { font-weight: 500 !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--ink);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ─────────── HERO ─────────── */
+
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--hero);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* SVG grain/noise texture — feTurbulence at low opacity */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23g)'/%3E%3C/svg%3E");
+      background-size: 250px 250px;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .hero-logo {
+      width: 280px;
+      max-width: 72vw;
+      display: block;
+    }
+
+    /* ─────────── SHARED BUTTON ─────────── */
+
+    .btn {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.775rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.9rem 2.5rem;
+      border-radius: 3px;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover { opacity: 0.7; }
+
+    /* ─────────── ABOUT ─────────── */
+
+    #about {
+      background: var(--pink);
+      padding: 8rem 6vw;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-photo {
+      aspect-ratio: 4 / 5;
+      border-radius: 4px;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.13);
+      filter: contrast(0.95) saturate(0.88);
+    }
+
+    .about-copy h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1.75rem;
+    }
+
+    .about-copy p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--ink);
+      opacity: 0.8;
+    }
+
+    .about-quote {
+      margin-top: 2.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.35rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+
+    .about-quote cite {
+      display: block;
+      margin-top: 0.6rem;
+      font-style: normal;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─────────── SERVICES ─────────── */
+
+    #services {
+      background: var(--body);
+      padding: 8rem 6vw;
+    }
+
+    .services-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: 3.5rem;
+      color: var(--ink);
+    }
+
+    .services-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 5rem;
+      margin-bottom: 4rem;
+    }
+
+    .services-list ul {
+      list-style: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .services-list li {
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink);
+    }
+
+    .services-cta { text-align: left; }
+
+    /* ─────────── LOCATIONS ─────────── */
+
+    #locations {
+      background: var(--body);
+      padding: 8rem 6vw;
+      border-top: 1px solid var(--border);
+    }
+
+    .locations-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .location h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .location address {
+      font-style: normal;
+      margin-bottom: 1.25rem;
+    }
+
+    .location address p,
+    .location address a {
+      font-size: 0.875rem;
+      line-height: 1.85;
+      color: var(--muted);
+      text-decoration: none;
+      display: block;
+    }
+
+    .location address a:hover { color: var(--ink); }
+
+    .arrow-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+
+    .arrow-link:hover { gap: 0.55rem; }
+
+    /* ─────────── GALLERY ─────────── */
+
+    #gallery {
+      background: var(--pink);
+      padding: 8rem 6vw;
+      border-top: none;
+    }
+
+    .gallery-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .gallery-tile {
+      aspect-ratio: 1 / 1;
+      border-radius: 4px;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+      filter: contrast(0.95) saturate(0.88);
+    }
+
+    /* ─────────── FOOTER ─────────── */
+
+    footer {
+      background: var(--hero);
+      padding: 5rem 6vw 3rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      display: block;
+      width: 180px;
+      margin: 0 auto 1rem;
+    }
+
+    .footer-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .footer-links a:hover { opacity: 0.5; }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    .footer-built {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+      font-size: 0.6875rem;
+      color: var(--muted);
+      opacity: 0.7;
+    }
+
+    .footer-built img {
+      height: 16px;
+      display: block;
+      opacity: 0.6;
+    }
+
+    .footer-built a {
+      color: inherit;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .footer-built a:hover { opacity: 1; }
+
+    /* ─────────── MOBILE ─────────── */
+
+    @media (max-width: 768px) {
+
+      .hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0; right: 0;
+        background: var(--hero);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.75rem 6vw 2.25rem;
+        gap: 1.5rem;
+        border-top: 1px solid rgba(0,0,0,0.07);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links a {
+        font-size: 0.9rem;
+      }
+
+      .hero-logo { width: 200px; }
+
+      #about,
+      #services,
+      #locations,
+      #gallery { padding: 5rem 6vw; }
+
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .about-photo { aspect-ratio: 3 / 2; }
+
+      .about-copy h2 { font-size: 2.1rem; }
+
+      .services-list {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .services-list ul + ul { border-top: none; }
+
+      .locations-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+      .gallery-grid { grid-template-columns: 1fr; }
+
+      footer { padding: 4rem 6vw 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a class="nav-logo" href="#hero">
+      <img src="logo.png" alt="tradesmen." />
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#locations">Locations</a></li>
+      <li>
+        <a class="nav-book"
+           href="https://book.squareup.com/appointments/bae52dd4-95fe-4d53-96c8-c8a5ef33e653/location/L98TGJ7XRW9KW/services?rwg_token=AFd1xnHPXdDCf4EKxDr2tStpMqSKrKUSsIzRKmQhQv50VvQ3P2QI9fHBy-ncyGjssCCeuN4hGsvwwNXhzyLanH8m057_Vx98Wg%3D%3D"
+           target="_blank" rel="noopener">Book Now</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <img class="hero-logo" src="logo.png" alt="tradesmen." />
+      <a class="btn"
+         href="https://book.squareup.com/appointments/bae52dd4-95fe-4d53-96c8-c8a5ef33e653/location/L98TGJ7XRW9KW/services?rwg_token=AFd1xnHPXdDCf4EKxDr2tStpMqSKrKUSsIzRKmQhQv50VvQ3P2QI9fHBy-ncyGjssCCeuN4hGsvwwNXhzyLanH8m057_Vx98Wg%3D%3D"
+         target="_blank" rel="noopener">Book Now</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner">
+      <img class="about-photo" src="imagesNeeded/owner_.jpg" alt="Tradesmen owner and barbers" />
+      <div class="about-copy">
+        <h2>Where craft meets culture.</h2>
+        <p>Tradesmen is a Houston barbershop concept drawing creative inspiration from film, photography, and design. The Heights location is Houston's first pink barbershop. Our Montrose shop has served the community for over five years.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="services-inner">
+      <h2 class="section-label">the work.</h2>
+      <div class="services-list">
+        <ul>
+          <li>Haircut</li>
+          <li>Haircut + Beard Trim</li>
+          <li>Buzz Cut</li>
+          <li>Beard Trim</li>
+          <li>Kids Cut (ages 8–13)</li>
+        </ul>
+        <ul>
+          <li>Shave</li>
+          <li>Long Hair Trim</li>
+          <li>Head Shave</li>
+          <li>Combo — Haircut &amp; Beard Trim</li>
+          <li>Combo — Haircut &amp; Shave</li>
+        </ul>
+      </div>
+      <div class="services-cta">
+        <a class="btn"
+           href="https://book.squareup.com/appointments/bae52dd4-95fe-4d53-96c8-c8a5ef33e653/location/L98TGJ7XRW9KW/services?rwg_token=AFd1xnHPXdDCf4EKxDr2tStpMqSKrKUSsIzRKmQhQv50VvQ3P2QI9fHBy-ncyGjssCCeuN4hGsvwwNXhzyLanH8m057_Vx98Wg%3D%3D"
+           target="_blank" rel="noopener">Book Your Appointment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section id="locations">
+    <div class="locations-inner">
+      <h2 class="section-label">find us.</h2>
+      <div class="locations-grid">
+        <div class="location">
+          <h3>Heights</h3>
+          <address>
+            <p>722 W. 19th St</p>
+            <p>Houston, TX 77008</p>
+            <a href="tel:7133937501">713-393-7501</a>
+          </address>
+          <a class="arrow-link"
+             href="https://maps.google.com/?q=722+W+19th+St+Houston+TX+77008"
+             target="_blank" rel="noopener">Get Directions &nbsp;→</a>
+        </div>
+        <div class="location">
+          <h3>Montrose</h3>
+          <address>
+            <p>1952 Montrose Blvd</p>
+            <p>Houston, TX 77006</p>
+            <a href="tel:7135051503">713-505-1503</a>
+          </address>
+          <a class="arrow-link"
+             href="https://maps.google.com/?q=1952+Montrose+Blvd+Houston+TX+77006"
+             target="_blank" rel="noopener">Get Directions &nbsp;→</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="gallery-inner">
+      <h2 class="section-label">inside the shop.</h2>
+      <div class="gallery-grid">
+        <img class="gallery-tile" src="imagesNeeded/interior1.jpg" alt="Tradesmen barbershop interior" loading="lazy" />
+        <img class="gallery-tile" src="imagesNeeded/interiror2.jpg" alt="Tradesmen barbershop interior" loading="lazy" />
+        <img class="gallery-tile" src="imagesNeeded/interiro4.jpg" alt="Tradesmen barbershop interior" loading="lazy" />
+        <img class="gallery-tile" src="imagesNeeded/sink.jpg" alt="Tradesmen barbershop" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img class="footer-logo" src="logo.png" alt="tradesmen." />
+    <div class="footer-wordmark">tradesmen.</div>
+    <ul class="footer-links">
+      <li><a href="https://instagram.com/tradesmenbarber" target="_blank" rel="noopener">@tradesmenbarber</a></li>
+      <li><a href="#locations">Heights</a></li>
+      <li><a href="#locations">Montrose</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Tradesmen Barber. All rights reserved.</p>
+    <p class="footer-built">
+      <img src="https://quesoventures.com/logo.png" alt="Queso Ventures" />
+      Built by <a href="https://quesoventures.com" target="_blank" rel="noopener">Queso Ventures</a>
+    </p>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

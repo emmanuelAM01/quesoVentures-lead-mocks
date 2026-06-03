@@ -1,0 +1,13 @@
+{
+  "businessName": "Ponto de Encontro",
+  "cityNeighborhood": "Humble, TX",
+  "businessType": "coffee",
+  "primaryServiceHook": "Coffee Club membership — $15/month, 50% off all drinks every day",
+  "posLink": "https://checkout.square.site/merchant/MLPT306HSBTSQ/checkout/677H247TJWTNLARIHNG7NYMT",
+  "anythingSpecial": "Two locations: main café at 3810 Atascocita Rd (Mon–Fri 5AM–12PM) and Fall Creek Farmers Market at 7930 Fall Creek Bend Dr (weekends and events, 9AM–1PM, check social for market dates). Partner roaster: The Hermit Cafe, Houston.",
+  "nap": {
+    "address": "3810 Atascocita Rd, Humble TX 77396",
+    "phone": "281-520-0174",
+    "address2": "7930 Fall Creek Bend Dr, Humble TX 77396 (Fall Creek Farmers Market)"
+  }
+}

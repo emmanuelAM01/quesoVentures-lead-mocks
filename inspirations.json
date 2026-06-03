@@ -1,0 +1,17 @@
+{
+  "coffee": [
+    { "name": "Blank Street Coffee", "url": "https://www.blankstreet.com" },
+    { "name": "Onyx Coffee Lab", "url": "https://onyxcoffeelab.com" }
+  ],
+  "food_truck": [
+    { "name": "Dos Toros Taqueria", "url": "https://dostoros.com" }
+  ],
+  "bar": [
+    { "name": "Kirby Icehouse", "url": "https://kirbyicehouse.com" }
+  ],
+  "barber": [],
+  "med_spa": [],
+  "smoke_shop": [],
+  "dentist": [],
+  "donuts": []
+}
