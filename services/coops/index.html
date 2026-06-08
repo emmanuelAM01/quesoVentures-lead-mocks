@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coop's Carpet & Air Duct Cleaning — Humble & Greater Houston, TX</title>
+  <meta name="description" content="30 years of trusted carpet and air duct cleaning in Humble and Greater Houston. Call Ken 'Coop' Cooper for a free estimate. Owner-operated, personal service every time." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #C41E3A;
+      --red-dark: #9E1730;
+      --red-light: #e8203f;
+      --cream: #F8F4EE;
+      --warm-white: #FFFDF9;
+      --text: #1C1917;
+      --text-mid: #4A4240;
+      --text-light: #7A706D;
+      --border: #E0D8D0;
+      --section-gap: 72px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-logo-name {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.25;
+    }
+
+    .nav-phone {
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-mid);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-phone:hover { color: var(--red); }
+
+    .nav-cta {
+      flex-shrink: 0;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover { background: var(--red-dark); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('heroBG.png') center/cover no-repeat;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 6vw;
+    }
+
+    #hero h1 {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 700;
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      line-height: 1.1;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    #hero h1 .red {
+      display: block;
+      color: var(--red-light);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: #a09690;
+      margin-top: 20px;
+      margin-bottom: 38px;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 17px 40px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .hero-cta:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+    .hero-fine {
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: #6a6260;
+    }
+
+    /* ── TRUST BAR ── */
+    #trust-bar {
+      background: var(--red);
+      color: #fff;
+      padding: 16px 6vw;
+      display: flex;
+      justify-content: center;
+      gap: clamp(20px, 4vw, 64px);
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: var(--section-gap) 6vw;
+    }
+
+    section h2 {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 700;
+      font-size: 1.9rem;
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      text-align: center;
+      color: var(--text-mid);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 44px;
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: var(--warm-white);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--red);
+      border-radius: 5px;
+      padding: 32px 28px;
+      text-align: center;
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .service-card p {
+      font-size: 0.93rem;
+      color: var(--text-mid);
+      line-height: 1.55;
+    }
+
+    /* ── WHY COOP ── */
+    #why {
+      background: var(--cream);
+    }
+
+    .why-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 900px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--warm-white);
+    }
+
+    .why-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 36px 20px;
+      border-right: 1px solid var(--border);
+    }
+
+    .why-item:last-child { border-right: none; }
+
+    .why-num {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 700;
+      font-size: 2.8rem;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .why-item h3 {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .why-item p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    /* ── REVIEWS ── */
+    #reviews {
+      background: var(--text);
+      color: #fff;
+    }
+
+    #reviews h2 { color: #fff; }
+    #reviews .section-intro { color: #8a8280; margin-bottom: 40px; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .review-card {
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 5px;
+      padding: 30px 26px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stars {
+      color: #f5b942;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .review-text {
+      font-size: 0.97rem;
+      line-height: 1.65;
+      color: #cec6c2;
+      font-style: italic;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .review-author {
+      font-weight: 600;
+      font-size: 0.87rem;
+      color: #fff;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── SERVICE AREA ── */
+    #area {
+      background: var(--warm-white);
+      text-align: center;
+    }
+
+    .area-lead {
+      text-align: center;
+      color: var(--text-mid);
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+    }
+
+    .area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 9px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .area-tag {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      font-weight: 500;
+    }
+
+    /* ── FOOTER CTA ── */
+    #footer-cta {
+      background: var(--red);
+      color: #fff;
+      text-align: center;
+      padding: 64px 6vw;
+    }
+
+    #footer-cta h2 {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 700;
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    #footer-cta p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 30px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-cta-btn {
+      display: inline-block;
+      background: #fff;
+      color: var(--red);
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 15px 36px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+
+    .footer-cta-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111;
+      color: #6a6260;
+      padding: 28px 6vw;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    footer a { color: #928880; text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    .footer-contact {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .why-row {
+        grid-template-columns: 1fr 1fr;
+      }
+      .why-item {
+        border-bottom: 1px solid var(--border);
+      }
+      .why-item:nth-child(2n) { border-right: none; }
+      .why-item:nth-last-child(-n+2) { border-bottom: none; }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      :root { --section-gap: 52px; }
+
+      .nav-logo-name { display: none; }
+      .nav-phone { display: none; }
+      nav { padding: 0 5vw; }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      #trust-bar { gap: 12px; padding: 13px 5vw; }
+      .trust-item { font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <img src="https://cdn.homeadvisor.com/files/eid/76070000/76073228/8576222_logo.gif" alt="Coop's Carpet & Air Duct Cleaning logo" />
+      <span class="nav-logo-name">Coop's Carpet &<br>Air Duct Cleaning</span>
+    </div>
+    <a href="tel:+12815550000" class="nav-phone">(281) 555-0000</a>
+    <a href="tel:+12815550000" class="nav-cta">Call for a Free Estimate</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <h1>Coop's Carpet &amp; Air Duct Cleaning</h1>
+    <p class="hero-sub">Serving Houston &amp; Humble for 30 Years</p>
+    <a href="tel:+12815550000" class="hero-cta">Call for a Free Estimate</a>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div id="trust-bar">
+    <div class="trust-item">★&nbsp; 30+ Years in Business</div>
+    <div class="trust-item">✓&nbsp; Free Estimates</div>
+    <div class="trust-item">💳&nbsp; Credit Cards Accepted</div>
+    <div class="trust-item">👤&nbsp; Owner Does Every Job</div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2 class="reveal">Services</h2>
+    <p class="section-intro reveal">
+      From wall-to-wall carpet to the ducts behind your vents, Coop handles it all — professionally, personally, and affordably.
+    </p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-icon">🧹</span>
+        <h3>Carpet & Rug Cleaning</h3>
+        <p>Deep hot-water extraction for wall-to-wall carpet, area rugs, and runners. Removes embedded dirt, allergens, and odors.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">💨</span>
+        <h3>Air Duct & Vent Cleaning</h3>
+        <p>Thorough cleaning of your HVAC ductwork and vents. Improves air quality and helps your system run more efficiently.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">🛋️</span>
+        <h3>Upholstery Cleaning</h3>
+        <p>Sofas, chairs, ottomans. Coop cleans fabric upholstery carefully and thoroughly — ask about white and light-colored pieces.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">⚡</span>
+        <h3>Emergency Services</h3>
+        <p>Unexpected spill or water intrusion? Call Coop. Quick response when you can't afford to wait.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY COOP -->
+  <section id="why">
+    <h2 class="reveal">Why Choose Coop</h2>
+    <p class="section-intro reveal">
+      Coop has been cleaning carpets and air ducts in the Houston area since 1995.
+    </p>
+    <div class="why-row reveal">
+      <div class="why-item">
+        <span class="why-num">30</span>
+        <h3>Years of Experience</h3>
+        <p>Three decades of hands-on carpet and duct cleaning in the Houston area.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-num">$0</span>
+        <h3>Free Estimates</h3>
+        <p>Call and get a straight quote — no pressure, no hidden fees.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-num">1</span>
+        <h3>Person Every Time</h3>
+        <p>You get the owner on every job. Not a crew. Not a subcontractor.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-num">✓</span>
+        <h3>Cards Accepted</h3>
+        <p>Pay however you like. Credit cards welcome.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <h2 class="reveal">5-Star Reviews</h2>
+    <p class="section-intro reveal">Real customers. Real results.</p>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Mr. Coop did a fantastic job for us. He advised on the issues with our returns... will absolutely use his services again."</p>
+        <div class="review-author">Angela J.</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Coop arrived on time, explained what he will be doing... Did a great job on my carpet and my WHITE COUCH. I would recommend him."</p>
+        <div class="review-author">Trina P.</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"On time, professional, completed service as agreed to my total satisfaction."</p>
+        <div class="review-author">Stephen L.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section id="area">
+    <h2 class="reveal">Service Area</h2>
+    <p class="area-lead reveal">Based in Humble, TX — serving Greater Houston and surrounding communities.</p>
+    <div class="area-tags reveal">
+      <span class="area-tag">Humble</span>
+      <span class="area-tag">Houston</span>
+      <span class="area-tag">Kingwood</span>
+      <span class="area-tag">Atascocita</span>
+      <span class="area-tag">Spring</span>
+      <span class="area-tag">The Woodlands</span>
+      <span class="area-tag">Baytown</span>
+      <span class="area-tag">Crosby</span>
+      <span class="area-tag">Katy</span>
+      <span class="area-tag">Sugar Land</span>
+      <span class="area-tag">Pasadena</span>
+      <span class="area-tag">League City</span>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section id="footer-cta">
+    <h2 class="reveal">Give us a call for an estimate</h2>
+    <p class="reveal">Serving Houston for 30 years</p>
+    <a href="tel:+12815550000" class="footer-cta-btn reveal">Call (281) 555-0000</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-contact">
+      <a href="tel:+12815550000">(281) 555-0000</a>
+      <a href="mailto:coop@coopscleaning.com">coop@coopscleaning.com</a>
+      <span>Humble, TX 77338</span>
+    </div>
+    <p>© 2026 Coop's Carpet & Air Duct Cleaning &nbsp;·&nbsp; Greater Houston, TX</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
