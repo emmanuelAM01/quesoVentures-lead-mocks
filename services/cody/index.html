@@ -468,7 +468,13 @@
 
     /* ── MOBILE ── */
     @media (max-width: 768px) {
-      .projects-grid {
+      .fp-grid img {
+        aspect-ratio: 3 / 2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fp-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -508,6 +514,8 @@
         grid-template-columns: 1fr;
       }
 
+      .rev-btn { display: none; }
+      .reviews-nav { gap: 0; }
     }
   </style>
 </head>
