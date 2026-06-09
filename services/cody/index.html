@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elite Reliability RV — Mobile RV Repair | Magnolia, The Woodlands, Conroe TX</title>
+  <meta name="description" content="Engineering-grade mobile RV repair serving Magnolia, The Woodlands, Conroe, and surrounding areas. 19 years of oil & gas engineering experience. Call Cody at 832-334-1579." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #2e7fd4;
+      --blue-dark: #1a2b4a;
+      --blue-light: #4a9fe4;
+      --cream: #F4F7FB;
+      --warm-white: #FAFCFF;
+      --text: #1C1917;
+      --text-mid: #3a4a5c;
+      --text-light: #6a7a8c;
+      --border: #D4DDE8;
+      --section-gap: 72px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-name {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--blue-dark);
+      line-height: 1.25;
+    }
+
+    .nav-phone {
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-mid);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-phone:hover { color: var(--blue); }
+
+    .nav-cta {
+      flex-shrink: 0;
+      background: var(--blue);
+      color: #fff;
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover { background: var(--blue-dark); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100svh;
+      background: linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.62)), url('heroBG.jpg') center/cover no-repeat;
+      background-attachment: scroll;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 6vw 80px;
+    }
+
+    @media (max-width: 600px) {
+      #hero {
+        min-height: 100svh;
+        padding: 90px 5vw 60px;
+        background-position: center center;
+      }
+    }
+
+    .hero-tagline {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 18px;
+    }
+
+    #hero h1 {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.1;
+      color: #fff;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      color: #b0c4d8;
+      margin-top: 22px;
+      margin-bottom: 38px;
+      max-width: 640px;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--blue);
+      color: #fff;
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+      padding: 17px 44px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .hero-cta:hover {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: var(--section-gap) 6vw;
+    }
+
+    section h2 {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 700;
+      font-size: 1.9rem;
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      text-align: center;
+      color: var(--text-mid);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 44px;
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: var(--warm-white);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--blue);
+      border-radius: 5px;
+      padding: 32px 28px;
+      text-align: center;
+    }
+
+    .service-card h3 {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .service-card p {
+      font-size: 0.93rem;
+      color: var(--text-mid);
+      line-height: 1.55;
+    }
+
+    /* ── FEATURED PROJECTS ── */
+    #projects {
+      background: var(--cream);
+    }
+
+    .fp-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .fp-block {
+      padding-bottom: 52px;
+      margin-bottom: 52px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fp-block:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .fp-title {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .fp-blurb {
+      font-size: 0.97rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .fp-block:last-child .fp-blurb {
+      margin-bottom: 0;
+    }
+
+    .fp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .fp-grid img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+
+    /* ── REVIEWS ── */
+    #reviews {
+      background: var(--blue-dark);
+      color: #fff;
+    }
+
+    #reviews h2 { color: #fff; }
+    #reviews .section-intro { color: #7a9ab8; margin-bottom: 40px; }
+
+    .reviews-outer {
+      width: 100%;
+    }
+
+    .reviews-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .reviews-viewport {
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      flex: 1;
+    }
+
+    .reviews-viewport::-webkit-scrollbar { display: none; }
+
+    .reviews-track {
+      display: flex;
+      gap: 20px;
+    }
+
+    .review-card {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 5px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .rev-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+      flex-shrink: 0;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rev-btn:hover { background: rgba(255,255,255,0.2); }
+    .rev-btn:disabled { opacity: 0.25; cursor: default; }
+
+
+    .stars {
+      color: #f5b942;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .review-text {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #c0d4e8;
+      font-style: italic;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .review-author {
+      font-weight: 600;
+      font-size: 0.87rem;
+      color: #fff;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── SERVICE AREA ── */
+    #area {
+      background: var(--warm-white);
+      text-align: center;
+    }
+
+    .area-lead {
+      text-align: center;
+      color: var(--text-mid);
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+    }
+
+    .area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 9px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .area-tag {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      font-weight: 500;
+    }
+
+    /* ── FOOTER CTA ── */
+    #footer-cta {
+      background: var(--blue);
+      color: #fff;
+      text-align: center;
+      padding: 64px 6vw;
+    }
+
+    #footer-cta h2 {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 700;
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    #footer-cta p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 30px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-cta-btn {
+      display: inline-block;
+      background: #fff;
+      color: var(--blue-dark);
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 15px 36px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+
+    .footer-cta-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0d1520;
+      color: #5a7080;
+      padding: 28px 6vw;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    footer a { color: #7a9ab0; text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    .footer-contact {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-built-by {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .footer-built-by img {
+      height: 12px;
+      width: auto;
+    }
+
+    .footer-built-by a {
+      font-size: 0.78rem;
+      color: #4a6880;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-built-by a:hover { color: #8aabb8; }
+
+    @media (max-width: 600px) {
+      :root { --section-gap: 52px; }
+
+      .nav-logo-name { display: none; }
+      .nav-phone { display: none; }
+      nav { padding: 0 5vw; }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <span class="nav-logo-name">Elite Reliability RV</span>
+    </div>
+    <a href="tel:+18323341579" class="nav-phone">832-334-1579</a>
+    <a href="tel:+18323341579" class="nav-cta">Call 832-334-1579</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <h1>When Your RV Has a Real Problem,<br>Call an Engineer</h1>
+    <p class="hero-sub">Decades of engineering experience. We fix what others miss.</p>
+    <a href="tel:+18323341579" class="hero-cta">Call 832-334-1579</a>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2 class="reveal">Services</h2>
+    <p class="section-intro reveal">
+      From electrical gremlins to full custom builds, Cody brings 19 years of precision engineering to every job — no guessing, no runaround.
+    </p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <h3>RV Electrical Diagnostics & Repair</h3>
+        <p>Systematic fault isolation and repair for 12V and 120V systems. If other shops couldn't find it, call Cody.</p>
+      </div>
+      <div class="service-card reveal">
+        <h3>Plumbing & Water System Repair</h3>
+        <p>Fresh water, grey, black tank, and pump systems. Leak detection, fitting replacement, and full system rebuilds.</p>
+      </div>
+      <div class="service-card reveal">
+        <h3>Slide Out & Structural Repair</h3>
+        <p>Slide mechanism repair, seal replacement, and structural framing work — done right so it doesn't fail again.</p>
+      </div>
+      <div class="service-card reveal">
+        <h3>Floor Replacement & Custom Builds</h3>
+        <p>Subfloor rot repair, full floor replacement, and custom interior builds including dinettes, tables, and cabinetry.</p>
+      </div>
+      <div class="service-card reveal">
+        <h3>Horse Trailer 12V Rewire</h3>
+        <p>Complete rewire of horse trailer 12V systems — lights, outlets, tie-down circuits. Done clean and done to code.</p>
+      </div>
+      <div class="service-card reveal">
+        <h3>Preventative Maintenance & Inspections</h3>
+        <p>Pre-trip or pre-purchase inspections. Catch problems before they strand you — especially on older units.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 class="reveal">Featured Projects</h2>
+    <p class="section-intro reveal">A look at real jobs — start to finish.</p>
+    <div class="fp-inner">
+
+      <div class="fp-block reveal">
+        <h3 class="fp-title">Slide Out Floor Replacement</h3>
+        <p class="fp-blurb">Rotted subfloor on a slide out — full tear-out and replacement with new framing, subfloor, and finished surface.</p>
+        <div class="fp-grid">
+          <img src="https://img1.wsimg.com/isteam/ip/1f35db33-6cdf-4bdc-a1d1-da4ca64df23b/20251229_134036%5B1%5D-543539c.jpg/:/rs=w:1280,h:721" alt="Slide out floor — before" loading="lazy" />
+          <img src="https://img1.wsimg.com/isteam/ip/1f35db33-6cdf-4bdc-a1d1-da4ca64df23b/20251229_125132%5B1%5D.jpg/:/cr=t:0%25,l:21.86%25,w:56.29%25,h:56.29%25/rs=w:1280,h:721" alt="Slide out floor — framing" loading="lazy" />
+          <img src="https://img1.wsimg.com/isteam/ip/1f35db33-6cdf-4bdc-a1d1-da4ca64df23b/20251231_172011%5B1%5D-e0539a7.jpg/:/rs=w:1280,h:721" alt="Slide out floor — subfloor" loading="lazy" />
+          <img src="https://img1.wsimg.com/isteam/ip/1f35db33-6cdf-4bdc-a1d1-da4ca64df23b/20260104_163431%5B1%5D.jpg/:/rs=w:1280,h:721" alt="Slide out floor — finished" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="fp-block reveal">
+        <h3 class="fp-title">Horse Trailer Complete 12V Rewire</h3>
+        <p class="fp-blurb">Full rewire of a horse trailer's 12V system — lights, outlets, and tie-down circuits. From burnt wiring to clean, code-compliant install.</p>
+        <div class="fp-grid">
+          <img src="https://img1.wsimg.com/isteam/ip/1f35db33-6cdf-4bdc-a1d1-da4ca64df23b/20260321_195506%5B1%5D.jpg/:/rs=w:1300,h:800" alt="Horse trailer wiring — before" loading="lazy" />
+          <img src="https://img1.wsimg.com/isteam/ip/1f35db33-6cdf-4bdc-a1d1-da4ca64df23b/20260321_195530%5B1%5D.jpg/:/rs=w:1300,h:800" alt="Horse trailer wiring — in progress" loading="lazy" />
+          <img src="https://img1.wsimg.com/isteam/ip/1f35db33-6cdf-4bdc-a1d1-da4ca64df23b/20260224_163130%5B1%5D.jpg/:/rs=w:1300,h:800" alt="Horse trailer wiring — install" loading="lazy" />
+          <img src="https://img1.wsimg.com/isteam/ip/1f35db33-6cdf-4bdc-a1d1-da4ca64df23b/20260224_163227%5B1%5D-b0b304e.jpg/:/rs=w:1300,h:800" alt="Horse trailer wiring — complete" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="fp-block reveal">
+        <h3 class="fp-title">Custom Dinette & Table Build</h3>
+        <p class="fp-blurb">Custom-built dinette seating and storage for a motorcoach — designed and built to spec, fitted perfectly to the space.</p>
+        <div class="fp-grid">
+          <img src="https://img1.wsimg.com/isteam/ip/1f35db33-6cdf-4bdc-a1d1-da4ca64df23b/20260309_103806%5B1%5D.jpg/:/rs=w:1280,h:721" alt="Horse trailer wiring — before" loading="lazy" />
+          <img src="https://img1.wsimg.com/isteam/ip/1f35db33-6cdf-4bdc-a1d1-da4ca64df23b/20260309_105119%5B1%5D.jpg/:/rs=w:1280,h:721" alt="Horse trailer wiring — in progress" loading="lazy" />
+          <img src="https://img1.wsimg.com/isteam/ip/1f35db33-6cdf-4bdc-a1d1-da4ca64df23b/20260311_180838%5B1%5D.jpg/:/rs=w:1280,h:721" alt="Horse trailer wiring — install" loading="lazy" />
+          <img src="https://img1.wsimg.com/isteam/ip/1f35db33-6cdf-4bdc-a1d1-da4ca64df23b/20260327_135341%5B1%5D-2fe954e.jpg/:/rs=w:1280,h:721" alt="Horse trailer wiring — complete" loading="lazy" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <h2 class="reveal">5-Star Reviews</h2>
+    <p class="section-intro reveal">Real customers. Real results.</p>
+    <div class="reviews-outer reveal">
+      <div class="reviews-nav">
+        <button class="rev-btn rev-prev" aria-label="Previous">&#8592;</button>
+        <div class="reviews-viewport">
+          <div class="reviews-track">
+
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <p class="review-text">"Cody with Elite Reliability RV has been an amazing help with mobile rv services! He has been quick to respond, communicates well, and travels to help with all of your RV needs. His attention to detail is what has had us call on him when we are in need of repair services. He puts his efforts in making sure the job is done right the first time!"</p>
+              <div class="review-author">Christian</div>
+            </div>
+
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <p class="review-text">"Cody with Elite Reliability RV absolutely knocked it out of the park for us. He custom-built a dinette seating and storage solution for our motorcoach, and the craftsmanship is outstanding. Everything fits perfectly, is solidly built, and you can tell he takes real pride in his work. What really stood out was his attention to detail and willingness to customize the build specifically for our needs. He listened, made great recommendations, and delivered exactly what he said he would."</p>
+              <div class="review-author">Hayes</div>
+            </div>
+
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <p class="review-text">"Cody has excellent customer service and fixed the issue with my RV. Really appreciate it. Thanks so much!"</p>
+              <div class="review-author">Crowley</div>
+            </div>
+
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <p class="review-text">"Cody is an awesome and honest RV tech. Thanks Cody for the advice."</p>
+              <div class="review-author">Guerra</div>
+            </div>
+
+          </div>
+        </div>
+        <button class="rev-btn rev-next" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section id="area">
+    <h2 class="reveal">Service Area</h2>
+    <p class="area-lead reveal">Based in Magnolia, TX — serving the greater northwest Houston corridor.</p>
+    <div class="area-tags reveal">
+      <span class="area-tag">Magnolia</span>
+      <span class="area-tag">The Woodlands</span>
+      <span class="area-tag">Conroe</span>
+      <span class="area-tag">Montgomery</span>
+      <span class="area-tag">Spring</span>
+      <span class="area-tag">Tomball</span>
+      <span class="area-tag">Cypress</span>
+      <span class="area-tag">Katy</span>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section id="footer-cta">
+    <h2 class="reveal">Let's get your RV up and running again.</h2>
+    <p class="reveal">Give us a call and tell us more about what's going on.</p>
+    <a href="tel:+18323341579" class="footer-cta-btn reveal">Call 832-334-1579</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-contact">
+      <a href="tel:+18323341579">832-334-1579</a>
+      <a href="mailto:cody@elitereliability.com">cody@elitereliability.com</a>
+    </div>
+    <p>© 2026 Elite Reliability RV</p>
+    <div class="footer-built-by">
+      <a href="https://quesoventures.com" target="_blank" rel="noopener">
+        <img src="https://quesoventures.com/logo.png" alt="Queso Ventures" />
+      </a>
+      <a href="https://quesoventures.com" target="_blank" rel="noopener">Built by Queso Ventures</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Reviews carousel
+    (function () {
+      const viewport = document.querySelector('.reviews-viewport');
+      const track = document.querySelector('.reviews-track');
+      if (!viewport) return;
+      const prev = document.querySelector('.rev-prev');
+      const next = document.querySelector('.rev-next');
+
+      function cardStep() {
+        const card = track.querySelector('.review-card');
+        return card ? card.offsetWidth + 20 : viewport.clientWidth;
+      }
+
+      function updateUI() {
+        prev.disabled = viewport.scrollLeft < 1;
+        next.disabled = viewport.scrollLeft + viewport.clientWidth >= track.scrollWidth - 4;
+      }
+
+      prev.addEventListener('click', () => viewport.scrollBy({ left: -cardStep(), behavior: 'smooth' }));
+      next.addEventListener('click', () => viewport.scrollBy({ left: cardStep(), behavior: 'smooth' }));
+      viewport.addEventListener('scroll', updateUI, { passive: true });
+
+      updateUI();
+      window.addEventListener('resize', updateUI);
+    })();
+  </script>
+
+</body>
+</html>
