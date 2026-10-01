@@ -110,50 +110,61 @@
   .nav-call { display: none; font-size: .9rem; font-weight: 500; color: var(--teal); }
 
   /* Hero */
-  .hero {
-    position: relative;
-    min-height: 92vh; min-height: 92dvh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 8.5rem 6vw 5rem; text-align: center;
-    background:
-      radial-gradient(ellipse 70% 55% at 50% 0%, #DDEBE8 0%, transparent 70%),
-      linear-gradient(180deg, #F3F8F7 0%, var(--white) 100%);
-    border-bottom: 1px solid var(--line);
+  .hero { padding: 6.2rem 6vw 3.5rem; background: var(--white); border-bottom: 1px solid var(--line); }
+  .hero-shell {
+    display: grid; grid-template-columns: 1fr 430px;
+    min-height: calc(100vh - 9.7rem); min-height: calc(100dvh - 9.7rem);
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 30px 70px -40px rgba(23,35,42,.45);
   }
-  .hero h1 { font-size: 2.6rem; font-weight: 500; letter-spacing: -.015em; margin-bottom: 1.1rem; }
-  .hero .lede { font-size: 1.08rem; }
+  .hero-photo { position: relative; min-height: 560px; display: flex; align-items: flex-end; padding: 1.5rem; }
+  .hero-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+  .hero-photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(14,30,34,.35) 0%, rgba(14,30,34,0) 45%);
+  }
+  .hero-card {
+    position: relative; z-index: 1; max-width: 430px; text-align: left;
+    background: rgba(255,255,255,.95); backdrop-filter: blur(12px);
+    border-radius: 14px; padding: 1.6rem 1.8rem 1.5rem;
+    box-shadow: 0 20px 50px -24px rgba(23,35,42,.45);
+  }
+  .hero h1 { font-size: 2.05rem; font-weight: 500; letter-spacing: -.015em; line-height: 1.12; margin-bottom: .9rem; }
+  .hero .lede { margin: 0; font-size: .95rem; }
   .hero-meta {
-    margin-top: 1.6rem; display: flex; gap: 1.8rem; justify-content: center; flex-wrap: wrap;
-    font-size: .88rem; color: var(--muted);
+    margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line);
+    display: flex; gap: .4rem 1.1rem; flex-wrap: wrap; font-size: .83rem; color: var(--muted);
   }
-  .hero-meta span { display: inline-flex; align-items: center; gap: .5rem; }
-  .hero-meta span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); opacity: .55; }
+  .hero-meta span { display: inline-flex; align-items: center; gap: .45rem; }
+  .hero-meta span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); opacity: .6; }
 
-  .book-card {
-    width: 100%; max-width: 1080px; margin: 3rem auto 0;
-    background: var(--white); border: 1px solid var(--line); border-radius: 16px;
-    padding: 1.4rem; box-shadow: 0 24px 60px -28px rgba(23,35,42,.28);
-    scroll-margin-top: 100px;
+  .book-panel {
+    background: var(--teal); color: var(--white); text-align: left;
+    padding: 2.6rem 2.4rem; display: flex; flex-direction: column; justify-content: center;
+    scroll-margin-top: 90px;
   }
-  .book-card form {
-    display: grid; grid-template-columns: repeat(4, 1fr) auto; gap: .8rem; align-items: end; text-align: left;
-  }
-  .field { display: flex; flex-direction: column; gap: .4rem; }
-  label { font-size: .82rem; font-weight: 500; color: var(--muted); padding-left: .15rem; }
+  .book-panel h2 { color: var(--white); font-size: 1.7rem; margin-bottom: .4rem; }
+  .book-panel > p { color: rgba(255,255,255,.75); font-size: .93rem; margin-bottom: 1.6rem; }
+  .book-panel form { display: grid; gap: .9rem; }
+  .field { display: flex; flex-direction: column; gap: .35rem; }
+  label { font-size: .82rem; font-weight: 500; color: rgba(255,255,255,.82); }
   input, select {
     font: inherit; font-size: .95rem; color: var(--ink); width: 100%;
-    height: 50px; padding: 0 1rem; border: 1px solid #D5DFDD; border-radius: 10px; background: #FBFCFC;
-    outline: none; transition: border-color .2s, box-shadow .2s, background .2s;
+    height: 48px; padding: 0 1rem; border: 1px solid transparent; border-radius: 10px; background: var(--white);
+    outline: none; transition: box-shadow .2s;
   }
-  input:focus, select:focus { border-color: var(--teal); background: var(--white); box-shadow: 0 0 0 3px rgba(30,92,99,.12); }
-  .book-card .btn { height: 50px; padding: 0 1.6rem; border-radius: 10px; white-space: nowrap; }
+  input:focus, select:focus { box-shadow: 0 0 0 3px rgba(255,255,255,.35); }
+  .book-panel .btn {
+    margin-top: .5rem; height: 50px; border-radius: 10px; width: 100%;
+    background: var(--white); color: var(--teal-dark); font-weight: 600;
+  }
+  .book-panel .btn:hover { background: var(--tint); }
   .book-foot {
-    margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--line);
-    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-    font-size: .85rem; color: var(--muted);
+    margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.18);
+    font-size: .85rem; color: rgba(255,255,255,.72); line-height: 1.5;
   }
-  .book-foot a { color: var(--teal); font-weight: 500; }
-  .form-done { display: none; padding: 1.6rem 1rem; font-family: var(--serif); font-size: 1.3rem; text-align: center; }
+  .book-foot a { color: var(--white); font-weight: 600; }
+  .form-done { display: none; font-family: var(--serif); font-size: 1.3rem; padding: 2rem 0; }
   .stars { color: #C8962E; letter-spacing: .08em; }
   .fade { animation: fadeUp .9s ease-out both; }
   .fade.d1 { animation-delay: .15s; } .fade.d2 { animation-delay: .3s; } .fade.d3 { animation-delay: .45s; }
@@ -272,19 +283,22 @@
 
   @media (max-width: 1024px) {
     .svc-grid { grid-template-columns: repeat(2, 1fr); }
-    .book-card form { grid-template-columns: 1fr 1fr; }
-    .book-card .btn { grid-column: 1 / -1; }
+    .hero-shell { grid-template-columns: 1fr 380px; }
+    .hero-card { padding: 1.8rem; }
   }
 
   @media (max-width: 768px) {
     section { padding: 5.5rem 5vw; }
     h2 { font-size: 1.5rem; }
-    .hero { padding: 7.5rem 5vw 4rem; }
-    .hero h1 { font-size: 1.95rem; }
-    .hero { min-height: 0; }
-    .book-card { margin-top: 2.2rem; padding: 1.1rem; border-radius: 14px; }
-    .book-card form { grid-template-columns: 1fr; }
-    .book-foot { justify-content: center; text-align: center; }
+    .hero { padding: 5.2rem 0 0; border-bottom: 0; }
+    .hero-shell { grid-template-columns: 1fr; min-height: 0; border-radius: 0; box-shadow: none; }
+    .hero-photo { min-height: 0; padding: 0; flex-direction: column; align-items: stretch; }
+    .hero-photo > img { position: static; height: 260px; object-position: 50% 25%; }
+    .hero-photo::after { display: none; }
+    .hero-card { max-width: none; border-radius: 0; box-shadow: none; padding: 1.8rem 5vw; backdrop-filter: none; }
+    .hero h1 { font-size: 1.85rem; }
+    .book-panel { padding: 2.4rem 5vw 2.6rem; }
+    .book-panel h2 { font-size: 1.5rem; }
     .hero .lede { font-size: 1rem; }
     .nav-links { display: none; }
     .nav-call { display: inline; }
@@ -294,7 +308,6 @@
     .pillar + .pillar { border-left: 0; border-top: 1px solid var(--line); }
     .mission { font-size: 1.12rem; }
     .map { height: 300px; }
-    .hero-meta { gap: .5rem 1.2rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -319,57 +332,63 @@
 
 <!-- Hero -->
 <header class="hero" id="top">
-  <h1 class="fade">Family Health Care in Humble, TX</h1>
-  <p class="lede fade d1">Quality First Family Health is a family practice led by Ebony Washington, FNP-BC. Checkups, sick visits, chronic care, and wellness for children and adults, all under one roof.</p>
-  <div class="hero-meta fade d1">
-    <span>New patients welcome</span>
-    <span>Open Monday to Saturday</span>
-    <span>Cigna accepted</span>
-  </div>
+  <div class="hero-shell">
+    <div class="hero-photo">
+      <img src="heroBG.jpg" alt="Smiling family of four, patients of Quality First Family Health in Humble, TX" fetchpriority="high">
+      <div class="hero-card fade">
+        <h1>Family Health Care in Humble, TX</h1>
+        <p class="lede">Quality First Family Health is a family practice led by Ebony Washington, FNP-BC. Checkups, sick visits, chronic care, and wellness for every age.</p>
+        <div class="hero-meta">
+          <span>New patients welcome</span>
+          <span>Open Monday to Saturday</span>
+          <span>Cigna accepted</span>
+        </div>
+      </div>
+    </div>
 
-  <div class="book-card fade d2" id="book">
-    <form id="apptForm" aria-label="Request an appointment">
-      <div class="field">
-        <label for="name">Full name</label>
-        <input id="name" name="name" type="text" autocomplete="name" required>
-      </div>
-      <div class="field">
-        <label for="phone">Phone</label>
-        <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-      </div>
-      <div class="field">
-        <label for="reason">Reason for visit</label>
-        <select id="reason" name="reason" required>
-          <option value="">Select one</option>
-          <option>Physical exam</option>
-          <option>Child well exam</option>
-          <option>Sick visit</option>
-          <option>DOT physical</option>
-          <option>Diabetes care</option>
-          <option>Weight loss</option>
-          <option>IV therapy or Vita-Fusion</option>
-          <option>Hormone therapy</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="day">Preferred day</label>
-        <select id="day" name="day">
-          <option>Any day</option>
-          <option>Monday</option>
-          <option>Tuesday</option>
-          <option>Wednesday</option>
-          <option>Thursday</option>
-          <option>Friday</option>
-          <option>Saturday morning</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary">Request Appointment</button>
-    </form>
-    <p class="form-done" id="formDone">Thank you. We will call you shortly to confirm your appointment.</p>
-    <div class="book-foot">
-      <span>We will call you back to confirm a time. Please do not include medical details.</span>
-      <span>Prefer to call? <a href="tel:+12818354449">281-835-4449</a></span>
+    <div class="book-panel" id="book">
+      <h2>Request an Appointment</h2>
+      <p>Send your details and our front desk will call you to confirm a time.</p>
+      <form id="apptForm" aria-label="Request an appointment">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+        </div>
+        <div class="field">
+          <label for="reason">Reason for visit</label>
+          <select id="reason" name="reason" required>
+            <option value="">Select one</option>
+            <option>Physical exam</option>
+            <option>Child well exam</option>
+            <option>Sick visit</option>
+            <option>DOT physical</option>
+            <option>Diabetes care</option>
+            <option>Weight loss</option>
+            <option>IV therapy or Vita-Fusion</option>
+            <option>Hormone therapy</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="day">Preferred day</label>
+          <select id="day" name="day">
+            <option>Any day</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday morning</option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Request Appointment</button>
+      </form>
+      <p class="form-done" id="formDone">Thank you. We will call you shortly to confirm your appointment.</p>
+      <div class="book-foot">Prefer to call? <a href="tel:+12818354449">281-835-4449</a><br>Please do not include medical details in this form.</div>
     </div>
   </div>
 </header>
