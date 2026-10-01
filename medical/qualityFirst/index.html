@@ -111,36 +111,49 @@
 
   /* Hero */
   .hero {
-    position: relative; overflow: hidden;
-    padding: 9.5rem 6vw 5.5rem; text-align: center;
-    background: linear-gradient(180deg, #EDF4F2 0%, #F6F9F8 45%, var(--white) 100%);
+    position: relative;
+    min-height: 92vh; min-height: 92dvh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 8.5rem 6vw 5rem; text-align: center;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 0%, #DDEBE8 0%, transparent 70%),
+      linear-gradient(180deg, #F3F8F7 0%, var(--white) 100%);
     border-bottom: 1px solid var(--line);
   }
   .hero h1 { font-size: 2.6rem; font-weight: 500; letter-spacing: -.015em; margin-bottom: 1.1rem; }
-  .hero .lede { font-size: 1.08rem; margin-bottom: 2.2rem; }
+  .hero .lede { font-size: 1.08rem; }
   .hero-meta {
-    margin-top: 1.8rem; display: flex; gap: 1.8rem; justify-content: center; flex-wrap: wrap;
+    margin-top: 1.6rem; display: flex; gap: 1.8rem; justify-content: center; flex-wrap: wrap;
     font-size: .88rem; color: var(--muted);
   }
   .hero-meta span { display: inline-flex; align-items: center; gap: .5rem; }
   .hero-meta span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); opacity: .55; }
-  .hero-frame { position: relative; margin-top: 3.8rem; }
-  .hero-frame > img {
-    width: 100%; aspect-ratio: 21 / 8; object-fit: cover; object-position: 50% 18%;
-    border-radius: 18px; box-shadow: 0 30px 60px -30px rgba(23,35,42,.35);
+
+  .book-card {
+    width: 100%; max-width: 1080px; margin: 3rem auto 0;
+    background: var(--white); border: 1px solid var(--line); border-radius: 16px;
+    padding: 1.4rem; box-shadow: 0 24px 60px -28px rgba(23,35,42,.28);
+    scroll-margin-top: 100px;
   }
-  .chip {
-    position: absolute; display: flex; align-items: center; gap: .8rem; text-align: left;
-    background: rgba(255,255,255,.94); backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,.6); border-radius: 12px;
-    padding: .8rem 1.1rem; box-shadow: 0 12px 30px -12px rgba(23,35,42,.3);
-    font-size: .85rem; color: var(--muted); line-height: 1.35;
+  .book-card form {
+    display: grid; grid-template-columns: repeat(4, 1fr) auto; gap: .8rem; align-items: end; text-align: left;
   }
-  .chip b { display: block; color: var(--ink); font-weight: 600; font-size: .92rem; }
-  .chip-dot { width: 10px; height: 10px; border-radius: 50%; background: #2E9E7A; box-shadow: 0 0 0 4px rgba(46,158,122,.18); flex-shrink: 0; }
-  .chip-provider { left: 1.6rem; bottom: 1.6rem; }
-  .chip-rating { right: 1.6rem; bottom: 1.6rem; }
-  .chip-rating .score { font-family: var(--serif); font-size: 1.6rem; color: var(--ink); line-height: 1; }
+  .field { display: flex; flex-direction: column; gap: .4rem; }
+  label { font-size: .82rem; font-weight: 500; color: var(--muted); padding-left: .15rem; }
+  input, select {
+    font: inherit; font-size: .95rem; color: var(--ink); width: 100%;
+    height: 50px; padding: 0 1rem; border: 1px solid #D5DFDD; border-radius: 10px; background: #FBFCFC;
+    outline: none; transition: border-color .2s, box-shadow .2s, background .2s;
+  }
+  input:focus, select:focus { border-color: var(--teal); background: var(--white); box-shadow: 0 0 0 3px rgba(30,92,99,.12); }
+  .book-card .btn { height: 50px; padding: 0 1.6rem; border-radius: 10px; white-space: nowrap; }
+  .book-foot {
+    margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    font-size: .85rem; color: var(--muted);
+  }
+  .book-foot a { color: var(--teal); font-weight: 500; }
+  .form-done { display: none; padding: 1.6rem 1rem; font-family: var(--serif); font-size: 1.3rem; text-align: center; }
   .stars { color: #C8962E; letter-spacing: .08em; }
   .fade { animation: fadeUp .9s ease-out both; }
   .fade.d1 { animation-delay: .15s; } .fade.d2 { animation-delay: .3s; } .fade.d3 { animation-delay: .45s; }
@@ -216,25 +229,6 @@
   .pay strong { display: block; font-family: var(--serif); font-size: 1.15rem; font-weight: 500; }
   .pay span { font-size: .9rem; color: var(--muted); }
 
-  /* Appointment form */
-  .book { background: var(--tint); }
-  form {
-    margin: 3rem auto 0; max-width: 640px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left;
-  }
-  .field { display: flex; flex-direction: column; gap: .4rem; }
-  .field.full { grid-column: 1 / -1; }
-  label { font-size: .88rem; font-weight: 500; color: var(--ink); }
-  input, select {
-    font: inherit; font-size: .95rem; color: var(--ink);
-    padding: .85rem 1rem; border: 1px solid #CFDAD8; border-radius: 6px; background: var(--white);
-    outline: none; transition: border-color .2s, box-shadow .2s;
-  }
-  input:focus, select:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(30,92,99,.12); }
-  form .btn { grid-column: 1 / -1; justify-self: center; margin-top: .6rem; padding: .95rem 2.6rem; }
-  .form-note { grid-column: 1 / -1; text-align: center; font-size: .85rem; color: var(--muted); }
-  .form-done { display: none; margin-top: 2.4rem; font-family: var(--serif); font-size: 1.3rem; }
-
   /* FAQ */
   .faq-list { max-width: 760px; margin: 3rem auto 0; text-align: left; border-top: 1px solid var(--line); }
   .faq-item { border-bottom: 1px solid var(--line); }
@@ -278,6 +272,8 @@
 
   @media (max-width: 1024px) {
     .svc-grid { grid-template-columns: repeat(2, 1fr); }
+    .book-card form { grid-template-columns: 1fr 1fr; }
+    .book-card .btn { grid-column: 1 / -1; }
   }
 
   @media (max-width: 768px) {
@@ -285,10 +281,10 @@
     h2 { font-size: 1.5rem; }
     .hero { padding: 7.5rem 5vw 4rem; }
     .hero h1 { font-size: 1.95rem; }
-    .hero-frame { margin-top: 2.6rem; }
-    .hero-frame > img { aspect-ratio: 4 / 3; object-position: 30% 20%; border-radius: 14px; }
-    .chip { position: static; margin-top: .7rem; box-shadow: none; border-color: var(--line); }
-    .chip-rating { display: none; }
+    .hero { min-height: 0; }
+    .book-card { margin-top: 2.2rem; padding: 1.1rem; border-radius: 14px; }
+    .book-card form { grid-template-columns: 1fr; }
+    .book-foot { justify-content: center; text-align: center; }
     .hero .lede { font-size: 1rem; }
     .nav-links { display: none; }
     .nav-call { display: inline; }
@@ -296,7 +292,6 @@
     .pillar-row, .quotes, .visit-row, .svc-grid { grid-template-columns: 1fr; }
     .pillar { padding: 2.2rem 1rem; }
     .pillar + .pillar { border-left: 0; border-top: 1px solid var(--line); }
-    form { grid-template-columns: 1fr; }
     .mission { font-size: 1.12rem; }
     .map { height: 300px; }
     .hero-meta { gap: .5rem 1.2rem; }
@@ -326,24 +321,55 @@
 <header class="hero" id="top">
   <h1 class="fade">Family Health Care in Humble, TX</h1>
   <p class="lede fade d1">Quality First Family Health is a family practice led by Ebony Washington, FNP-BC. Checkups, sick visits, chronic care, and wellness for children and adults, all under one roof.</p>
-  <div class="btns fade d2">
-    <a href="#book" class="btn btn-primary">Book an Appointment</a>
-    <a href="tel:+12818354449" class="btn btn-ghost">Call 281-835-4449</a>
-  </div>
-  <div class="hero-meta fade d2">
+  <div class="hero-meta fade d1">
     <span>New patients welcome</span>
     <span>Open Monday to Saturday</span>
     <span>Cigna accepted</span>
   </div>
-  <div class="hero-frame fade d3">
-    <img src="https://images.unsplash.com/photo-1758691463080-30a990ef61bb?auto=format&fit=crop&w=2000&q=80" alt="Family nurse practitioner listening to a patient's heart with a stethoscope" fetchpriority="high">
-    <div class="chip chip-provider">
-      <span class="chip-dot" aria-hidden="true"></span>
-      <div><b>Open Saturday mornings</b>9:00 to 11:30 am, plus weekdays 8 to 5</div>
-    </div>
-    <div class="chip chip-rating">
-      <span class="score">4.8</span>
-      <div><b><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></b>30 patient reviews</div>
+
+  <div class="book-card fade d2" id="book">
+    <form id="apptForm" aria-label="Request an appointment">
+      <div class="field">
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+      </div>
+      <div class="field">
+        <label for="reason">Reason for visit</label>
+        <select id="reason" name="reason" required>
+          <option value="">Select one</option>
+          <option>Physical exam</option>
+          <option>Child well exam</option>
+          <option>Sick visit</option>
+          <option>DOT physical</option>
+          <option>Diabetes care</option>
+          <option>Weight loss</option>
+          <option>IV therapy or Vita-Fusion</option>
+          <option>Hormone therapy</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="day">Preferred day</label>
+        <select id="day" name="day">
+          <option>Any day</option>
+          <option>Monday</option>
+          <option>Tuesday</option>
+          <option>Wednesday</option>
+          <option>Thursday</option>
+          <option>Friday</option>
+          <option>Saturday morning</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Request Appointment</button>
+    </form>
+    <p class="form-done" id="formDone">Thank you. We will call you shortly to confirm your appointment.</p>
+    <div class="book-foot">
+      <span>We will call you back to confirm a time. Please do not include medical details.</span>
+      <span>Prefer to call? <a href="tel:+12818354449">281-835-4449</a></span>
     </div>
   </div>
 </header>
@@ -481,53 +507,6 @@
   </div>
 </section>
 
-<!-- Book -->
-<section class="book" id="book">
-  <h2>Request an Appointment</h2>
-  <p class="lede">Send us your information and our front desk will call you to confirm a time. For same day needs, call 281-835-4449.</p>
-
-  <form id="apptForm">
-    <div class="field">
-      <label for="name">Full name</label>
-      <input id="name" name="name" type="text" autocomplete="name" required>
-    </div>
-    <div class="field">
-      <label for="phone">Phone</label>
-      <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-    </div>
-    <div class="field">
-      <label for="reason">Reason for visit</label>
-      <select id="reason" name="reason" required>
-        <option value="">Select one</option>
-        <option>Physical exam</option>
-        <option>Child well exam</option>
-        <option>Sick visit</option>
-        <option>DOT physical</option>
-        <option>Diabetes care</option>
-        <option>Weight loss</option>
-        <option>IV therapy or Vita-Fusion</option>
-        <option>Hormone therapy</option>
-        <option>Other</option>
-      </select>
-    </div>
-    <div class="field">
-      <label for="day">Preferred day</label>
-      <select id="day" name="day">
-        <option>Any day</option>
-        <option>Monday</option>
-        <option>Tuesday</option>
-        <option>Wednesday</option>
-        <option>Thursday</option>
-        <option>Friday</option>
-        <option>Saturday morning</option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Send Request</button>
-    <p class="form-note">New and returning patients welcome. Please do not include medical details in this form.</p>
-  </form>
-  <p class="form-done" id="formDone">Thank you. We will call you shortly to confirm your appointment.</p>
-</section>
-
 <!-- FAQ -->
 <section id="faq">
   <h2>Common Questions</h2>
@@ -646,6 +625,7 @@
   document.getElementById('apptForm').addEventListener('submit', e => {
     e.preventDefault();
     e.target.style.display = 'none';
+    document.querySelector('.book-foot').style.display = 'none';
     document.getElementById('formDone').style.display = 'block';
   });
 </script>
