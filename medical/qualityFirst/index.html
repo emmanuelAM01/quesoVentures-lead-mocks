@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quality First Family Health | Family Practice in Humble, TX</title>
+<meta name="description" content="Quality First Family Health is a family practice in Humble, TX led by Ebony Washington, FNP-BC. Physical exams, children's well exams, DOT physicals, diabetes care, weight loss, and IV therapy. Cigna accepted.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": "Quality First Family Health",
+  "url": "https://qualityfirstfamilyhealth.com/",
+  "telephone": "+1-281-835-4449",
+  "faxNumber": "+1-281-835-4236",
+  "medicalSpecialty": "PrimaryCare",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "11329 N Sam Houston Pkwy E",
+    "addressLocality": "Humble",
+    "addressRegion": "TX",
+    "postalCode": "77396",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "08:00", "closes": "17:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "16:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "11:30" }
+  ],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "30" },
+  "employee": {
+    "@type": "Person",
+    "name": "Ebony Washington",
+    "honorificSuffix": "FNP-BC",
+    "jobTitle": "Family Nurse Practitioner"
+  },
+  "paymentAccepted": "Cash, Credit Card",
+  "areaServed": ["Humble", "Atascocita", "Kingwood", "Aldine", "North Houston"]
+}
+</script>
+
+<style>
+  :root {
+    --white: #FFFFFF;
+    --soft: #F6F8F7;
+    --tint: #EAF2F1;
+    --ink: #17232A;
+    --muted: #5D6A70;
+    --line: #E1E8E6;
+    --teal: #1E5C63;
+    --teal-dark: #164850;
+    --serif: "Source Serif 4", Georgia, serif;
+    --sans: "Inter", system-ui, -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.2; color: var(--ink); }
+  h2 { font-size: 1.9rem; margin-bottom: 1.1rem; }
+  h3 { font-size: 1.25rem; }
+
+  section { padding: 7rem 6vw; text-align: center; border-bottom: 1px solid var(--line); }
+  .lede { max-width: 56ch; margin: 0 auto; color: var(--muted); }
+  .rule { width: 40px; height: 1px; background: var(--teal); margin: 1.6rem auto 0; opacity: .5; }
+
+  /* Buttons */
+  .btns { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--sans); font-size: .95rem; font-weight: 500;
+    padding: .9rem 1.8rem; border-radius: 6px; border: 1px solid transparent;
+    transition: background .25s, color .25s, border-color .25s;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--teal); color: var(--white); }
+  .btn-primary:hover { background: var(--teal-dark); }
+  .btn-ghost { border-color: #C9D4D2; color: var(--ink); background: transparent; }
+  .btn-ghost:hover { border-color: var(--ink); }
+  .btn-light { background: var(--white); color: var(--teal-dark); }
+  .btn-light:hover { background: var(--tint); }
+
+  /* Nav */
+  nav {
+    position: fixed; inset: 0 0 auto 0; z-index: 50;
+    height: 68px; padding: 0 6vw;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(255,255,255,0); border-bottom: 1px solid transparent;
+    transition: background .4s, border-color .4s;
+  }
+  nav.scrolled { background: rgba(255,255,255,.94); border-bottom-color: var(--line); backdrop-filter: blur(8px); }
+  .brand { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; letter-spacing: -.01em; }
+  .nav-links { display: flex; align-items: center; gap: 2rem; font-size: .92rem; color: var(--muted); }
+  .nav-links a:not(.btn):hover { color: var(--ink); }
+  .nav-links .btn { padding: .6rem 1.2rem; font-size: .88rem; }
+  .nav-call { display: none; font-size: .9rem; font-weight: 500; color: var(--teal); }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden;
+    min-height: 100vh; min-height: 100dvh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 8rem 6vw 6rem; text-align: center;
+    background: var(--white);
+  }
+  .hero-glow {
+    position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse at 50% 58%, #DCEBE8 0%, transparent 60%);
+    animation: breathe 10s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: .7; }
+    50% { transform: scale(1.06); opacity: 1; }
+  }
+  .hero > *:not(.hero-glow) { position: relative; }
+  .hero h1 { font-size: 2.6rem; font-weight: 500; margin-bottom: 1.2rem; }
+  .hero .lede { font-size: 1.08rem; margin-bottom: 2.4rem; }
+  .hero-meta {
+    margin-top: 2.6rem; display: flex; gap: 1.6rem; justify-content: center; flex-wrap: wrap;
+    font-size: .9rem; color: var(--muted);
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: .5rem; }
+  .stars { color: #C8962E; letter-spacing: .08em; }
+  .fade { animation: fadeUp .9s ease-out both; }
+  .fade.d1 { animation-delay: .15s; } .fade.d2 { animation-delay: .3s; } .fade.d3 { animation-delay: .45s; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+  /* Pillars */
+  .pillars { padding: 0 6vw; background: var(--soft); }
+  .pillar-row { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .pillar { padding: 3.2rem 2rem; }
+  .pillar + .pillar { border-left: 1px solid var(--line); }
+  .pillar strong { display: block; font-family: var(--serif); font-size: 1.2rem; font-weight: 500; margin-bottom: .4rem; }
+  .pillar p { font-size: .94rem; color: var(--muted); max-width: 32ch; margin: 0 auto; }
+
+  /* Services */
+  .svc-grid {
+    margin-top: 3.6rem;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
+  }
+  .svc {
+    border: 1px solid var(--line); border-radius: 10px;
+    padding: 2.2rem 1.6rem; background: var(--white);
+  }
+  .svc h3 { margin-bottom: 1.2rem; }
+  .svc ul { list-style: none; }
+  .svc li { padding: .55rem 0; font-size: .95rem; color: var(--muted); border-top: 1px solid var(--line); }
+  .svc li:first-child { border-top: 0; }
+  .svc li b { display: block; color: var(--ink); font-weight: 500; }
+  .svc li small { font-size: .86rem; }
+
+  /* DOT band */
+  .band { background: var(--teal); color: var(--white); border-bottom: 0; }
+  .band h2 { color: var(--white); }
+  .band .lede { color: rgba(255,255,255,.78); margin-bottom: 2.2rem; }
+  .band-facts {
+    display: flex; justify-content: center; gap: 2.4rem; flex-wrap: wrap;
+    margin-bottom: 2.6rem; font-size: .94rem; color: rgba(255,255,255,.9);
+  }
+  .band-facts span::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.55); margin-right: .6rem; vertical-align: middle; }
+
+  /* Provider */
+  .provider { background: var(--white); }
+  .portrait {
+    width: 220px; height: 260px; margin: 0 auto 2.4rem; border-radius: 10px;
+    background: var(--tint); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    color: #8AA3A0; font-size: .85rem; padding: 1rem;
+  }
+  .provider .creds { color: var(--teal); font-weight: 500; font-size: .95rem; margin-bottom: 1.6rem; }
+  .provider .lede + .lede { margin-top: 1rem; }
+  .mission {
+    margin: 3rem auto 0; max-width: 60ch;
+    font-family: var(--serif); font-size: 1.3rem; line-height: 1.5; font-style: italic; color: var(--ink);
+  }
+
+  /* Reviews */
+  .reviews { background: var(--soft); }
+  .rating { font-family: var(--serif); font-size: 2.2rem; font-weight: 500; line-height: 1; margin: .4rem 0 .5rem; }
+  .rating-sub { color: var(--muted); font-size: .92rem; }
+  .quotes { margin-top: 3.4rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .quote {
+    background: var(--white); border: 1px solid var(--line); border-radius: 10px;
+    padding: 2.2rem 1.8rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.4rem;
+  }
+  .quote p { font-family: var(--serif); font-size: 1.08rem; line-height: 1.55; }
+  .quote cite { font-style: normal; font-size: .88rem; color: var(--muted); }
+
+  /* Insurance */
+  .pay-row { margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .pay {
+    min-width: 200px; padding: 1.6rem 1.8rem; border: 1px solid var(--line); border-radius: 10px;
+  }
+  .pay strong { display: block; font-family: var(--serif); font-size: 1.15rem; font-weight: 500; }
+  .pay span { font-size: .9rem; color: var(--muted); }
+
+  /* Appointment form */
+  .book { background: var(--tint); }
+  form {
+    margin: 3rem auto 0; max-width: 640px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left;
+  }
+  .field { display: flex; flex-direction: column; gap: .4rem; }
+  .field.full { grid-column: 1 / -1; }
+  label { font-size: .88rem; font-weight: 500; color: var(--ink); }
+  input, select {
+    font: inherit; font-size: .95rem; color: var(--ink);
+    padding: .85rem 1rem; border: 1px solid #CFDAD8; border-radius: 6px; background: var(--white);
+    outline: none; transition: border-color .2s, box-shadow .2s;
+  }
+  input:focus, select:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(30,92,99,.12); }
+  form .btn { grid-column: 1 / -1; justify-self: center; margin-top: .6rem; padding: .95rem 2.6rem; }
+  .form-note { grid-column: 1 / -1; text-align: center; font-size: .85rem; color: var(--muted); }
+  .form-done { display: none; margin-top: 2.4rem; font-family: var(--serif); font-size: 1.3rem; }
+
+  /* FAQ */
+  .faq-list { max-width: 760px; margin: 3rem auto 0; text-align: left; border-top: 1px solid var(--line); }
+  .faq-item { border-bottom: 1px solid var(--line); }
+  .faq-item button {
+    width: 100%; background: none; border: 0; cursor: pointer; text-align: left;
+    display: flex; justify-content: space-between; align-items: center; gap: 2rem;
+    padding: 1.4rem 0; font: inherit; font-size: 1rem; font-weight: 500; color: var(--ink);
+  }
+  .faq-item button span { color: var(--muted); font-size: 1.3rem; font-weight: 400; line-height: 1; transition: transform .25s; }
+  .faq-item.open button span { transform: rotate(45deg); }
+  .faq-a { display: none; padding: 0 0 1.5rem; color: var(--muted); font-size: .95rem; max-width: 66ch; }
+  .faq-item.open .faq-a { display: block; }
+
+  /* Visit */
+  .visit { background: var(--soft); }
+  .map {
+    margin: 3rem auto 0; height: 380px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line);
+  }
+  .map iframe { width: 100%; height: 100%; border: 0; filter: grayscale(.35); }
+  .visit-row { margin-top: 3rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .visit-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 2.2rem 1.8rem; }
+  .visit-card h3 { margin-bottom: 1rem; }
+  .visit-card p, .visit-card address { font-style: normal; color: var(--muted); font-size: .95rem; }
+  .visit-card a.link { display: inline-block; margin-top: 1rem; color: var(--teal); font-weight: 500; font-size: .92rem; }
+  .visit-card a.link:hover { text-decoration: underline; }
+  .hours { max-width: 260px; margin: 0 auto; font-size: .93rem; }
+  .hours div { display: flex; justify-content: space-between; gap: 1.5rem; padding: .22rem 0; color: var(--muted); }
+  .hours div b { font-weight: 500; color: var(--ink); }
+  .phone-big { font-family: var(--serif); font-size: 1.5rem; color: var(--ink) !important; }
+
+  /* Footer */
+  footer { background: var(--ink); color: rgba(255,255,255,.75); text-align: center; padding: 4.5rem 6vw 2.5rem; font-size: .9rem; }
+  footer .brand { color: var(--white); font-size: 1.3rem; margin-bottom: .8rem; display: block; }
+  footer address { font-style: normal; line-height: 1.8; }
+  .foot-links { margin: 1.8rem 0 2.4rem; display: flex; justify-content: center; gap: 1.8rem; flex-wrap: wrap; }
+  .foot-links a:hover { color: var(--white); }
+  .foot-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.8rem; font-size: .8rem; color: rgba(255,255,255,.4); }
+  .credit { margin-top: 1.4rem; display: inline-flex; align-items: center; gap: .4rem; opacity: .3; font-size: .7rem; transition: opacity .3s; }
+  .credit:hover { opacity: .55; }
+  .credit img { height: 12px; width: auto; }
+
+  @media (max-width: 1024px) {
+    .svc-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    section { padding: 5.5rem 5vw; }
+    h2 { font-size: 1.5rem; }
+    .hero { padding: 7rem 5vw 4.5rem; }
+    .hero h1 { font-size: 1.95rem; }
+    .hero .lede { font-size: 1rem; }
+    .nav-links { display: none; }
+    .nav-call { display: inline; }
+    .pillars { padding: 0 5vw; }
+    .pillar-row, .quotes, .visit-row, .svc-grid { grid-template-columns: 1fr; }
+    .pillar { padding: 2.2rem 1rem; }
+    .pillar + .pillar { border-left: 0; border-top: 1px solid var(--line); }
+    form { grid-template-columns: 1fr; }
+    .mission { font-size: 1.12rem; }
+    .map { height: 300px; }
+    .hero-meta { gap: .7rem; flex-direction: column; align-items: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-glow, .fade { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#top" class="brand">Quality First Family Health</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#visit">Visit</a>
+    <a href="tel:+12818354449">281-835-4449</a>
+    <a href="#book" class="btn btn-primary">Book Appointment</a>
+  </div>
+  <a href="tel:+12818354449" class="nav-call">Call</a>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="top">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <h1 class="fade">Family Health Care in Humble, TX</h1>
+  <p class="lede fade d1">Quality First Family Health is a family practice led by Ebony Washington, FNP-BC. Checkups, sick visits, chronic care, and wellness for children and adults, all under one roof.</p>
+  <div class="btns fade d2">
+    <a href="#book" class="btn btn-primary">Book an Appointment</a>
+    <a href="tel:+12818354449" class="btn btn-ghost">Call 281-835-4449</a>
+  </div>
+  <div class="hero-meta fade d3">
+    <span><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.8 from 30 patient reviews</span>
+    <span>Open Monday to Saturday</span>
+    <span>Cigna accepted</span>
+  </div>
+</header>
+
+<!-- Pillars -->
+<section class="pillars" aria-label="Why patients choose Quality First">
+  <div class="pillar-row">
+    <div class="pillar">
+      <strong>10+ Years in Health Care</strong>
+      <p>Board certified family nurse practitioner who sees every patient personally.</p>
+    </div>
+    <div class="pillar">
+      <strong>Every Age, One Practice</strong>
+      <p>Well-child visits, adult physicals, and chronic care for the whole family.</p>
+    </div>
+    <div class="pillar">
+      <strong>Saturday Hours</strong>
+      <p>Open Saturday mornings from 9:00 to 11:30 for visits that cannot wait.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <h2>Our Services</h2>
+  <p class="lede">Preventive care catches problems early. We combine routine exams and screenings with ongoing treatment and wellness services so most of your care happens in one place.</p>
+
+  <div class="svc-grid">
+    <div class="svc">
+      <h3>Primary Care</h3>
+      <ul>
+        <li><b>Physical Exams</b><small>Annual, school, and sports physicals</small></li>
+        <li><b>Children's Well Exams</b><small>Growth, development, and checkups</small></li>
+        <li><b>Immunizations</b><small>Childhood and adult vaccines</small></li>
+        <li><b>Screening Tests</b><small>Early detection and lab work</small></li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h3>Sick Visits</h3>
+      <ul>
+        <li><b>Sore Throat</b><small>Diagnosis and treatment</small></li>
+        <li><b>Allergies</b><small>Seasonal and ongoing management</small></li>
+        <li><b>Digestive Health</b><small>Gastrointestinal conditions</small></li>
+        <li><b>Mental Health</b><small>Anxiety, depression, and support</small></li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h3>Ongoing Care</h3>
+      <ul>
+        <li><b>Diabetes Management</b><small>Monitoring, medication, and education</small></li>
+        <li><b>Medical Weight Loss</b><small>Supervised plans that fit your life</small></li>
+        <li><b>BioTE Hormone Therapy</b><small>Hormone balance for women and men</small></li>
+        <li><b>Clinical Research</b><small>Access to current studies</small></li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h3>Wellness</h3>
+      <ul>
+        <li><b>IV Drip Therapy</b><small>Hydration and nutrient infusions</small></li>
+        <li><b>Vita-Fusion</b><small>Vitamin therapy for energy and immunity</small></li>
+        <li><b>Lipo Dissolve</b><small>Non-surgical fat reduction</small></li>
+        <li><b>DOT Physicals</b><small>Commercial driver medical exams</small></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DOT band -->
+<section class="band" id="dot">
+  <h2>DOT Physicals Near Beltway 8</h2>
+  <p class="lede">Commercial drivers can get their DOT medical exam done quickly at our office on N Sam Houston Parkway East in Humble.</p>
+  <div class="band-facts">
+    <span>Located on Beltway 8</span>
+    <span>Saturday morning hours</span>
+    <span>Cash and card accepted</span>
+  </div>
+  <div class="btns">
+    <a href="tel:+12818354449" class="btn btn-light">Call to Schedule</a>
+  </div>
+</section>
+
+<!-- Provider -->
+<section class="provider" id="about">
+  <div class="portrait">Photo of Ebony Washington</div>
+  <h2>Ebony Washington, FNP-BC</h2>
+  <p class="creds">Founder and Family Nurse Practitioner</p>
+  <p class="lede">Ebony Washington founded Quality First Family Health to give families in Humble and north Houston a practice where they are known by name. She has more than 10 years of experience in health care and is board certified as a family nurse practitioner.</p>
+  <p class="lede">Her focus is prevention. Regular exams, screenings, and clear education help patients stay ahead of illness instead of reacting to it. Everyone is welcome, regardless of background or income.</p>
+  <p class="mission">"We strive to improve the health of our community with high quality, individualized care tailored to each patient."</p>
+</section>
+
+<!-- Reviews -->
+<section class="reviews">
+  <h2>What Patients Say</h2>
+  <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+  <p class="rating">4.8 out of 5</p>
+  <p class="rating-sub">Based on 30 patient reviews</p>
+
+  <div class="quotes">
+    <figure class="quote">
+      <p>"I have yet to find a medical professional that has been this thorough, attentive, and caring."</p>
+      <cite>Stephanie</cite>
+    </figure>
+    <figure class="quote">
+      <p>"Ms. Washington has been consistent with amazing attention to detail concerning my health, and awesome bedside manner."</p>
+      <cite>Nisha</cite>
+    </figure>
+    <figure class="quote">
+      <p>"From the moment I checked in to the time I checked out, the entire staff was friendly, professional, and welcoming."</p>
+      <cite>Rochelle J.</cite>
+    </figure>
+  </div>
+</section>
+
+<!-- Insurance -->
+<section id="insurance">
+  <h2>Insurance and Payment</h2>
+  <p class="lede">We accept Cigna insurance. Patients without insurance are welcome and can pay by cash or card at the time of the visit. Call us with any questions about coverage before your appointment.</p>
+  <div class="pay-row">
+    <div class="pay"><strong>Cigna</strong><span>In network</span></div>
+    <div class="pay"><strong>Self Pay</strong><span>Cash or card</span></div>
+    <div class="pay"><strong>Other Plans</strong><span>Call to verify</span></div>
+  </div>
+</section>
+
+<!-- Book -->
+<section class="book" id="book">
+  <h2>Request an Appointment</h2>
+  <p class="lede">Send us your information and our front desk will call you to confirm a time. For same day needs, call 281-835-4449.</p>
+
+  <form id="apptForm">
+    <div class="field">
+      <label for="name">Full name</label>
+      <input id="name" name="name" type="text" autocomplete="name" required>
+    </div>
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+    </div>
+    <div class="field">
+      <label for="reason">Reason for visit</label>
+      <select id="reason" name="reason" required>
+        <option value="">Select one</option>
+        <option>Physical exam</option>
+        <option>Child well exam</option>
+        <option>Sick visit</option>
+        <option>DOT physical</option>
+        <option>Diabetes care</option>
+        <option>Weight loss</option>
+        <option>IV therapy or Vita-Fusion</option>
+        <option>Hormone therapy</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="day">Preferred day</label>
+      <select id="day" name="day">
+        <option>Any day</option>
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday morning</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Send Request</button>
+    <p class="form-note">New and returning patients welcome. Please do not include medical details in this form.</p>
+  </form>
+  <p class="form-done" id="formDone">Thank you. We will call you shortly to confirm your appointment.</p>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <h2>Common Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button aria-expanded="false">Is Quality First Family Health accepting new patients?<span aria-hidden="true">+</span></button>
+      <p class="faq-a">Yes. We see new patients of all ages at our Humble office. Request an appointment online or call 281-835-4449.</p>
+    </div>
+    <div class="faq-item">
+      <button aria-expanded="false">What insurance do you accept?<span aria-hidden="true">+</span></button>
+      <p class="faq-a">We accept Cigna. We also see self-pay patients and accept cash and card. Call the office to ask about other plans.</p>
+    </div>
+    <div class="faq-item">
+      <button aria-expanded="false">Do you see children?<span aria-hidden="true">+</span></button>
+      <p class="faq-a">Yes. We provide children's well exams, school and sports physicals, immunizations, and sick visits for kids and teens.</p>
+    </div>
+    <div class="faq-item">
+      <button aria-expanded="false">Where can I get a DOT physical in Humble, TX?<span aria-hidden="true">+</span></button>
+      <p class="faq-a">Quality First Family Health performs DOT physicals at 11329 N Sam Houston Pkwy E in Humble, on the Beltway 8 frontage road. Bring your driver's license, glasses or hearing aids if you use them, and a list of your medications.</p>
+    </div>
+    <div class="faq-item">
+      <button aria-expanded="false">Are you open on Saturdays?<span aria-hidden="true">+</span></button>
+      <p class="faq-a">Yes. We are open Saturday from 9:00 am to 11:30 am. Weekday hours are 8:00 am to 5:00 pm, with Friday closing at 4:30 pm.</p>
+    </div>
+    <div class="faq-item">
+      <button aria-expanded="false">What is a family nurse practitioner?<span aria-hidden="true">+</span></button>
+      <p class="faq-a">A family nurse practitioner (FNP) is an advanced practice registered nurse trained to diagnose and treat illness, order tests, and prescribe medication for patients of all ages. The BC means board certified.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Visit -->
+<section class="visit" id="visit">
+  <h2>Visit Our Humble Office</h2>
+  <p class="lede">We are on the Beltway 8 frontage road in Humble, serving Humble, Atascocita, Kingwood, and north Houston.</p>
+
+  <div class="map">
+    <iframe title="Map to Quality First Family Health, Humble TX" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      src="https://maps.google.com/maps?q=Quality+First+Family+Health+11329+N+Sam+Houston+Pkwy+E+Humble+TX+77396&output=embed&z=15"></iframe>
+  </div>
+
+  <div class="visit-row">
+    <div class="visit-card">
+      <h3>Address</h3>
+      <address>11329 N Sam Houston Pkwy E<br>Humble, TX 77396</address>
+      <a class="link" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=11329+N+Sam+Houston+Pkwy+E+Humble+TX+77396">Get directions</a>
+    </div>
+    <div class="visit-card">
+      <h3>Office Hours</h3>
+      <div class="hours">
+        <div><span>Mon to Thu</span><b>8:00 to 5:00</b></div>
+        <div><span>Friday</span><b>8:00 to 4:30</b></div>
+        <div><span>Saturday</span><b>9:00 to 11:30</b></div>
+        <div><span>Sunday</span><b>Closed</b></div>
+      </div>
+    </div>
+    <div class="visit-card">
+      <h3>Contact</h3>
+      <p><a class="phone-big" href="tel:+12818354449">281-835-4449</a></p>
+      <p style="margin-top:.5rem">Fax 281-835-4236</p>
+      <a class="link" href="#book">Request an appointment</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="brand">Quality First Family Health</span>
+  <address>
+    11329 N Sam Houston Pkwy E, Humble, TX 77396<br>
+    <a href="tel:+12818354449">281-835-4449</a>
+  </address>
+  <div class="foot-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#book">Appointments</a>
+    <a href="#">Patient Portal</a>
+    <a href="#visit">Directions</a>
+  </div>
+  <div class="foot-bottom">
+    &copy; 2026 Quality First Family Health. All rights reserved.<br>
+    <a class="credit" href="https://quesoventures.com" target="_blank" rel="noopener">
+      <img src="https://quesoventures.com/logo.png" alt="Queso Ventures"> Built by Queso Ventures
+    </a>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is Quality First Family Health accepting new patients?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We see new patients of all ages at our Humble office. Request an appointment online or call 281-835-4449." } },
+    { "@type": "Question", "name": "What insurance do you accept?", "acceptedAnswer": { "@type": "Answer", "text": "We accept Cigna. We also see self-pay patients and accept cash and card. Call the office to ask about other plans." } },
+    { "@type": "Question", "name": "Do you see children?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We provide children's well exams, school and sports physicals, immunizations, and sick visits for kids and teens." } },
+    { "@type": "Question", "name": "Where can I get a DOT physical in Humble, TX?", "acceptedAnswer": { "@type": "Answer", "text": "Quality First Family Health performs DOT physicals at 11329 N Sam Houston Pkwy E in Humble, on the Beltway 8 frontage road." } },
+    { "@type": "Question", "name": "Are you open on Saturdays?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We are open Saturday from 9:00 am to 11:30 am. Weekday hours are 8:00 am to 5:00 pm, with Friday closing at 4:30 pm." } },
+    { "@type": "Question", "name": "What is a family nurse practitioner?", "acceptedAnswer": { "@type": "Answer", "text": "A family nurse practitioner is an advanced practice registered nurse trained to diagnose and treat illness, order tests, and prescribe medication for patients of all ages." } }
+  ]
+}
+</script>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  document.querySelectorAll('.faq-item button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+  });
+
+  document.getElementById('apptForm').addEventListener('submit', e => {
+    e.preventDefault();
+    e.target.style.display = 'none';
+    document.getElementById('formDone').style.display = 'block';
+  });
+</script>
+</body>
+</html>
