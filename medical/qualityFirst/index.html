@@ -108,6 +108,10 @@
   .nav-links a:not(.btn):hover { color: var(--ink); }
   .nav-links .btn { padding: .6rem 1.2rem; font-size: .88rem; }
   .nav-call { display: none; font-size: .9rem; font-weight: 500; color: var(--teal); }
+  nav:not(.scrolled) .brand, nav:not(.scrolled) .nav-call { color: var(--white); }
+  nav:not(.scrolled) .nav-links { color: rgba(255,255,255,.82); }
+  nav:not(.scrolled) .nav-links a:not(.btn):hover { color: var(--white); }
+  nav:not(.scrolled) .nav-links .btn { background: var(--white); color: var(--teal-dark); }
 
   /* Hero */
   .hero {
@@ -115,24 +119,20 @@
     min-height: 100vh; min-height: 100dvh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     padding: 8rem 6vw 6rem; text-align: center;
-    background: var(--white);
+    background: var(--ink); color: var(--white);
   }
-  .hero-glow {
-    position: absolute; inset: 0; pointer-events: none;
-    background: radial-gradient(ellipse at 50% 58%, #DCEBE8 0%, transparent 60%);
-    animation: breathe 10s ease-in-out infinite;
-  }
-  @keyframes breathe {
-    0%, 100% { transform: scale(1); opacity: .7; }
-    50% { transform: scale(1.06); opacity: 1; }
-  }
-  .hero > *:not(.hero-glow) { position: relative; }
-  .hero h1 { font-size: 2.6rem; font-weight: 500; margin-bottom: 1.2rem; }
-  .hero .lede { font-size: 1.08rem; margin-bottom: 2.4rem; }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 30%; }
+  .hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,30,34,.55) 0%, rgba(14,30,34,.5) 60%, rgba(14,30,34,.62) 100%); }
+  .hero > *:not(.hero-img):not(.hero-shade) { position: relative; }
+  .hero h1 { font-size: 2.6rem; font-weight: 500; margin-bottom: 1.2rem; color: var(--white); }
+  .hero .lede { font-size: 1.08rem; margin-bottom: 2.4rem; color: rgba(255,255,255,.88); }
+  .hero .btn-ghost { color: var(--white); border-color: rgba(255,255,255,.55); }
+  .hero .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
   .hero-meta {
     margin-top: 2.6rem; display: flex; gap: 1.6rem; justify-content: center; flex-wrap: wrap;
-    font-size: .9rem; color: var(--muted);
+    font-size: .9rem; color: rgba(255,255,255,.82);
   }
+  .hero .stars { color: #E9BE5E; }
   .hero-meta span { display: inline-flex; align-items: center; gap: .5rem; }
   .stars { color: #C8962E; letter-spacing: .08em; }
   .fade { animation: fadeUp .9s ease-out both; }
@@ -153,10 +153,12 @@
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
   }
   .svc {
-    border: 1px solid var(--line); border-radius: 10px;
-    padding: 2.2rem 1.6rem; background: var(--white);
+    border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+    background: var(--white);
   }
-  .svc h3 { margin-bottom: 1.2rem; }
+  .svc img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .svc-body { padding: 1.8rem 1.6rem 2rem; }
+  .svc h3 { margin-bottom: 1rem; }
   .svc ul { list-style: none; }
   .svc li { padding: .55rem 0; font-size: .95rem; color: var(--muted); border-top: 1px solid var(--line); }
   .svc li:first-child { border-top: 0; }
@@ -277,6 +279,7 @@
     h2 { font-size: 1.5rem; }
     .hero { padding: 7rem 5vw 4.5rem; }
     .hero h1 { font-size: 1.95rem; }
+    .hero-img { object-position: 22% center; }
     .hero .lede { font-size: 1rem; }
     .nav-links { display: none; }
     .nav-call { display: inline; }
@@ -291,7 +294,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-glow, .fade { animation: none; }
+    .fade { animation: none; }
     html { scroll-behavior: auto; }
   }
 </style>
@@ -312,7 +315,8 @@
 
 <!-- Hero -->
 <header class="hero" id="top">
-  <div class="hero-glow" aria-hidden="true"></div>
+  <img class="hero-img" src="https://images.unsplash.com/photo-1576765974257-b414b9ea0051?auto=format&fit=crop&w=2000&q=80" alt="Smiling patient receiving a vaccine at a family health clinic" fetchpriority="high">
+  <div class="hero-shade" aria-hidden="true"></div>
   <h1 class="fade">Family Health Care in Humble, TX</h1>
   <p class="lede fade d1">Quality First Family Health is a family practice led by Ebony Washington, FNP-BC. Checkups, sick visits, chronic care, and wellness for children and adults, all under one roof.</p>
   <div class="btns fade d2">
@@ -351,6 +355,8 @@
 
   <div class="svc-grid">
     <div class="svc">
+      <img src="https://images.unsplash.com/photo-1536064479547-7ee40b74b807?auto=format&fit=crop&w=700&q=75" alt="Provider meeting with a young patient at a desk" loading="lazy">
+      <div class="svc-body">
       <h3>Primary Care</h3>
       <ul>
         <li><b>Physical Exams</b><small>Annual, school, and sports physicals</small></li>
@@ -358,8 +364,11 @@
         <li><b>Immunizations</b><small>Childhood and adult vaccines</small></li>
         <li><b>Screening Tests</b><small>Early detection and lab work</small></li>
       </ul>
+      </div>
     </div>
     <div class="svc">
+      <img src="https://images.unsplash.com/photo-1611764461465-09162da6465a?auto=format&fit=crop&w=700&q=75" alt="Stethoscope held to a child's teddy bear" loading="lazy">
+      <div class="svc-body">
       <h3>Sick Visits</h3>
       <ul>
         <li><b>Sore Throat</b><small>Diagnosis and treatment</small></li>
@@ -367,8 +376,11 @@
         <li><b>Digestive Health</b><small>Gastrointestinal conditions</small></li>
         <li><b>Mental Health</b><small>Anxiety, depression, and support</small></li>
       </ul>
+      </div>
     </div>
     <div class="svc">
+      <img src="https://images.unsplash.com/photo-1631815590058-860e4f83c1e8?auto=format&fit=crop&w=700&q=75" alt="Clinician checking a patient's blood pressure" loading="lazy">
+      <div class="svc-body">
       <h3>Ongoing Care</h3>
       <ul>
         <li><b>Diabetes Management</b><small>Monitoring, medication, and education</small></li>
@@ -376,8 +388,11 @@
         <li><b>BioTE Hormone Therapy</b><small>Hormone balance for women and men</small></li>
         <li><b>Clinical Research</b><small>Access to current studies</small></li>
       </ul>
+      </div>
     </div>
     <div class="svc">
+      <img src="https://images.unsplash.com/photo-1585960691786-a593e76d3847?auto=format&fit=crop&w=700&q=75" alt="IV drip bag for hydration therapy" loading="lazy">
+      <div class="svc-body">
       <h3>Wellness</h3>
       <ul>
         <li><b>IV Drip Therapy</b><small>Hydration and nutrient infusions</small></li>
@@ -385,6 +400,7 @@
         <li><b>Lipo Dissolve</b><small>Non-surgical fat reduction</small></li>
         <li><b>DOT Physicals</b><small>Commercial driver medical exams</small></li>
       </ul>
+      </div>
     </div>
   </div>
 </section>
