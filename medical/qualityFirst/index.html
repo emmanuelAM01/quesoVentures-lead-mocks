@@ -108,32 +108,39 @@
   .nav-links a:not(.btn):hover { color: var(--ink); }
   .nav-links .btn { padding: .6rem 1.2rem; font-size: .88rem; }
   .nav-call { display: none; font-size: .9rem; font-weight: 500; color: var(--teal); }
-  nav:not(.scrolled) .brand, nav:not(.scrolled) .nav-call { color: var(--white); }
-  nav:not(.scrolled) .nav-links { color: rgba(255,255,255,.82); }
-  nav:not(.scrolled) .nav-links a:not(.btn):hover { color: var(--white); }
-  nav:not(.scrolled) .nav-links .btn { background: var(--white); color: var(--teal-dark); }
 
   /* Hero */
   .hero {
     position: relative; overflow: hidden;
-    min-height: 100vh; min-height: 100dvh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 8rem 6vw 6rem; text-align: center;
-    background: var(--ink); color: var(--white);
+    padding: 9.5rem 6vw 5.5rem; text-align: center;
+    background: linear-gradient(180deg, #EDF4F2 0%, #F6F9F8 45%, var(--white) 100%);
+    border-bottom: 1px solid var(--line);
   }
-  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
-  .hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,30,34,.55) 0%, rgba(14,30,34,.5) 60%, rgba(14,30,34,.62) 100%); }
-  .hero > *:not(.hero-img):not(.hero-shade) { position: relative; }
-  .hero h1 { font-size: 2.6rem; font-weight: 500; margin-bottom: 1.2rem; color: var(--white); }
-  .hero .lede { font-size: 1.08rem; margin-bottom: 2.4rem; color: rgba(255,255,255,.88); }
-  .hero .btn-ghost { color: var(--white); border-color: rgba(255,255,255,.55); }
-  .hero .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+  .hero h1 { font-size: 2.6rem; font-weight: 500; letter-spacing: -.015em; margin-bottom: 1.1rem; }
+  .hero .lede { font-size: 1.08rem; margin-bottom: 2.2rem; }
   .hero-meta {
-    margin-top: 2.6rem; display: flex; gap: 1.6rem; justify-content: center; flex-wrap: wrap;
-    font-size: .9rem; color: rgba(255,255,255,.82);
+    margin-top: 1.8rem; display: flex; gap: 1.8rem; justify-content: center; flex-wrap: wrap;
+    font-size: .88rem; color: var(--muted);
   }
-  .hero .stars { color: #E9BE5E; }
   .hero-meta span { display: inline-flex; align-items: center; gap: .5rem; }
+  .hero-meta span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); opacity: .55; }
+  .hero-frame { position: relative; margin-top: 3.8rem; }
+  .hero-frame > img {
+    width: 100%; aspect-ratio: 21 / 8; object-fit: cover; object-position: 50% 18%;
+    border-radius: 18px; box-shadow: 0 30px 60px -30px rgba(23,35,42,.35);
+  }
+  .chip {
+    position: absolute; display: flex; align-items: center; gap: .8rem; text-align: left;
+    background: rgba(255,255,255,.94); backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.6); border-radius: 12px;
+    padding: .8rem 1.1rem; box-shadow: 0 12px 30px -12px rgba(23,35,42,.3);
+    font-size: .85rem; color: var(--muted); line-height: 1.35;
+  }
+  .chip b { display: block; color: var(--ink); font-weight: 600; font-size: .92rem; }
+  .chip-dot { width: 10px; height: 10px; border-radius: 50%; background: #2E9E7A; box-shadow: 0 0 0 4px rgba(46,158,122,.18); flex-shrink: 0; }
+  .chip-provider { left: 1.6rem; bottom: 1.6rem; }
+  .chip-rating { right: 1.6rem; bottom: 1.6rem; }
+  .chip-rating .score { font-family: var(--serif); font-size: 1.6rem; color: var(--ink); line-height: 1; }
   .stars { color: #C8962E; letter-spacing: .08em; }
   .fade { animation: fadeUp .9s ease-out both; }
   .fade.d1 { animation-delay: .15s; } .fade.d2 { animation-delay: .3s; } .fade.d3 { animation-delay: .45s; }
@@ -276,9 +283,12 @@
   @media (max-width: 768px) {
     section { padding: 5.5rem 5vw; }
     h2 { font-size: 1.5rem; }
-    .hero { padding: 7rem 5vw 4.5rem; }
+    .hero { padding: 7.5rem 5vw 4rem; }
     .hero h1 { font-size: 1.95rem; }
-    .hero-img { object-position: 55% center; }
+    .hero-frame { margin-top: 2.6rem; }
+    .hero-frame > img { aspect-ratio: 4 / 3; object-position: 30% 20%; border-radius: 14px; }
+    .chip { position: static; margin-top: .7rem; box-shadow: none; border-color: var(--line); }
+    .chip-rating { display: none; }
     .hero .lede { font-size: 1rem; }
     .nav-links { display: none; }
     .nav-call { display: inline; }
@@ -289,7 +299,7 @@
     form { grid-template-columns: 1fr; }
     .mission { font-size: 1.12rem; }
     .map { height: 300px; }
-    .hero-meta { gap: .7rem; flex-direction: column; align-items: center; }
+    .hero-meta { gap: .5rem 1.2rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -314,18 +324,27 @@
 
 <!-- Hero -->
 <header class="hero" id="top">
-  <img class="hero-img" src="heroBG.jpg" alt="Family relaxing together at home in Humble, TX" fetchpriority="high">
-  <div class="hero-shade" aria-hidden="true"></div>
   <h1 class="fade">Family Health Care in Humble, TX</h1>
   <p class="lede fade d1">Quality First Family Health is a family practice led by Ebony Washington, FNP-BC. Checkups, sick visits, chronic care, and wellness for children and adults, all under one roof.</p>
   <div class="btns fade d2">
     <a href="#book" class="btn btn-primary">Book an Appointment</a>
     <a href="tel:+12818354449" class="btn btn-ghost">Call 281-835-4449</a>
   </div>
-  <div class="hero-meta fade d3">
-    <span><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.8 from 30 patient reviews</span>
+  <div class="hero-meta fade d2">
+    <span>New patients welcome</span>
     <span>Open Monday to Saturday</span>
     <span>Cigna accepted</span>
+  </div>
+  <div class="hero-frame fade d3">
+    <img src="https://images.unsplash.com/photo-1758691463080-30a990ef61bb?auto=format&fit=crop&w=2000&q=80" alt="Family nurse practitioner listening to a patient's heart with a stethoscope" fetchpriority="high">
+    <div class="chip chip-provider">
+      <span class="chip-dot" aria-hidden="true"></span>
+      <div><b>Open Saturday mornings</b>9:00 to 11:30 am, plus weekdays 8 to 5</div>
+    </div>
+    <div class="chip chip-rating">
+      <span class="score">4.8</span>
+      <div><b><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></b>30 patient reviews</div>
+    </div>
   </div>
 </header>
 
