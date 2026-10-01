@@ -121,7 +121,7 @@
     padding: 8rem 6vw 6rem; text-align: center;
     background: var(--ink); color: var(--white);
   }
-  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 30%; }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
   .hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,30,34,.55) 0%, rgba(14,30,34,.5) 60%, rgba(14,30,34,.62) 100%); }
   .hero > *:not(.hero-img):not(.hero-shade) { position: relative; }
   .hero h1 { font-size: 2.6rem; font-weight: 500; margin-bottom: 1.2rem; color: var(--white); }
@@ -179,9 +179,8 @@
   .provider { background: var(--white); }
   .portrait {
     width: 220px; height: 260px; margin: 0 auto 2.4rem; border-radius: 10px;
-    background: var(--tint); border: 1px solid var(--line);
-    display: flex; align-items: center; justify-content: center;
-    color: #8AA3A0; font-size: .85rem; padding: 1rem;
+    object-fit: cover; object-position: 64% 20%;
+    border: 1px solid var(--line);
   }
   .provider .creds { color: var(--teal); font-weight: 500; font-size: .95rem; margin-bottom: 1.6rem; }
   .provider .lede + .lede { margin-top: 1rem; }
@@ -279,7 +278,7 @@
     h2 { font-size: 1.5rem; }
     .hero { padding: 7rem 5vw 4.5rem; }
     .hero h1 { font-size: 1.95rem; }
-    .hero-img { object-position: 22% center; }
+    .hero-img { object-position: 55% center; }
     .hero .lede { font-size: 1rem; }
     .nav-links { display: none; }
     .nav-call { display: inline; }
@@ -315,7 +314,7 @@
 
 <!-- Hero -->
 <header class="hero" id="top">
-  <img class="hero-img" src="https://images.unsplash.com/photo-1576765974257-b414b9ea0051?auto=format&fit=crop&w=2000&q=80" alt="Smiling patient receiving a vaccine at a family health clinic" fetchpriority="high">
+  <img class="hero-img" src="heroBG.jpg" alt="Family relaxing together at home in Humble, TX" fetchpriority="high">
   <div class="hero-shade" aria-hidden="true"></div>
   <h1 class="fade">Family Health Care in Humble, TX</h1>
   <p class="lede fade d1">Quality First Family Health is a family practice led by Ebony Washington, FNP-BC. Checkups, sick visits, chronic care, and wellness for children and adults, all under one roof.</p>
@@ -421,7 +420,7 @@
 
 <!-- Provider -->
 <section class="provider" id="about">
-  <div class="portrait">Photo of Ebony Washington</div>
+  <img class="portrait" src="ebony.jpg" alt="Ebony Washington, FNP-BC, family nurse practitioner in Humble, TX" loading="lazy">
   <h2>Ebony Washington, FNP-BC</h2>
   <p class="creds">Founder and Family Nurse Practitioner</p>
   <p class="lede">Ebony Washington founded Quality First Family Health to give families in Humble and north Houston a practice where they are known by name. She has more than 10 years of experience in health care and is board certified as a family nurse practitioner.</p>
